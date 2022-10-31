@@ -23,37 +23,46 @@ body {
 }
 
 #search{
+    background-color: rgb(250, 249, 248);
     text-align: center;
     margin-top: 5%;
     width: 80%;
     height: 100px;
+    padding: 5px;
+    /*
     border: 5px;
     border-style: solid;
-    border-color: black;
+    border-color: black;*/
 }
 
 #filters{
+    background-color: rgb(230, 230, 230);
     float: right;
     margin-top: 5%;
     text-align: center;
     width: 19%;
     height: 810px;
+    padding: 5px;
+    /*
     border: 5px;
     border-style: solid;
-    border-color: black;
+    border-color: black;*/
 }
 
 #jobs{
+    background-color: rgb(250, 249, 248);
     text-align: center;
     width: 80%;
     height: 700px;
-    border: 5px;
+
+    padding: 5px;
+    /*border: 5px;
     border-style: solid;
-    border-color: black;
+    border-color: black;*/
 }
 
 #job{
-    background-color: rgb(242, 241, 241);
+    background-color: white;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
