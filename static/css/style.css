@@ -92,3 +92,13 @@ body {
     font-size: 16px;
     border-radius: 5px;
 }
+
+#filterHourB button:hover{
+    cursor: pointer;
+    background-color: rgba(198, 16, 16, 0.7);
+    border: 2px solid;
+    border-color: white;
+    padding: 3px;
+    color: white;
+    border-radius: 5px;
+}
