@@ -4,3 +4,4 @@ function change() // no ';' here
     if (elem.value=="Close Curtain") elem.value = "Open Curtain";
     else elem.value = "Close Curtain";
 }
+

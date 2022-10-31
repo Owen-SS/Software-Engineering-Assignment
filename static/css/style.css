@@ -94,7 +94,7 @@ body {
     font-size: 17px;
 }
 
-#filterHourB button{
+#filterHourB input{
     background-color: rgba(142, 2, 2, 0.7);
     border: none;
     color: white;
@@ -105,7 +105,7 @@ body {
     border-radius: 5px;
 }
 
-#filterHourB button:hover{
+#filterHourB input:hover{
     cursor: pointer;
     background-color: rgba(198, 16, 16, 0.7);
     border: 2px solid;
@@ -113,4 +113,28 @@ body {
     padding: 3px;
     color: white;
     border-radius: 5px;
+}
+
+input[type='radio'][name='jobType'] { display:none; }
+label {
+  display:inline-block;
+  padding:3px;
+  border:1px solid #e0e0e0;
+  border-radius:3px;
+  background-color:#F0F0F0;
+  width:10em;
+  text-align:center;
+}
+
+/* Clicking a label will select its corresponding hidden radio button
+   We can select that radio buttons sibling label and style it. */
+input[type='radio'][name='buttonGroup']:checked + label { background-color:#a0a0a0; }
+
+
+#filter p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
