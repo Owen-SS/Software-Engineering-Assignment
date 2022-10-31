@@ -52,6 +52,17 @@ body {
     border-color: black;
 }
 
+#job{
+    background-color: rgb(242, 241, 241);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 150px;
+    border-radius: 5px;
+    
+}
+
 #search input[type=text] {
     margin-right: auto;
     margin-left: auto;
