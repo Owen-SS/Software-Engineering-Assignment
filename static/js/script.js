@@ -1,0 +1,1 @@
+document.getElementById("Hello").addEventListener("click").document("wow your cool")
