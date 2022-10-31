@@ -3,9 +3,15 @@ body {
 }
 
 #top{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(142, 2, 2, 0.7);
+    margin-left: 80%;
+    width: 20%;
     padding: 10px;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 0px 10px;
+}
+
+#user{
+    float: left;
 }
 
 #title{
@@ -45,3 +51,14 @@ body {
     border-style: solid;
     border-color: black;
 }
+
+#search input[type=text] {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 6px;
+    width: 50%;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 17px;
+  }
