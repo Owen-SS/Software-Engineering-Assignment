@@ -94,15 +94,49 @@ body {
     font-size: 17px;
 }
 
-#filterHourB input{
+.container {
+    width: 80px;
     background-color: rgba(142, 2, 2, 0.7);
-    border: none;
-    color: white;
-    padding: 5px;
-    text-align: center;
     display: inline-block;
-    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    text-align: autos;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 80px;
+    background-color: #eee;
     border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
 }
 
 #filterHourB input:hover{
@@ -114,21 +148,6 @@ body {
     color: white;
     border-radius: 5px;
 }
-
-input[type='radio'][name='jobType'] { display:none; }
-label {
-  display:inline-block;
-  padding:3px;
-  border:1px solid #e0e0e0;
-  border-radius:3px;
-  background-color:#F0F0F0;
-  width:10em;
-  text-align:center;
-}
-
-/* Clicking a label will select its corresponding hidden radio button
-   We can select that radio buttons sibling label and style it. */
-input[type='radio'][name='buttonGroup']:checked + label { background-color:#a0a0a0; }
 
 
 #filter p {

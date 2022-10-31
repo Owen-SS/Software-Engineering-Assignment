@@ -20,17 +20,33 @@
         <p class="title"> Filters </p>
         <p>Job type</p>
         <div id="filterHourB">
-            <input type="radio" name="jobType">Full-time</input>
-            <input type="radio" name="jobType">Part-time</input>
-            <input type="radio" name="jobType">Volenteering</input>
-            <input type="radio" name="jobType">All</input>
+             
+            <label class="container">
+                <input type="radio" checked="checked" name="jobType">
+                <span class="checkmark">Full-time</span>
+            </label>
+
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">Part-time</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">Volenteering</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">All</span>
+            </label>
+
         </div>
+        <br>
         <p>Distance</p>
         <div id="filterHourB">
-            <button type="button">5 miles</button>
-            <button type="button">10 miles</button>
-            <button type="button">20 miles</button>
-            <button type="button">Further!</button>
+            <input type="radio" name="jobDistance">5 miles</input>
+            <input type="radio" name="jobDistance">10 miles</input>
+            <input type="radio" name="jobDistance">20 miles</input>
+            <input type="radio" name="jobDistance">Further!</input>
         </div>
 
     </div>
