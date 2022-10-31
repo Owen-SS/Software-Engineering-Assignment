@@ -4,7 +4,7 @@ body {
 
 #top{
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
+    padding: 10px;
     border-radius: 0px 0px 10px 10px;
 }
 
@@ -16,10 +16,31 @@ body {
     align-content: center;
 }
 
+#search{
+    text-align: center;
+    margin-top: 5%;
+    width: 80%;
+    height: 100px;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+#filters{
+    float: right;
+    margin-top: 5%;
+    text-align: center;
+    width: 19%;
+    height: 810px;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
 #jobs{
     text-align: center;
-    width: 60%;
-    height: 400px;
+    width: 80%;
+    height: 700px;
     border: 5px;
     border-style: solid;
     border-color: black;
