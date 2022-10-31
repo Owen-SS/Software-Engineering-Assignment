@@ -3,15 +3,22 @@ body {
 }
 
 #top{
-    background-color: rgba(142, 2, 2, 0.7);
     margin-left: 80%;
+    background-color: rgba(142, 2, 2, 0.7);
     width: 20%;
     padding: 10px;
     border-radius: 0px 0px 0px 10px;
 }
 
 #user{
-    float: left;
+    margin-top: 0;
+    text-align: center;
+    border-radius: 0px 5px 5px 0px;
+    border: 5px;
+    height: 50px;
+    width: 30%;
+    border-style: solid;
+    border-color: black;
 }
 
 #title{
@@ -23,6 +30,7 @@ body {
 }
 
 #search{
+    float: left;
     background-color: rgb(250, 249, 248);
     text-align: center;
     margin-top: 5%;
@@ -52,9 +60,9 @@ body {
 #jobs{
     background-color: rgb(250, 249, 248);
     text-align: center;
+    margin-top: 5%;
     width: 80%;
     height: 700px;
-
     padding: 5px;
     /*border: 5px;
     border-style: solid;
