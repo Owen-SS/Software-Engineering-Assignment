@@ -11,14 +11,19 @@ body {
 }
 
 #user{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgba(142, 2, 2, 0.7);
     margin-top: 0;
     text-align: center;
     border-radius: 0px 5px 5px 0px;
-    border: 5px;
-    height: 50px;
+    height: 80px;
     width: 30%;
+    padding: 5px;
+    /*
+    border: 5px;
     border-style: solid;
-    border-color: black;
+    border-color: black;*/
 }
 
 #title{
@@ -30,7 +35,7 @@ body {
 }
 
 #search{
-    float: left;
+    
     background-color: rgb(250, 249, 248);
     text-align: center;
     margin-top: 5%;
@@ -60,7 +65,6 @@ body {
 #jobs{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    margin-top: 5%;
     width: 80%;
     height: 700px;
     padding: 5px;
