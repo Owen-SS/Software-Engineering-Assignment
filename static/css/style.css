@@ -27,6 +27,7 @@ body {
     background-color: rgba(142, 2, 2, 0.7);
     height: 100px;
     width: 30%;
+    max-width: 300px;
     border-radius: 0px 5px 5px 0px;
     
     /*
@@ -114,6 +115,13 @@ body {
     width: 80%;
     height: 150px;
     border-radius: 5px;
+}
+
+#job:hover{
+    transition: 0.3s;
+    background-color: #ccc;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 #search input[type=text] {
