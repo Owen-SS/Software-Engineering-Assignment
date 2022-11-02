@@ -102,9 +102,21 @@ body {
 #searchBox .where input[type=text] {
     margin-right: auto;
     margin-left: auto;
+    margin-top:2%;
     padding: 6px;
     width: 50%;
-    border: solid;
+    border: 2px solid;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#searchBox .search input[type=text] {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:2%;
+    padding: 6px;
+    width: 50%;
+    border: 2px solid;
     border-color: black;
     border-radius: 5px;
     font-size: 17px;
