@@ -13,17 +13,48 @@
         <p id="title"> Welcome to Jobs"R"us </p> 
     </div>
     <div id="user">
-        <p>Good evening [User] </p>
+        <p>Good evening [User]</p>
+        <p id="location"><img src="../static/icons/location-icon.png" onclick="getLocation()">Allow location</p>
     </div>
 
     <div id="filters">
-        <p>This could be for filtering searches?</p>
-        job type
+        <p class="title"> Filters </p>
+        <p>Job type</p>
         <div id="filterHourB">
-            <button type="button">Full-time</button>
-            <button type="button">Part-time</button>
-            <button type="button">Volenteering</button>
-            <button type="button">All</button>
+             
+            <label class="container">
+                <input type="radio" checked="checked" name="jobType">
+                <span class="checkmark">Full-time</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">Part-time</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">Both</span>
+            </label>
+
+        </div>
+        <p>Distance</p>
+        <div id="filterHourB">
+
+            <label class="container">
+                <input type="radio" checked="checked" name="jobDistance">
+                <span class="checkmark">5 miles</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobDistance">
+                <span class="checkmark">10 miles</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobDistance">
+                <span class="checkmark">20 miles</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobDistance">
+                <span class="checkmark">Further!</span>
+            </label>
         </div>
 
     </div>
