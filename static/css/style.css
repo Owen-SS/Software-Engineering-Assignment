@@ -150,26 +150,34 @@ SearchWhereBoxes{
 }
 
 #job img{
-    width: 2%;
+    float: left;
+    padding: 1%;
+    width: 15%;
 }
 
-#compant-info {
-    width: 5%;
+#job .compant-info {
+    float: left;
+    padding: 1%;
+    width: 20%;
     border: 5px;
     border-style: solid;
     border-color: black;
 }
 
-#info {
-    width: 80%;
+#job .info {
+    float: left;
+    padding: 1%;
+    width: 25%;
     border: 5px;
     border-style: solid;
     border-color: red;
 
 }
 
-#options {
-    width: 5%;
+#job .options {
+    float: left;
+    padding: 1%;
+    width: 10%;
     border: 5px;
     border-style: solid;
     border-color: blue;
