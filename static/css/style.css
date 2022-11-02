@@ -68,7 +68,8 @@ body {
 }
 
 #searchBox{
-    width: 80%;
+    margin-top: 5%;
+    width: 75%;
     height: 100px;
     background-color: rgb(250, 249, 248);
     text-align: center;
@@ -106,9 +107,6 @@ body {
     border-radius: 5px;
     font-size: 17px;
 }
-#SearchWhereBoxes{
-    color: black;
-}
 
 #filters{
     background-color: rgb(230, 230, 230);
@@ -127,7 +125,7 @@ body {
 #job-list{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    width: 80%;
+    width: 75%;
     height: 700px;
     padding: 5px;
     /*border: 5px;
