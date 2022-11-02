@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
     margin: 0;
 }
@@ -11,19 +15,32 @@ body {
 }
 
 #user{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     background-color: rgba(142, 2, 2, 0.7);
-    margin-top: 0;
-    text-align: center;
-    border-radius: 0px 5px 5px 0px;
     height: 100px;
     width: 30%;
-    padding: 5px;
+    border-radius: 80px;
+    
     /*
     border: 5px;
     border-style: solid;
-    border-color: black;*/
+    border-color: black;
+    */
+
+    /* Owen: Code i have taken out or changed
+    padding: 5px;
+    border-radius: 0px 5px 5px 0px;
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    */
+
+}
+#TextUser{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    position: relative;
+    top:25px; 
 }
 
 #user img{
@@ -145,7 +162,9 @@ body {
 
 #filterHourB{
     background-color: rgba(198, 16, 16, 0.7);
-    height: 50px;
+    position: relative;
+    height:10%;
+    border-radius: 40px;
     /*
     border: 2px solid;
     border-color: white;
