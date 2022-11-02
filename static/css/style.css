@@ -130,6 +130,29 @@ body {
     width: 2%;
 }
 
+#compant-info {
+    width: 5%;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+#info {
+    width: 80%;
+    border: 5px;
+    border-style: solid;
+    border-color: red;
+
+}
+
+#options {
+    width: 5%;
+    border: 5px;
+    border-style: solid;
+    border-color: blue;
+
+}
+
 #search input[type=text] {
     margin-right: auto;
     margin-left: auto;
