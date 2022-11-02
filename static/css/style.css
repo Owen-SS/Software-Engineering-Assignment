@@ -130,14 +130,14 @@ body {
     width: 2%;
 }
 
-#compant-info {
+#job .compant-info {
     width: 5%;
     border: 5px;
     border-style: solid;
     border-color: black;
 }
 
-#info {
+#job .info {
     width: 80%;
     border: 5px;
     border-style: solid;
@@ -145,7 +145,7 @@ body {
 
 }
 
-#options {
+#job .options {
     width: 5%;
     border: 5px;
     border-style: solid;
