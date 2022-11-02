@@ -146,7 +146,7 @@ body {
 
 /* Hide the browser's default radio button */
 .container input {
-    position: absolute;
+    float:left;
     opacity: 0;
     cursor: pointer;
 }
@@ -181,14 +181,16 @@ body {
     display: none;
 }
 
-#filterHourB{
-    background-color: rgba(198, 16, 16, 0.7);
+#filterOption{
+    width: 100%;
+    background-color: white;
     position: relative;
-    height:10%;
-    border-radius: 40px ;
-    border: 1px solid;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 5px ;
     
     /*
+    border: 1px solid;
     border: 2px solid;
     border-color: white;
     color: white;
