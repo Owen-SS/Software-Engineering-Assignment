@@ -12,6 +12,8 @@ body {
     width: 20%;
     padding: 10px;
     border-radius: 0px 0px 0px 10px;
+    height:40px;
+    margin-top: 5px;
 }
 
 #user{
@@ -45,6 +47,9 @@ body {
 
 #user img{
     width: 5%;
+    position: relative;
+    right:3%;
+    
 }
 
 #title{
@@ -74,7 +79,7 @@ body {
     float: right;
     margin-top: 5%;
     text-align: center;
-    width: 19%;
+    width: 25%;
     height: 810px;
     padding: 5px;
     /*
@@ -95,6 +100,7 @@ body {
 }
 
 #job{
+    margin-top: 10px;
     background-color: white;
     text-align: center;
     margin-left: auto;
@@ -116,11 +122,12 @@ body {
 }
 
 .container {
-    width: 80px;
+    width: 25%;
     height: auto;
     display: inline-block;
     position: relative;
     cursor: pointer;
+    object-fit: contain;
 }
 
 /* Hide the browser's default radio button */
@@ -164,7 +171,9 @@ body {
     background-color: rgba(198, 16, 16, 0.7);
     position: relative;
     height:10%;
-    border-radius: 40px;
+    border-radius: 40px ;
+    border: 1px solid;
+    
     /*
     border: 2px solid;
     border-color: white;
