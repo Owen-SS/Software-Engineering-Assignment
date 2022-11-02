@@ -95,7 +95,7 @@ body {
     border-color: black;*/
 }
 
-#jobs{
+#job-list{
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 80%;
@@ -119,10 +119,15 @@ body {
 }
 
 #job:hover{
+    cursor: pointer;
     transition: 0.3s;
     background-color: rgb(230, 230, 230);
     padding-right: 10px;
     padding-left: 10px;
+}
+
+#job img{
+    width: 2%;
 }
 
 #search input[type=text] {
