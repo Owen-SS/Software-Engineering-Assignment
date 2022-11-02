@@ -71,14 +71,37 @@ body {
     
     background-color: rgb(250, 249, 248);
     text-align: center;
-    margin-top: 5%;
-    width: 80%;
+    width: 30%;
     height: 100px;
     padding: 5px;
+    position:relative;
+    float:left;
     /*
     border: 5px;
     border-style: solid;
     border-color: black;*/
+}
+#Where{
+    background-color: rgb(250, 249, 248);
+    text-align: center;
+    width: 30%;
+    height: 100px;
+    padding: 5px;
+    position:relative;
+    float:right;
+}
+#Where input[type=text] {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 6px;
+    width: 50%;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 17px;
+}
+SearchWhereBoxes{
+    color: black;
 }
 
 #filters{
