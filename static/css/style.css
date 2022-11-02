@@ -9,13 +9,14 @@ body {
 #top{
     float: right;
     background-color: rgba(142, 2, 2, 0.7);
-    width: 20%;
-    padding: 10px;
+    width: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 0px 0px 0px 10px;
     height:40px;
-    margin-top: 5px;
 
     /*
+    padding: 10px;
     position: absolute;
     margin-left: 80%;
     */
