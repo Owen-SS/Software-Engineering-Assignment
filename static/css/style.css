@@ -81,21 +81,26 @@ body {
 #searchBox .where{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    width: 30%;
+    width: 45%;
     height: 100px;
     padding: 5px;
     position:relative;
     float:right;
 }
+.where{
+    border-radius: 40%;
+    background-color:orange;
+}
 
 #searchBox .search{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    width: 30%;
+    width: 45%;
     height: 100px;
     padding: 5px;
     position:relative;
-    float:right;
+    float:left;
+    
 }
 #Where input[type=text] {
     margin-right: auto;
