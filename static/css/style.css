@@ -6,6 +6,15 @@ body {
     margin: 0;
 }
 
+#all-wrapper{
+    display: grid;
+    gap: 1rem;
+    grid-template-areas: 
+    "⬆️ ⬆️"
+    "🔎 ⚙️"
+    "🫧 ⚙️";
+}
+
 #top{
     margin-left: 80%;
     background-color: rgba(142, 2, 2, 0.7);
