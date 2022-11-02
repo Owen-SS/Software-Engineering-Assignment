@@ -8,7 +8,7 @@ body {
 
 #top{
     float: right;
-    background-color: rgba(142, 2, 2, 0.7);
+    background-color: #2196F3;
     width: 25%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -24,7 +24,7 @@ body {
 
 #user{
     color: white;
-    background-color: rgba(142, 2, 2, 0.7);
+    background-color: #2196F3;
     height: 100px;
     width: 30%;
     max-width: 300px;
@@ -120,7 +120,7 @@ body {
 
 #job:hover{
     transition: 0.3s;
-    background-color: #ccc;
+    background-color: rgb(230, 230, 230);
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -168,12 +168,13 @@ body {
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
     transition: 0.2s;
-    background-color: #ccc;
+    background-color: rgb(219, 216, 216);
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
     transition: 0.2s;
+    color: white;
     background-color: #2196F3;
 }
 
