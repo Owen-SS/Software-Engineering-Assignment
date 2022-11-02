@@ -67,21 +67,25 @@ body {
     align-content: center;
 }
 
-#search{
-    
+#searchBox{
+    background-color: rgb(250, 249, 248);
+    text-align: center;
+    /*
+    border: 5px;
+    border-style: solid;
+    border-color: black;*/
+}
+#searchBox .where{
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 30%;
     height: 100px;
     padding: 5px;
     position:relative;
-    float:left;
-    /*
-    border: 5px;
-    border-style: solid;
-    border-color: black;*/
+    float:right;
 }
-#Where{
+
+#searchBox .search{
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 30%;
@@ -100,7 +104,7 @@ body {
     border-radius: 5px;
     font-size: 17px;
 }
-SearchWhereBoxes{
+#SearchWhereBoxes{
     color: black;
 }
 
@@ -155,7 +159,7 @@ SearchWhereBoxes{
     width: 15%;
 }
 
-#job .compant-info {
+#job .company-info {
     float: left;
     padding: 1%;
     width: 20%;
