@@ -107,6 +107,7 @@ body {
 }
 
 #job{
+    transition: 0.3s;
     margin-top: 10px;
     background-color: white;
     text-align: center;
@@ -152,6 +153,7 @@ body {
 
 /* Create a custom radio button */
 .checkmark {
+    transition: 0.2s;
     font-size: small;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
@@ -165,11 +167,13 @@ body {
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
+    transition: 0.2s;
     background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
+    transition: 0.2s;
     background-color: #2196F3;
 }
 
