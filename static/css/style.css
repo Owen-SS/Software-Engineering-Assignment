@@ -127,18 +127,24 @@ body {
 }
 
 #job img{
-    width: 2%;
+    float: left;
+    padding: 1%;
+    width: 15%;
 }
 
 #job .compant-info {
-    width: 5%;
+    float: left;
+    padding: 1%;
+    width: 20%;
     border: 5px;
     border-style: solid;
     border-color: black;
 }
 
 #job .info {
-    width: 80%;
+    float: left;
+    padding: 1%;
+    width: 25%;
     border: 5px;
     border-style: solid;
     border-color: red;
@@ -146,7 +152,9 @@ body {
 }
 
 #job .options {
-    width: 5%;
+    float: left;
+    padding: 1%;
+    width: 10%;
     border: 5px;
     border-style: solid;
     border-color: blue;
