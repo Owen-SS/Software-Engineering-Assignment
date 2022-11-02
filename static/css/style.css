@@ -79,6 +79,7 @@ body {
     border-color: black;*/
 }
 #searchBox .where{
+    
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 45%;
@@ -86,10 +87,6 @@ body {
     padding: 5px;
     position:relative;
     float:right;
-}
-.where{
-    border-radius: 40%;
-    background-color:orange;
 }
 
 #searchBox .search{
@@ -102,7 +99,7 @@ body {
     float:left;
     
 }
-#Where input[type=text] {
+#searchBox .where input[type=text] {
     margin-right: auto;
     margin-left: auto;
     padding: 6px;
