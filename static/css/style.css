@@ -68,6 +68,8 @@ body {
 }
 
 #searchBox{
+    width: 80%;
+    height: 100px;
     background-color: rgb(250, 249, 248);
     text-align: center;
     /*
