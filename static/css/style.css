@@ -137,7 +137,6 @@ body {
 
 .container {
     width: 25%;
-    height: auto;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -156,10 +155,10 @@ body {
     font-size: small;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    position: absolute;
+    float: left;
     left: 0;
-    padding: 4px;
-    width: 85px;
+    padding: 10px;
+    width: 100%;
     background-color: #eee;
     border-radius: 5px;
 }
@@ -182,6 +181,7 @@ body {
 }
 
 #filterOption{
+    margin-top: 5%;
     width: 100%;
     background-color: white;
     position: relative;
