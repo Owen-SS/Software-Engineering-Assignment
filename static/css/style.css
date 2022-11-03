@@ -215,8 +215,8 @@ body {
 }
 
 .container {
-    width: 25%;
-    padding-right: 2%;
+    width: 31.5%;
+    padding-right: 1.1%;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -266,7 +266,6 @@ body {
 
 #filterOption{
     margin-top: 5%;
-   
     background-color: #eee;
     position: relative;
     border-radius: 5px ;
