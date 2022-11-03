@@ -8,7 +8,10 @@ body {
 
 #top{
     float: right;
-    background-color: #2196F3;
+    position: fixed;
+    margin-left: 80%;
+    z-index: 1;
+    background-color: #2195f3;
     width: 25%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -68,9 +71,12 @@ body {
 }
 
 #searchBox{
-    margin-top: 5%;
-    width: 75%;
+    position: sticky;
+    top: 0px;
     height: 100px;
+    margin-top: 5%;
+    width: 74.41%;
+    height: 70px;
     background-color: rgb(250, 249, 248);
     text-align: center;
     /*
@@ -82,8 +88,7 @@ body {
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 45%;
-    height: 100px;
-    padding: 5px;
+    height: 70px;
     position:relative;
     float:right;
 }
@@ -96,8 +101,7 @@ body {
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 50%;
-    height: 100px;
-    padding: 5px;
+    height: 70px;
     position:relative;
     float:left;  
 }
@@ -169,7 +173,7 @@ body {
 #job-list{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    width: 75%;
+    width: 73.67%;
     height: 700px;
     padding: 5px;
     /*border: 5px;
@@ -208,7 +212,7 @@ body {
     float: left;
     padding: 1%;
     width: 20%;
-    margin-top: 5%;
+    justify-content: center;
     border: 5px;
     border-style: solid;
     border-color: black;
@@ -235,17 +239,14 @@ body {
 
 .container {
     width: 30%;
-    padding-right: 1.1%;
     display: inline-block;
-    position: relative;
     cursor: pointer;
-    object-fit: contain;
 }
 
 /* Hide the browser's default radio button */
 .container input {
     float:left;
-    opacity: 0;
+    display: none;
     cursor: pointer;
 }
 
@@ -283,7 +284,6 @@ body {
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
-    
     position: absolute;
     display: none;
 }
@@ -292,3 +292,4 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
 }
+
