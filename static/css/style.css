@@ -79,7 +79,6 @@ body {
     border-color: black;*/
 }
 #searchBox .where{
-    
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 45%;
@@ -89,37 +88,44 @@ body {
     float:right;
 }
 
+#searchBox .where img{
+    width: 5%;
+}
+
 #searchBox .search{
     background-color: rgb(250, 249, 248);
     text-align: center;
-    width: 45%;
+    width: 50%;
     height: 100px;
     padding: 5px;
     position:relative;
-    float:left;
-    
+    float:left;  
 }
+
 #searchBox .where input[type=text] {
     margin-right: auto;
     margin-left: auto;
     margin-top:2%;
     padding: 6px;
-    width: 50%;
-    border: 2px solid;
-    border-color: black;
+    width: 75%;
+    border: 5px solid;
+    border-color: rgb(219, 216, 216);
     border-radius: 5px;
     font-size: 17px;
+    float: left;
 }
+
 #searchBox .search input[type=text] {
     margin-right: auto;
     margin-left: auto;
     margin-top:2%;
     padding: 6px;
-    width: 50%;
-    border: 2px solid;
-    border-color: black;
+    width: 75%;
+    border: 5px solid;
+    border-color: rgb(219, 216, 216);
     border-radius: 5px;
     font-size: 17px;
+    float: right;
 }
 
 #filters{
@@ -134,6 +140,10 @@ body {
     border: 5px;
     border-style: solid;
     border-color: black;*/
+}
+
+#filters input[type='radio'] {
+    display: none;
 }
 
 #job-list{
@@ -157,6 +167,7 @@ body {
     width: 80%;
     height: 22%;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 #job:hover{
@@ -203,19 +214,9 @@ body {
 
 }
 
-#search input[type=text] {
-    margin-right: auto;
-    margin-left: auto;
-    padding: 6px;
-    width: 50%;
-    border: solid;
-    border-color: black;
-    border-radius: 5px;
-    font-size: 17px;
-}
-
 .container {
     width: 25%;
+    padding: 5px;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -238,7 +239,7 @@ body {
     float: left;
     left: 0;
     padding: 10px;
-    width: 100%;
+    width: 90%;
     background-color: #eee;
     border-radius: 5px;
 }
@@ -266,7 +267,7 @@ body {
 #filterOption{
     margin-top: 5%;
     width: 100%;
-    background-color: white;
+    background-color: #eee;
     position: relative;
     padding-bottom: 2%;
     border-radius: 5px ;
@@ -278,7 +279,6 @@ body {
     color: white;
     */
 }
-
 
 #filter p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
