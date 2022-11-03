@@ -14,4 +14,8 @@ def render_employer():
 def render_student():
   return render_template('student.html')
 
+@app.route('/loginpage')
+def render_loginpage():
+  return render_template('loginpage.html')
+
 app.run(host='0.0.0.0', port=8080)
