@@ -147,6 +147,24 @@ body {
     display: none;
 }
 
+#filterOption{
+    margin-top: 5%;
+    background-color: #eee;
+    position: relative;
+    border-radius: 5px ;
+    
+    /*
+    border: 1px solid;
+    border: 2px solid;
+    border-color: white;
+    color: white;
+    */
+}
+
+#filter p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #job-list{
     background-color: rgb(250, 249, 248);
     text-align: center;
@@ -263,24 +281,6 @@ body {
     
     position: absolute;
     display: none;
-}
-
-#filterOption{
-    margin-top: 5%;
-    background-color: #eee;
-    position: relative;
-    border-radius: 5px ;
-    
-    /*
-    border: 1px solid;
-    border: 2px solid;
-    border-color: white;
-    color: white;
-    */
-}
-
-#filter p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .title {
