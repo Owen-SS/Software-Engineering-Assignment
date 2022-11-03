@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/employer.css">
     <script src="../static/js/script.js"></script>
     <title>Jobs"R"us</title>
 </head>
@@ -12,13 +13,44 @@
     <div id="top">
         <p id="title"> Welcome to Jobs"R"us </p> 
     </div>
+
     <div id="user">
         <div id = "TextUser">
         <p>Good evening [User]</p>
         <p class="location"><img src="../static/icons/location-icon.png" onclick="getLocation()"></p>
-    </div>
+        </div>
     </div>
 
     
+    <div id="job">
+
+        <img src="../static/icons/epic.jpg">
+
+        <div class="company-name">Company Name:
+            <p>Autofill company name</p>
+        </div>
+
+        <div class="job-title">Job Title:
+            <input type="text" placeholder="Job title">
+        </div>
+
+        <div class="job-description">Job Description:
+            <input type="text" placeholder="Job description">
+        </div>
+
+        <div class="wage">Wage:
+            <input type="text" placeholder="Wage">
+        </div>
+
+        <div class="hours-per-week">Hours Per Week:
+            <input type="text" placeholder="Hours per week">
+        </div>
+    </div>
+
+    <label class="container">
+        <button type="button">Publish</button>
+    </label>
+    
+
 </body>
 </html>

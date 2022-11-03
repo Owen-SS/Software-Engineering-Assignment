@@ -1,0 +1,42 @@
+#job{
+    transition: 0.3s;
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 22%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#job:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgb(230, 230, 230);
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#job img{
+    float: left;
+    padding: 1%;
+    margin-top: 5%;
+    width: 20%;
+    height: 80%;
+}
+
+#job .company-name, .job-title, .job-description, .wage, .hours-per-week{
+    float: left;
+    padding: 1%;
+    margin-top: 5%; 
+    border: 2px;
+    border-style: solid;
+    width: 20%; 
+}
+
+#job .company-name{
+    width: 20%; 
+    border-color: black;
+}

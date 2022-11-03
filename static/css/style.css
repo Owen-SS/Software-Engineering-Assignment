@@ -249,6 +249,10 @@ body {
     cursor: pointer;
 }
 
+.container button {
+    float: right;
+}
+
 /* Create a custom radio button */
 .checkmark {
     transition: 0.2s;
