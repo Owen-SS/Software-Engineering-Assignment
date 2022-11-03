@@ -10,4 +10,8 @@ def hello_world():
 def render_employer():
   return render_template('employer.html')
 
+@app.route('/student')
+def render_student():
+  return render_template('student.html')
+
 app.run(host='0.0.0.0', port=8080)
