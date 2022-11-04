@@ -18,4 +18,8 @@ def render_student():
 def render_loginpage():
   return render_template('loginpage.html')
 
+@app.route('/signuppage')
+def render_signuppage():
+  return render_template('signuppage.html')
+
 app.run(host='0.0.0.0', port=8080)
