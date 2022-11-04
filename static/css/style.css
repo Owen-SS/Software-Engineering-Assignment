@@ -82,6 +82,10 @@ li{
     background-color:#2195f3;
     margin-top: 1%;
     display: block;
+    /*
+    width:100%;
+*/
+
 }
   
   li a {
