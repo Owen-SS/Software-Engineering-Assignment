@@ -55,3 +55,29 @@ form{
     position: absolute;
     width: 20%;
   }
+
+  input[type=text], input[type=password] {
+    width: 40%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius:40px;
+    outline:none;
+  }
+  
+  button {
+    background-color: #2196F3;
+    padding: 14px 20px;
+    color: white;
+    border:0;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 20%;
+    border-radius:40px;
+  }
+  
+  button:hover {
+    opacity: 0.6;
+  }
