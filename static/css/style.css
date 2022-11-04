@@ -69,6 +69,33 @@ body {
     color:rgb(255, 255, 255);
     align-content: center;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+li{
+    display: inline-block;
+}
+#Nav{
+    float: left;
+    background-color:#2195f3;
+    margin-top: 1%;
+    display: block;
+}
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: rgb(124, 120, 120)
+  }
+
 
 #searchBox{
     position: sticky;
