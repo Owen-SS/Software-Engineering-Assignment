@@ -109,7 +109,6 @@ body {
     border-radius: 5px;
 }
 
-
 /* Search Box - - - - - - */
 #searchBox{
     position: sticky;
@@ -242,12 +241,6 @@ body {
 }
 
 /* Filters - - - - - - */
-
-.title {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
-}
-
 #filters{
     background-color: rgb(230, 230, 230);
     float: right;
@@ -260,6 +253,11 @@ body {
     border: 5px;
     border-style: solid;
     border-color: black;*/
+}
+
+#filters .title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
 }
 
 #filters input[type='radio'] {
