@@ -3,28 +3,25 @@
   padding:0;
 }
 
-label, span, title{
+label, span, .title{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #top{
+  background-color: #2196F3;
   margin-top: 2%;
   margin-left: 20%;
   margin-right: 20%;
-  z-index: 4;
   width: 60%;
-  padding-top: 10px;
-  padding-bottom: 10px;
   border-radius: 5px;
-  height:40px;
-  background-color: #2196F3;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 #top .title{
   text-align: center;
-  font-size: large;
+  font-size: xx-large;
   color: white;
-  align-content: center;
 }
 
 #TextUser{
@@ -57,31 +54,30 @@ label, span, title{
   outline:none;
 }
   
-button {
+#loginform button {
   background-color: #2196F3;
   padding: 14px 20px;
   color: white;
-  border:0;
+  border: 0;
   margin: 8px 0;
   cursor: pointer;
   width: 20%;
-  border-radius:40px;
+  border-radius: 5px;
 }
 
-button:hover {
+#loginform button:hover {
   opacity: 0.6;
 }
 
-.cancelbtn {
-  width: 20%;
-  padding: 14px 18px;
-  background-color: #f44336;
+#loginform .remember{
+  padding-left: 3%;
 }
-.container {
+
+#loginform .container {
   padding: 20px;
 }
 
-span.psw {
+#loginform .psw {
   float: right;
   padding-top: 16px;
 }
