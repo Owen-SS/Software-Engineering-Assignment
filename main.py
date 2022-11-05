@@ -14,12 +14,12 @@ def render_employer():
 def render_student():
   return render_template('student.html')
 
-@app.route('/loginpage')
+@app.route('/login')
 def render_loginpage():
-  return render_template('loginpage.html')
+  return render_template('login.html')
 
-@app.route('/signuppage')
+@app.route('/signup')
 def render_signuppage():
-  return render_template('signuppage.html')
+  return render_template('signup.html')
 
 app.run(host='0.0.0.0', port=8080)
