@@ -42,8 +42,51 @@ label, span, .title{
   border-radius: 5px;
 }
 
-#signup-form input {
-  width: 100%;
+#signup-form .name input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+#signup-form .dob input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+#signup-form .address input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+#signup-form .cred input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+#signup-form .buttons input{
+  width: 45%;
   padding: 15px 20px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -68,16 +111,11 @@ button:hover {
   opacity: 0.6;
 }
 
-.cancelbtn {
-  width: 20%;
-  padding: 14px 18px;
-  background-color: #f44336;
-}
-.container {
+#signup-form .container {
   padding: 20px;
 }
 
-span.psw {
+#signup-form .psw {
   float: right;
   padding-top: 16px;
 }
