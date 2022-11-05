@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
 }
+
+label, span, .title{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #top{
   float: right;
   position: fixed;
@@ -39,12 +44,22 @@
   align-content: center;
 }
 
-form{
+#StudentDashboard{
   float: left;
   background-color: rgb(250, 249, 248);
   margin-top: 5%;
   width: 70%;
   height: 60%;
+}
+
+#StudentDashboard label{
+  text-align: center;
+  background-color: white;
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 5px;
+  width: 35%;
+  color: rgb(145, 145, 145);
 }
 
 img{
