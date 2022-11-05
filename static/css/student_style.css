@@ -14,6 +14,7 @@
   border-radius: 0px 0px 0px 10px;
   height:40px;
 }
+
 #user{
   color: white;
   background-color: #2196F3;
@@ -22,12 +23,14 @@
   max-width: 300px;
   border-radius: 0px 5px 5px 0px;
 }
+
 #TextUser{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   position: relative;
   top:25px; 
 }
+
 #title{
   text-align: center;
   font-size: large;
@@ -37,6 +40,7 @@
 }
 
 form{
+  float: left;
   background-color: rgb(250, 249, 248);
   margin-top: 5%;
   padding:5% 5%;
@@ -45,39 +49,44 @@ form{
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  }
-  img{
-    width: 10%;
-    display: grid;
-  }
+}
 
-  #userinput{
-    position: absolute;
-    width: 20%;
-  }
+img{
+  width: 10%;
+  display: grid;
+}
 
-  input[type=text], input[type=password] {
-    width: 40%;
-    padding: 15px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-    outline:none;
-  }
-  
-  button {
-    background-color: #2196F3;
-    padding: 14px 20px;
-    color: white;
-    border:0;
-    margin: 8px 0;
-    cursor: pointer;
-    width: 20%;
-    border-radius:5px;
-  }
-  
-  button:hover {
-    opacity: 0.6;
-  }
+#userinput{
+  position: absolute;
+  width: 20%;
+}
+
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+#button-list {
+  float: right;
+}
+
+#button-list button {
+  background-color: #2196F3;
+  padding: 14px 20px;
+  color: white;
+  border:0;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 20%;
+  border-radius:5px;
+}
+
+#button-list button:hover {
+  background-color: #389ff4;
+}
