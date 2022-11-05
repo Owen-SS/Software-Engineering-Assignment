@@ -42,10 +42,11 @@ label, span, .title{
   border-radius: 5px;
 }
 
-#signup-form input[type=text],#signup-form input[type=password] {
+#signup-form input {
   width: 100%;
   padding: 15px 20px;
   margin: 10px 0;
+  border: 1px solid #ccc;
   display: inline-block;
   box-sizing: border-box;
   border-radius: 5px;
