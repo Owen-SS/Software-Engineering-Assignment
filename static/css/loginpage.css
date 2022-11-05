@@ -36,15 +36,20 @@
   margin-right: auto;
   border-radius: 5px;
 }
-
-input[type=text], input[type=password] {
+label, span{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#loginform .cred {
+  font-size: large;
+}
+#loginform input[type=text], #loginform input[type=password] {
   width: 92%;
   padding: 15px 20px;
   margin: 10px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  border-radius:40px;
+  border-radius:5px;
   outline:none;
 }
   
