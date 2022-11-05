@@ -3,12 +3,10 @@
   padding:0;
 }
 #top{
-  float: right;
-  position: fixed;
-  margin-left: 80%;
+  margin-left: 20%;
+  margin-right: 20%;
   z-index: 1;
-  background-color: #2195f3;
-  width: 25%;
+  width: 60%;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 0px 0px 0px 10px;
@@ -30,15 +28,13 @@
   align-content: center;
 }
 
-form{
-  background-color: rgba(217, 210, 210, 0.547);
+#loginform{
+  background-color: rgb(250, 249, 248);
   margin-top: 10%;
-  padding:5% 5%;
   width: 55%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 3%;
-  border:1px solid;
+  border-radius: 5px;
 }
 
 input[type=text], input[type=password] {
