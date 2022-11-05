@@ -14,20 +14,14 @@
   border-radius: 0px 0px 0px 10px;
   height:40px;
 }
-#user{
-  color: white;
-  background-color: #2196F3;
-  height: 100px;
-  width: 30%;
-  max-width: 300px;
-  border-radius: 0px 5px 5px 0px;
-}
+
 #TextUser{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   position: relative;
   top:25px; 
 }
+
 #title{
   text-align: center;
   font-size: large;
@@ -47,42 +41,42 @@ form{
   border:1px solid;
 }
 
-  input[type=text], input[type=password] {
-    width: 92%;
-    padding: 15px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius:40px;
-    outline:none;
-  }
+input[type=text], input[type=password] {
+  width: 92%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius:40px;
+  outline:none;
+}
   
-  button {
-    background-color: #2196F3;
-    padding: 14px 20px;
-    color: white;
-    border:0;
-    margin: 8px 0;
-    cursor: pointer;
-    width: 20%;
-    border-radius:40px;
-  }
-  
-  button:hover {
-    opacity: 0.6;
-  }
-  
-  .cancelbtn {
-    width: 20%;
-    padding: 14px 18px;
-    background-color: #f44336;
-  }
-  .container {
-    padding: 20px;
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
+button {
+  background-color: #2196F3;
+  padding: 14px 20px;
+  color: white;
+  border:0;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 20%;
+  border-radius:40px;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+.cancelbtn {
+  width: 20%;
+  padding: 14px 18px;
+  background-color: #f44336;
+}
+.container {
+  padding: 20px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
