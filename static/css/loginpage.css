@@ -2,15 +2,29 @@
   margin:0;
   padding:0;
 }
+
+label, span, title{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #top{
+  margin-top: 2%;
   margin-left: 20%;
   margin-right: 20%;
-  z-index: 1;
+  z-index: 4;
   width: 60%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 5px;
   height:40px;
+  background-color: #2196F3;
+}
+
+#top .title{
+  text-align: center;
+  font-size: large;
+  color: white;
+  align-content: center;
 }
 
 #TextUser{
@@ -18,14 +32,6 @@
   text-align: center;
   position: relative;
   top:25px; 
-}
-
-#title{
-  text-align: center;
-  font-size: large;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color:rgb(255, 255, 255);
-  align-content: center;
 }
 
 #loginform{
@@ -36,9 +42,7 @@
   margin-right: auto;
   border-radius: 5px;
 }
-label, span{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
 #loginform .cred {
   font-size: large;
 }
