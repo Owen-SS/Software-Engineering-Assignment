@@ -44,7 +44,7 @@ form{
   height:60%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 3%;
+  border-radius: 5px;
   }
   img{
     width: 10%;
@@ -63,7 +63,7 @@ form{
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    border-radius:40px;
+    border-radius: 5px;
     outline:none;
   }
   
@@ -75,7 +75,7 @@ form{
     margin: 8px 0;
     cursor: pointer;
     width: 20%;
-    border-radius:40px;
+    border-radius:5px;
   }
   
   button:hover {
