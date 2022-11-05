@@ -90,6 +90,7 @@ li{
 }
   
 li a {
+    transition: 0.3s;
     display: block;
     color: black;
     text-align: center;
@@ -98,6 +99,7 @@ li a {
 }
 
 li a:hover {
+    transition: 0.3s;
     color: white;
     background-color:#2195f3;
     border-radius: 5px;
