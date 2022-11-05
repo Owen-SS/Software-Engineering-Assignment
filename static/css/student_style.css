@@ -43,10 +43,8 @@ form{
   float: left;
   background-color: rgb(250, 249, 248);
   margin-top: 5%;
-
   width: 70%;
   height: 60%;
-  border-radius: 5px;
 }
 
 img{
@@ -71,8 +69,10 @@ input[type=text], input[type=password] {
 }
 
 #button-list {
+  background-color: #eee;
   margin-top: 5%;
   width: 30%;
+  height: 60%;
   float: right;
 }
 
@@ -83,10 +83,10 @@ input[type=text], input[type=password] {
   padding: 14px 20px;
   color: white;
   border: 0;
-  margin: 0px 2% 5%;
+  margin: 3% 2% 5%;
   cursor: pointer;
   width: 50%;
-  border-radius:5px;
+  border-radius: 5px;
 }
 
 #button-list button:hover {
