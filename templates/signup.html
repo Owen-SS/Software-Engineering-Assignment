@@ -13,40 +13,40 @@
         <p class="title">Create student account</p> 
     </div>
 
-    <form id = "signup-form" method="post">
+    <div id = "signup-form">
 
         <div class="container">
             <div class="name">
-                <input type="text" placeholder="First Name" name="Fname" required>
-                <input type="text" placeholder="Second Name" name="Sname" required>
+                <input type="text" placeholder="First Name" id="fName" required>
+                <input type="text" placeholder="Second Name" id="sName" required>
             </div>
 
             <div class="dob">
                 <label for="DOB"><b>Date of birth:</b></label>
-                <input type="date" name="DOB" required>
+                <input type="date" name="DOB id="dob" required>
             </div>
             
             <div class="address">
-                <input type="text" placeholder="Address Line 1" name="AD1" required>
-                <input type="text" placeholder="Address Line 2" name="AD2">
-                <input type="text" placeholder="Address Line 3" name="AD3">
-                <input type="text" placeholder="Postcode" name="Post" required>
+                <input type="text" placeholder="Address Line 1" id="AD1" required>
+                <input type="text" placeholder="Address Line 2" id="AD2">
+                <input type="text" placeholder="Address Line 3" id="AD3">
+                <input type="text" placeholder="Postcode" id="postcode" required>
             </div>
 
             <div class="cred">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" id="username" required>
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                <label for="psw"><b>Confirm password</b></label>
-                <input type="password" placeholder="Confirm Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+                <label for="pswM"><b>Confirm password</b></label>
+                <input type="password" placeholder="Confirm Password" name="pswM" id="password_match" required>
             </div>
 
             <div class="form-buttons">
-                <button type="submit">Create</button>
+                <button onclick="capture()">Create</button>
             </div>
         </div>
-    </form>
+    </div>
 
 </body>
 </html>
