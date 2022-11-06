@@ -10,15 +10,8 @@ function editMode(edit) {
     var addThree = document.getElementById("AD3");
     var postcode = document.getElementById("postcode");
 
-    if (edit.value == "Yes") {
-        fName.setAttribute("disabled", "disabled");
-        sName.setAttribute("disabled", "disabled");
-        dob.setAttribute("disabled", "disabled");
-        addOne.setAttribute("disabled", "disabled");
-        addTwo.setAttribute("disabled", "disabled");
-        addThree.setAttribute("disabled", "disabled");
-        postcode.setAttribute("disabled", "disabled");
-    } else {
+    if (edit == "Yes") {
+        console.log("edit")
         fName.removeAttribute("disabled");
         sName.removeAttribute("disabled");
         dob.removeAttribute("disabled");
@@ -26,5 +19,15 @@ function editMode(edit) {
         addTwo.removeAttribute("disabled");
         addThree.removeAttribute("disabled");
         postcode.removeAttribute("disabled");
+        
+    } else if (edit == "No") {
+        console.log("save")
+        fName.setAttribute("disabled", "disabled");
+        sName.setAttribute("disabled", "disabled");
+        dob.setAttribute("disabled", "disabled");
+        addOne.setAttribute("disabled", "disabled");
+        addTwo.setAttribute("disabled", "disabled");
+        addThree.setAttribute("disabled", "disabled");
+        postcode.setAttribute("disabled", "disabled");
     }
 }
