@@ -55,6 +55,16 @@ label, span, .title{
   margin-top: 2%;
 }
 
+#signup-form .otherDetails input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
 #signup-form .name input{
   width: 45%;
   padding: 15px 20px;
@@ -116,7 +126,7 @@ button {
   border:0;
   margin: 8px 0;
   cursor: pointer;
-  width: 20%;
+  width: 50%;
   border-radius:40px;
 }
 
