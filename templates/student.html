@@ -19,23 +19,27 @@
     </div>
     </div>
     <form id = "StudentDashboard">
-        <img src="../static/icons/job-icon.png">
         <div class = "userinput">
             <div class="name">
-                <input type="text" placeholder="First Name" name="Fname">
-                <input type="text" placeholder="Second Name" name="Sname">
+                <input type="text" placeholder="First Name" id="fName">
+                <input type="text" placeholder="Second Name" id="sName">
             </div>
 
             <div class="dob">
                 <label for="DOB"><b>Date of birth</b></label>
-                <input type="date" placeholder="Date of Birth" name="DOB">
+                <input type="date" placeholder="Date of Birth" name="DOB" id="dob">
             </div>
 
             <div class="address">
-                <input type="text" placeholder="Address Line 1" name="AD1">
-                <input type="text" placeholder="Address Line 2" name="AD2">
-                <input type="text" placeholder="Address Line 3" name="AD3">
-                <input type="text" placeholder="Postcode" name="Post">
+                <input type="text" placeholder="Address Line 1" id="AD1">
+                <input type="text" placeholder="Address Line 2" id="AD2">
+                <input type="text" placeholder="Address Line 3" id="AD3">
+                <input type="text" placeholder="Postcode" id="postcode">
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="edit" value="Yes" onclick="editMode(value)">Edit</button>
+                <button type="button" id="edit" value="No" onclick="editMode(value)">Save</button>
             </div>
         </div>
     </form>
