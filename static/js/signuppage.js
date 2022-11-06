@@ -3,7 +3,7 @@ function capture(){
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
 
-    addOne = document.getElementById("AD1").value;
+    dob = document.getElementById("dob").value;
 
     addOne = document.getElementById("AD1").value;
     addTwo = document.getElementById("AD2").value;
