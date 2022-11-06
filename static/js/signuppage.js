@@ -1,5 +1,10 @@
 function capture(){
-    console.log("ran")
+
+    let uploadObject = [];
+
+    email = document.getElementById("email").value;
+    phone_number = document.getElementById("phoneNum").value;
+
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
 
@@ -16,6 +21,22 @@ function capture(){
 
     if (password != password_match) {
         alert("Passwords don't match!")
+    }else if(phone_number.length != 11){
+        alert("Invalid phone number")
+    }
+    else{
+        uploadObject.push(email);
+        uploadObject.push(phone_number);
+        uploadObject.push(fName);
+        uploadObject.push(sName);
+        uploadObject.push(dob);
+        uploadObject.push(addOne);
+        uploadObject.push(addTwo);
+        uploadObject.push(addThree);
+        uploadObject.push(postcode);
+        uploadObject.push(username);
+        uploadObject.push(password);
+        uploadObject.push(password_match);
     }
 
     console.log(fName);

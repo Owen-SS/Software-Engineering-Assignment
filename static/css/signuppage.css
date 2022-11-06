@@ -35,77 +35,35 @@ label, span, .title{
 #signup-form{
   background-color: rgb(250, 249, 248);
   margin-top: 5%;
-  padding:5% 5%;
+  padding:2% 5%;
   width: 55%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
 }
 
-#signup-form label {
-  padding: 15px 20px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-  outline:none;
-}
-
 #signup-form .container div{
   margin-top: 2%;
 }
 
-#signup-form .otherDetails input{
-  width: 45%;
-  padding: 15px 20px;
-  margin: 10px 0;
+#signup-form input, #signup-form label{
+  width: 49%;
+  padding: 2% 2%;
+  margin: 1% 0;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
   outline:none;
 }
 
-#signup-form .name input{
-  width: 45%;
-  padding: 15px 20px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-  outline:none;
-}
-
-#signup-form .dob input{
-  width: 45%;
-  padding: 15px 20px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+#signup-form label {
+  font-size: small;
+  text-align: center;
   display: inline-block;
-  box-sizing: border-box;
-  border-radius: 5px;
-  outline:none;
 }
 
-#signup-form .address input{
-  width: 45%;
-  padding: 15px 20px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  display: inline-block;
-  box-sizing: border-box;
-  border-radius: 5px;
-  outline:none;
-}
-
-#signup-form .cred input{
-  width: 50%;
-  padding: 15px 20px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  display: inline-block;
-  box-sizing: border-box;
-  border-radius: 5px;
-  outline:none;
+#signup-form #username{
+  width: 99%;
 }
 
 #signup-form .buttons input{
@@ -122,9 +80,10 @@ label, span, .title{
 button {
   background-color: #2196F3;
   padding: 14px 20px;
+  margin-left: 25%;
+  margin-right: 25%;
   color: white;
   border:0;
-  margin: 8px 0;
   cursor: pointer;
   width: 50%;
   border-radius:40px;
