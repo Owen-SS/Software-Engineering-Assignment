@@ -50,7 +50,7 @@ label, span, .title{
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  border-radius:5px;
+  border-radius: 5px;
   outline:none;
 }
   
@@ -66,7 +66,7 @@ label, span, .title{
 }
 
 #loginform button:hover {
-  opacity: 0.6;
+  background-color: rgb(40,95,216);
 }
 
 #loginform .remember{

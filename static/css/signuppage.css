@@ -86,11 +86,11 @@ button {
   border:0;
   cursor: pointer;
   width: 50%;
-  border-radius:40px;
+  border-radius: 5px;
 }
 
 button:hover {
-  opacity: 0.6;
+  background-color: rgb(40,95,216);
 }
 
 #signup-form .container {
