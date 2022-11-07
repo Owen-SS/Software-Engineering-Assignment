@@ -2,6 +2,8 @@ function capture(){
 
     let uploadObject = [];
 
+    date = Date.now()
+
     email = document.getElementById("email").value;
     phone_number = document.getElementById("phoneNum").value;
 
@@ -18,6 +20,8 @@ function capture(){
     username = document.getElementById("username").value;
     password = document.getElementById("password").value;
     password_match = document.getElementById("password_match").value;
+
+    id = sName + date.toString()
 
     if (password != password_match) {
         alert("Passwords don't match!")
@@ -39,5 +43,23 @@ function capture(){
         uploadObject.push(password_match);
     }
 
-    console.log(fName);
+    console.log(uploadObject);
+    if (uploadObject.length != 0){
+        let xhttp = new XMLHttpRequest();
+        let url = "/device/upload"
+        xhttp.onreadystatechange = function() {
+            let strResponse = "Error: no response";
+            if (this.readyState == 4 && this.status == 200) {
+                strResponse = JSON.parse(this.responseText);
+                alert(strResponse.message)
+            }
+        };
+        xhttp.open("PUT", url, true);
+        // Converting JSON data to string
+        var data = JSON.stringify(uploadObject);
+        // Set the request header i.e. which type of content you are sending
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        //send it
+        xhttp.send(data);
+    }
 }
