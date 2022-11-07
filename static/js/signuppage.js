@@ -45,18 +45,20 @@ function capture(){
         }
     }
 
-    red_items(check)
-
     console.log(check)
 
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
     }else if(phone_number.length != 11 & phone_number.length > 0){
+        check.splice(1, 1, 'red');
         alert("Invalid phone number");
     }else if (password != password_match) {
+        check.splice(8, 1, 'red');
+        check.splice(9, 1, 'red');
         alert("Passwords do not match");
-    }
-    else{
+    }else if (password.length ==0){
+        alert('Please add a password')
+    }else{
         uploadObject.push(id);
         uploadObject.push(email);
         uploadObject.push(phone_number);
@@ -71,6 +73,8 @@ function capture(){
         uploadObject.push(password);
         upload = true;
     }
+
+    red_items(check)
 
     console.log(uploadObject);
     if (upload == true){
@@ -100,10 +104,8 @@ function red_items(check){
 
         var element = document.getElementById(items[item]);
         if (check[item] == 'red'){
-            element.style.backgroundColor = "FF5733";
             element.style.borderColor = "#FF0000";
         }else{
-            element.style.backgroundColor = "#FFFFFF;";
             element.style.borderColor = "#ccc;";
         }
     }
