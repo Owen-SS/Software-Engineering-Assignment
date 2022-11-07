@@ -45,6 +45,8 @@ function capture(){
         }
     }
 
+    red_items(check)
+
     console.log(check)
 
     if (email.length == 0 & phone_number.length == 0){
@@ -92,8 +94,18 @@ function capture(){
 }
 
 function red_items(check){
-    let item = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match' ] 
+    let items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match' ]
 
-    var element = document.getElementById("myElement");
-    element.style.backgroundColor = "#00FF00";
+    for (let item in items){
+
+        var element = document.getElementById(items[item]);
+        if (check[item] == 'red'){
+            element.style.backgroundColor = "FF5733";
+            element.style.borderColor = "#FF0000";
+        }else{
+            element.style.backgroundColor = "#FFFFFF;";
+            element.style.borderColor = "#ccc;";
+        }
+    }
+    
 }
