@@ -23,8 +23,10 @@ function capture(){
 
     id = sName + date.toString()
 
-    if (password != password_match) {
-        alert("Passwords don't match!")
+    if (email.length == 0 & phone_number.length == 0){
+        alert("Please add your contact info")
+    }else if (password != password_match) {
+        alert("Passwords do not match")
     }else if(phone_number.length != 11){
         alert("Invalid phone number")
     }
@@ -40,7 +42,6 @@ function capture(){
         uploadObject.push(postcode);
         uploadObject.push(username);
         uploadObject.push(password);
-        uploadObject.push(password_match);
     }
 
     console.log(uploadObject);
