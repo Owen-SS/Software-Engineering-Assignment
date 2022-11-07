@@ -46,7 +46,7 @@ function capture(){
     console.log(uploadObject);
     if (uploadObject.length != 0){
         let xhttp = new XMLHttpRequest();
-        let url = "/device/upload"
+        let url = "/student/upload"
         xhttp.onreadystatechange = function() {
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {

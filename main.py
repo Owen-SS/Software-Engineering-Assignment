@@ -46,7 +46,7 @@ def jsonUpdate(file_csv, file_json, req): # Update Json - - -
 
 # Uploading data - - -
 
-@app.route("/device/upload", methods=['PUT']) # Device uploader - - -
+@app.route("/student/upload", methods=['PUT']) # Device uploader - - -
 def deviceUpload():
   file_csv = "data/student-account.csv"
   file_json = "data/student-account.json"
