@@ -2,6 +2,9 @@ function editMode(edit) {
     console.log("Ran")
     console.log(edit)
 
+    var editBtn = document.getElementById("edit");
+    var saveBtn = document.getElementById("save");
+
     var fName = document.getElementById("fName");
     var sName = document.getElementById("sName");
     var dob = document.getElementById("dob");
@@ -12,6 +15,8 @@ function editMode(edit) {
 
     if (edit == "Yes") {
         console.log("edit")
+        editBtn.style.backgroundColor = "#eee";
+        saveBtn.style.backgroundColor = "#2196F3";
         fName.removeAttribute("disabled");
         sName.removeAttribute("disabled");
         dob.removeAttribute("disabled");
@@ -22,6 +27,8 @@ function editMode(edit) {
         
     } else if (edit == "No") {
         console.log("save")
+        editBtn.style.backgroundColor = "#2196F3";
+        saveBtn.style.backgroundColor = "#eee";
         fName.setAttribute("disabled", "disabled");
         sName.setAttribute("disabled", "disabled");
         dob.setAttribute("disabled", "disabled");

@@ -95,6 +95,19 @@ img{
   height: 20%;
 }
 
+#StudentDashboard button{
+  text-align: center;
+  display: inline-block;
+  background-color: #2196F3;
+  padding: 1% 2%;
+  color: white;
+  border: 0;
+  margin: 3% 2% 5%;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 5px;
+}
+
 #button-list {
   background-color: #eee;
   margin-top: 5%;
