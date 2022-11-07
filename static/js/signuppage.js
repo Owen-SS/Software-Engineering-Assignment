@@ -4,42 +4,48 @@ function capture(){
     let user_input = [];
     let check = [];
 
+    let upload = false;
+
     date = Date.now();
 
     email = document.getElementById("email").value;
     phone_number = document.getElementById("phoneNum").value;
-    uploadObject.push(email);
-    uploadObject.push(phone_number);
+    user_input.push(email);
+    user_input.push(phone_number);
 
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
-    uploadObject.push(fName);
-    uploadObject.push(sName);
+    user_input.push(fName);
+    user_input.push(sName);
 
     dob = document.getElementById("dob").value;
-    uploadObject.push(dob);
+    user_input.push(dob);
 
     addOne = document.getElementById("AD1").value;
     addTwo = document.getElementById("AD2").value;
     addThree = document.getElementById("AD3").value;
     postcode = document.getElementById("postcode").value;
-    uploadObject.push(addOne);
-    uploadObject.push(postcode);
+    user_input.push(addOne);
+    user_input.push(postcode);
 
     username = document.getElementById("username").value;
     password = document.getElementById("password").value;
     password_match = document.getElementById("password_match").value;
-    uploadObject.push(username);
-    uploadObject.push(password);
-    uploadObject.push(password_match);
+    user_input.push(username);
+    user_input.push(password);
+    user_input.push(password_match);
 
     id = sName + date.toString();
 
-    for (input in user_input){
-        if (input.length == 0){
-
+    for (let input in user_input){
+        if (user_input[input].length == 0){
+            check.push('red')
+        }else{
+            check.push('none')
         }
     }
+
+    console.log(check)
 
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
@@ -61,10 +67,11 @@ function capture(){
         uploadObject.push(postcode);
         uploadObject.push(username);
         uploadObject.push(password);
+        upload = true;
     }
 
     console.log(uploadObject);
-    if (uploadObject.length != 0){
+    if (upload == true){
         let xhttp = new XMLHttpRequest();
         let url = "/student/upload";
         xhttp.onreadystatechange = function() {
@@ -82,4 +89,11 @@ function capture(){
         //send it
         xhttp.send(data);
     }
+}
+
+function red_items(check){
+    let item = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match' ] 
+
+    var element = document.getElementById("myElement");
+    element.style.backgroundColor = "#00FF00";
 }
