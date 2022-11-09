@@ -1,3 +1,5 @@
+let account = "student"; 
+
 function capture(){
 
     let uploadObject = [];
@@ -78,8 +80,16 @@ function capture(){
 
     console.log(uploadObject);
     if (upload == true){
+        let url = "/error"
         let xhttp = new XMLHttpRequest();
-        let url = "/student/upload";
+        
+        if (account == "student"){
+            url = "/student/upload";
+        }else if(account =="company"){
+            url = "/company/upload"
+        }
+
+
         xhttp.onreadystatechange = function() {
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
@@ -113,6 +123,7 @@ function red_items(check){
 }
 
 function companyMode(){
+    account = "company"; 
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
@@ -129,6 +140,7 @@ function companyMode(){
 }
 
 function studentMode(){
+    account = "student"; 
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
