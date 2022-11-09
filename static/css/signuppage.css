@@ -42,25 +42,18 @@ label, span, .title{
   border-radius: 5px;
 }
 
-/* Radio buttons - - - - - - */
 .user-option .container {
   width: 30%;
   display: inline-block;
   cursor: pointer;
 }
 
-/* Hide the browser's default radio button */
 .user-option .container input {
-  float:left;
+  float: left;
   display: none;
   cursor: pointer;
 }
 
-.user-option .container button {
-  float: right;
-}
-
-/* Create a custom radio button */
 .user-option .checkmark {
   transition: 0.2s;
   font-size: small;
@@ -75,20 +68,17 @@ label, span, .title{
   border-radius: 5px;
 }
 
-/* On mouse-over, add a grey background color */
 .user-option .container:hover input ~ .checkmark {
   transition: 0.2s;
   background-color: rgb(219, 216, 216);
 }
 
-/* When the radio button is checked, add a blue background */
 .user-option .container input:checked ~ .checkmark {
   transition: 0.2s;
   color: white;
   background-color: #2196F3;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .user-option .checkmark:after {
   position: absolute;
   display: none;
