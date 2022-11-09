@@ -126,8 +126,11 @@ function studentMode(){
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
+    var companyName = document.getElementById("company-name");
 
     top.style.backgroundColor = "#2196F3";
     lowerBtn.style.backgroundColor = "#2196F3";
     title.innerHTML = "Create student account";
+    
+    companyName.style.display = "none";
 }

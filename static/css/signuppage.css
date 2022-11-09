@@ -3,7 +3,7 @@
   padding:0;
 }
 
-label, span, .title{
+label, span, .title, div, input, button{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -27,7 +27,6 @@ label, span, .title{
 #title{
   text-align: center;
   font-size: large;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color:rgb(255, 255, 255);
   align-content: center;
 }
@@ -57,7 +56,6 @@ label, span, .title{
 .user-option .checkmark {
   transition: 0.2s;
   font-size: small;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   float: left;
   left: 0;
