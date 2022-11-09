@@ -17,6 +17,7 @@ function capture(){
 
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
+    cName = document.getElementById("cName").value;
     user_input.push(fName);
     user_input.push(sName);
 
@@ -87,9 +88,34 @@ function capture(){
         }
 
     }else if (account=="company"){
-        None
-    }
-
+        if (cName == 0){
+            alert("Add a company name!")
+        }else if(phone_number.length != 11){
+            check.splice(1, 1, 'red');
+            alert("Invalid phone number");
+        }else if(addOne.length == 0){
+            alert("Please add your address")
+        }else if(postcode.length == 0){
+            alert("Please add your postcode")
+        }else if (password != password_match) {
+            check.splice(8, 1, 'red');
+            check.splice(9, 1, 'red');
+            alert("Passwords do not match");
+        }else if (password.length ==0){
+            alert('Please add a password')
+        }else{
+            uploadObject.push(
+                id, 
+                email,
+                phone_number,
+                cName,
+                addOne,
+                addTwo,
+                addThree,
+                postcode,
+                username,
+                password
+            );
     red_items(check)
 
     console.log(uploadObject);
