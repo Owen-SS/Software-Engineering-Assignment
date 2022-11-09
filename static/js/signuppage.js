@@ -55,7 +55,7 @@ function capture(){
             alert("Please add your name")
         }else if (email.length == 0 & phone_number.length == 0){
             alert("Please add your contact info");
-        }else if(phone_number.length != 11 & phone_number.length > 0){
+        }else if(phone_number.length != 11){
             check.splice(1, 1, 'red');
             alert("Invalid phone number");
         }else if(addOne.length == 0){
@@ -69,18 +69,20 @@ function capture(){
         }else if (password.length ==0){
             alert('Please add a password')
         }else{
-            uploadObject.push(id);
-            uploadObject.push(email);
-            uploadObject.push(phone_number);
-            uploadObject.push(fName);
-            uploadObject.push(sName);
-            uploadObject.push(dob);
-            uploadObject.push(addOne);
-            uploadObject.push(addTwo);
-            uploadObject.push(addThree);
-            uploadObject.push(postcode);
-            uploadObject.push(username);
-            uploadObject.push(password);
+            uploadObject.push(
+                id, 
+                email,
+                phone_number,
+                fName,
+                sName,
+                dob,
+                addOne,
+                addTwo,
+                addThree,
+                postcode,
+                username,
+                password
+            );
             upload = true;
         }
 
