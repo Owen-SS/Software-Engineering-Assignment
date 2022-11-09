@@ -115,15 +115,19 @@ function red_items(check){
 function companyMode(){
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
+    var title = document.getElementById("top-title");
 
     top.style.backgroundColor = "#f32121";
     lowerBtn.style.backgroundColor = "#f32121";
+    title.innerHTML = "Create company account";
 }
 
 function studentMode(){
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
+    var title = document.getElementById("top-title");
 
     top.style.backgroundColor = "#2196F3";
     lowerBtn.style.backgroundColor = "#2196F3";
+    title.innerHTML = "Create student account";
 }
