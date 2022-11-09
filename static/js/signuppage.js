@@ -18,11 +18,17 @@ function capture(){
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
     cName = document.getElementById("cName").value;
-    user_input.push(fName);
-    user_input.push(sName);
+    if (account == "student"){
+        user_input.push(fName);
+        user_input.push(sName);
+    }else{
+        user_input.push(cName)
+    }
 
     dob = document.getElementById("dob").value;
-    user_input.push(dob);
+    if (account == "student"){
+        user_input.push(dob);
+    }
 
     addOne = document.getElementById("AD1").value;
     addTwo = document.getElementById("AD2").value;
@@ -38,7 +44,12 @@ function capture(){
     user_input.push(password);
     user_input.push(password_match);
 
-    id = sName + date.toString();
+    if (account == "student"){
+        id = sName + date.toString();
+    }else{
+        id = cName + date.toString();
+    }
+    
 
     for (let input in user_input){
         if (user_input[input].length == 0){
@@ -105,7 +116,7 @@ function capture(){
             );
         }
     }
-    red_items(check)
+    red_items(check, account)
 
     console.log(uploadObject);
     if (upload == true){
@@ -136,9 +147,14 @@ function capture(){
     }
 }
 
-function red_items(check){
-    let items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match' ]
-
+function red_items(check, account){
+    let items = []
+    console.log(account)
+    if (account == "student"){
+        items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match']
+    }else{
+        items = ['email', 'phoneNum', 'cName', 'AD1', 'postcode', 'username', 'password', 'password_match']
+    }
     for (let item in items){
 
         var element = document.getElementById(items[item]);
