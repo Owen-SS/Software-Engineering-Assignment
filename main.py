@@ -22,6 +22,10 @@ def render_loginpage():
 def render_signuppage():
   return render_template('signup.html')
 
+@app.route('/error')
+def render_error():
+  return render_template('error.html')
+
 # - - - - Json update - - - -
   
 def jsonUpdate(file_csv, file_json, req): # Update Json - - -
