@@ -80,13 +80,13 @@ function capture(){
 
     console.log(uploadObject);
     if (upload == true){
-        let url = "/error"
+        let url = "/error";
         let xhttp = new XMLHttpRequest();
         
         if (account == "student"){
             url = "/student/upload";
         }else if(account =="company"){
-            url = "/company/upload"
+            url = "/company/upload";
         }
 
 
