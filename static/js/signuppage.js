@@ -50,25 +50,25 @@ function capture(){
 
     console.log(check)
 
-    if (account=="student"){
+    if (email.length == 0 & phone_number.length == 0){
+        alert("Please add your contact info");
+    }else if(phone_number.length != 11){
+        check.splice(1, 1, 'red');
+        alert("Invalid phone number");
+    }else if(addOne.length == 0){
+        alert("Please add your address")
+    }else if(postcode.length == 0){
+        alert("Please add your postcode")
+    }else if (password != password_match) {
+        check.splice(8, 1, 'red');
+        check.splice(9, 1, 'red');
+        alert("Passwords do not match");
+    }else if (password.length ==0){
+        alert('Please add a password')
+    }else if (account=="student"){
 
         if(fName.length == 0 || sName.length == 0){
             alert("Please add your name")
-        }else if (email.length == 0 & phone_number.length == 0){
-            alert("Please add your contact info");
-        }else if(phone_number.length != 11){
-            check.splice(1, 1, 'red');
-            alert("Invalid phone number");
-        }else if(addOne.length == 0){
-            alert("Please add your address")
-        }else if(postcode.length == 0){
-            alert("Please add your postcode")
-        }else if (password != password_match) {
-            check.splice(8, 1, 'red');
-            check.splice(9, 1, 'red');
-            alert("Passwords do not match");
-        }else if (password.length ==0){
-            alert('Please add a password')
         }else{
             uploadObject.push(
                 id, 
@@ -90,19 +90,6 @@ function capture(){
     }else if (account=="company"){
         if (cName == 0){
             alert("Add a company name!")
-        }else if(phone_number.length != 11){
-            check.splice(1, 1, 'red');
-            alert("Invalid phone number");
-        }else if(addOne.length == 0){
-            alert("Please add your address")
-        }else if(postcode.length == 0){
-            alert("Please add your postcode")
-        }else if (password != password_match) {
-            check.splice(8, 1, 'red');
-            check.splice(9, 1, 'red');
-            alert("Passwords do not match");
-        }else if (password.length ==0){
-            alert('Please add a password')
         }else{
             uploadObject.push(
                 id, 
@@ -116,6 +103,8 @@ function capture(){
                 username,
                 password
             );
+        }
+    }
     red_items(check)
 
     console.log(uploadObject);
