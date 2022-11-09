@@ -51,9 +51,26 @@ def jsonUpdate(file_csv, file_json, req): # Update Json - - -
 # Uploading data - - -
 
 @app.route("/student/upload", methods=['PUT']) # Device uploader - - -
-def deviceUpload():
+def studentUpload():
   file_csv = "data/student/accounts/student-account.csv"
   file_json = "data/student/accounts/student-account.json"
+  messageOK = jsonify(message="Upload complete!")
+  messageFail = jsonify(message="Uploading failed...")
+  print('saving upload')
+  
+  req = request.get_json()
+
+  if request.is_json:
+    jsonUpdate(file_csv, file_json, req)
+    return messageOK, 200
+
+  else:
+    return messageFail, 400
+
+@app.route("/company/upload", methods=['PUT']) # Device uploader - - -
+def companyUpload():
+  file_csv = "data/company/accounts/company-account.csv"
+  file_json = "data/company/accounts/company-account.json"
   messageOK = jsonify(message="Upload complete!")
   messageFail = jsonify(message="Uploading failed...")
   print('saving upload')
