@@ -112,6 +112,10 @@ label, span, .title, div, input, button{
   width: 99%;
 }
 
+#signup-form #cName{
+  width: 99%;
+}
+
 #signup-form .buttons input{
   width: 45%;
   padding: 15px 20px;
