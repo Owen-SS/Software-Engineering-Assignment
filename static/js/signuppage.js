@@ -116,10 +116,16 @@ function companyMode(){
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
+    var companyName = document.getElementById("company-name");
+    var studentName = document.getElementById("student-name");
+
+    title.innerHTML = "Create Company Account";
 
     top.style.backgroundColor = "#f32121";
     lowerBtn.style.backgroundColor = "#f32121";
-    title.innerHTML = "Create company account";
+
+    companyName.style.display = "block";
+    studentName.style.display = "none";
 }
 
 function studentMode(){
@@ -127,10 +133,13 @@ function studentMode(){
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
     var companyName = document.getElementById("company-name");
+    var studentName = document.getElementById("student-name");
+
+    title.innerHTML = "Create Student Account";
 
     top.style.backgroundColor = "#2196F3";
     lowerBtn.style.backgroundColor = "#2196F3";
-    title.innerHTML = "Create student account";
     
     companyName.style.display = "none";
+    studentName.style.display = "block"
 }
