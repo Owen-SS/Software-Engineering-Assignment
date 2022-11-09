@@ -14,15 +14,28 @@
     </div>
 
     <div id = "signup-form">
-
+        <div class="user-option">
+            <label class="container">
+                <input type="radio" checked="checked" name="jobType">
+                <span class="checkmark">Full-time</span>
+            </label>
+            <label class="container">
+                <input type="radio" name="jobType">
+                <span class="checkmark">Part-time</span>
+            </label>
+        </div>
         <div class="container">
             <div class="otherDetails">
                 <input type="text" placeholder="Email" id="email" required>
                 <input type="text" placeholder="Phone number" id="phoneNum">
             </div>
-            <div class="name">
+            <div class="student-name">
                 <input type="text" placeholder="First Name" id="fName" required>
                 <input type="text" placeholder="Second Name" id="sName" required>
+            </div>
+
+            <div class="company-name">
+                <input type="text" placeholder="Company name" id="cName" required>
             </div>
 
             <div class="dob">
