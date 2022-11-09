@@ -42,13 +42,13 @@ function capture(){
 
     for (let input in user_input){
         if (user_input[input].length == 0){
-            check.push('red')
+            check.push('red');
         }else{
-            check.push('none')
+            check.push('none');
         }
     }
 
-    console.log(check)
+    console.log(check);
 
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
@@ -68,7 +68,7 @@ function capture(){
     }else if (account=="student"){
 
         if(fName.length == 0 || sName.length == 0){
-            alert("Please add your name")
+            alert("Please add your name");
         }else{
             uploadObject.push(
                 id, 
@@ -89,7 +89,7 @@ function capture(){
 
     }else if (account=="company"){
         if (cName == 0){
-            alert("Add a company name!")
+            alert("Please add company name");
         }else{
             uploadObject.push(
                 id, 
