@@ -16,12 +16,12 @@
     <div id = "signup-form">
         <div class="user-option">
             <label class="container">
-                <input type="radio" checked="checked" name="jobType">
-                <span class="checkmark" id="student">Student</span>
+                <input type="radio" checked="checked" name="jobType"  id="student" onclick="studentMode()">
+                <span class="checkmark">Student</span>
             </label>
             <label class="container">
-                <input type="radio" name="jobType">
-                <span class="checkmark" id="company">Company</span>
+                <input type="radio" name="jobType" id="company" onclick="companyMode()">
+                <span class="checkmark">Company</span>
             </label>
         </div>
         <div class="container">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-buttons">
-                <button onclick="capture()">Create</button>
+                <button onclick="capture()" id="lower-button">Create</button>
             </div>
         </div>
     </div>

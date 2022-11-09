@@ -111,3 +111,19 @@ function red_items(check){
     }
     
 }
+
+function companyMode(){
+    var top = document.getElementById("top");
+    var lowerBtn = document.getElementById("lower-button");
+
+    top.style.backgroundColor = "#f32121";
+    lowerBtn.style.backgroundColor = "#f32121";
+}
+
+function studentMode(){
+    var top = document.getElementById("top");
+    var lowerBtn = document.getElementById("lower-button");
+
+    top.style.backgroundColor = "#2196F3";
+    lowerBtn.style.backgroundColor = "#2196F3";
+}

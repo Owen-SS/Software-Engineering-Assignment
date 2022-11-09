@@ -73,10 +73,16 @@ label, span, .title{
   background-color: rgb(219, 216, 216);
 }
 
-.user-option .container input:checked ~ .checkmark {
+.user-option .container #student:checked ~ .checkmark {
   transition: 0.2s;
   color: white;
   background-color: #2196F3;
+}
+
+.user-option .container #company:checked ~ .checkmark {
+  transition: 0.2s;
+  color: white;
+  background-color: #f32121;
 }
 
 .user-option .checkmark:after {
