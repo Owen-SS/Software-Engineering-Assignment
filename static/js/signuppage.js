@@ -58,6 +58,10 @@ function capture(){
         }else if(phone_number.length != 11 & phone_number.length > 0){
             check.splice(1, 1, 'red');
             alert("Invalid phone number");
+        }else if(addOne.length == 0){
+            alert("Please add your address")
+        }else if(postcode.length == 0){
+            alert("Please add your postcode")
         }else if (password != password_match) {
             check.splice(8, 1, 'red');
             check.splice(9, 1, 'red');
@@ -150,7 +154,7 @@ function companyMode(){
 }
 
 function studentMode(){
-    account = "student"; 
+    account = "student";
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
     var title = document.getElementById("top-title");
