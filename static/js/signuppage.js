@@ -49,31 +49,39 @@ function capture(){
 
     console.log(check)
 
-    if (email.length == 0 & phone_number.length == 0){
-        alert("Please add your contact info");
-    }else if(phone_number.length != 11 & phone_number.length > 0){
-        check.splice(1, 1, 'red');
-        alert("Invalid phone number");
-    }else if (password != password_match) {
-        check.splice(8, 1, 'red');
-        check.splice(9, 1, 'red');
-        alert("Passwords do not match");
-    }else if (password.length ==0){
-        alert('Please add a password')
-    }else{
-        uploadObject.push(id);
-        uploadObject.push(email);
-        uploadObject.push(phone_number);
-        uploadObject.push(fName);
-        uploadObject.push(sName);
-        uploadObject.push(dob);
-        uploadObject.push(addOne);
-        uploadObject.push(addTwo);
-        uploadObject.push(addThree);
-        uploadObject.push(postcode);
-        uploadObject.push(username);
-        uploadObject.push(password);
-        upload = true;
+    if (account=="student"){
+
+        if(fName.length == 0 || sName.length == 0){
+            alert("Please add your name")
+        }else if (email.length == 0 & phone_number.length == 0){
+            alert("Please add your contact info");
+        }else if(phone_number.length != 11 & phone_number.length > 0){
+            check.splice(1, 1, 'red');
+            alert("Invalid phone number");
+        }else if (password != password_match) {
+            check.splice(8, 1, 'red');
+            check.splice(9, 1, 'red');
+            alert("Passwords do not match");
+        }else if (password.length ==0){
+            alert('Please add a password')
+        }else{
+            uploadObject.push(id);
+            uploadObject.push(email);
+            uploadObject.push(phone_number);
+            uploadObject.push(fName);
+            uploadObject.push(sName);
+            uploadObject.push(dob);
+            uploadObject.push(addOne);
+            uploadObject.push(addTwo);
+            uploadObject.push(addThree);
+            uploadObject.push(postcode);
+            uploadObject.push(username);
+            uploadObject.push(password);
+            upload = true;
+        }
+
+    }else if (account=="company"){
+        None
     }
 
     red_items(check)
@@ -129,6 +137,7 @@ function companyMode(){
     var title = document.getElementById("top-title");
     var companyName = document.getElementById("company-name");
     var studentName = document.getElementById("student-name");
+    var dob = document.getElementById("date-birth");
 
     title.innerHTML = "Create Company Account";
 
@@ -137,6 +146,7 @@ function companyMode(){
 
     companyName.style.display = "block";
     studentName.style.display = "none";
+    dob.style.display = "none";
 }
 
 function studentMode(){
@@ -146,6 +156,7 @@ function studentMode(){
     var title = document.getElementById("top-title");
     var companyName = document.getElementById("company-name");
     var studentName = document.getElementById("student-name");
+    var dob = document.getElementById("date-birth");
 
     title.innerHTML = "Create Student Account";
 
@@ -153,5 +164,6 @@ function studentMode(){
     lowerBtn.style.backgroundColor = "#2196F3";
     
     companyName.style.display = "none";
-    studentName.style.display = "block"
+    studentName.style.display = "block";
+    dob.style.display = "block";
 }
