@@ -101,13 +101,15 @@ def checkDetails():
   password = req[1]
 
   for row in data:
-    print(row[11])
     username_raw = row[10]
     password_raw = row[11]
 
-    username_check = username_raw[1:-1]
-    password_check = password_raw[1:-2]
-    
+    username_check = username_raw[2:-1]
+    password_check = password_raw[2:-2]
+
+    print (password)
+    print (password_check)
+
     if username_check == username:
       if password_check == password:
         messageOK = jsonify(message="Welcome - " + str(row[3]))
