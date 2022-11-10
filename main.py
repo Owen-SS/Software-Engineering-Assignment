@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request, make_response
 import sys, json, os, csv
+import pandas as pd
 app = Flask('app')
 
 @app.route('/')
@@ -83,5 +84,36 @@ def companyUpload():
 
   else:
     return messageFail, 400
+
+@app.route("/checkDetails", methods=['PUT']) # Device uploader - - -
+def checkDetails():
+  file_csv = "data/student/accounts/student-account.csv"
+
+  messageOK = jsonify(message="Error")
+  messageFail = jsonify(message="login failed")
+
+  req = request.get_json()
+
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
+
+  username = req[0]
+  password = req[1]
+
+  for row in data:
+    print(row[11])
+    username_raw = row[10]
+    password_raw = row[11]
+
+    username_check = username_raw[1:-1]
+    password_check = password_raw[1:-2]
+    
+    if username_check == username:
+      if password_check == password:
+        messageOK = jsonify(message="Welcome - " + str(row[3]))
+        return messageOK
+
+
+  return messageFail
 
 app.run(host='0.0.0.0', port=8080)
