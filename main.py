@@ -107,9 +107,6 @@ def checkDetails():
     username_check = username_raw[2:-1]
     password_check = password_raw[2:-2]
 
-    print (password)
-    print (password_check)
-
     if username_check == username:
       if password_check == password:
         messageOK = jsonify(message="Welcome - " + str(row[3]))
