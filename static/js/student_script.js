@@ -38,8 +38,20 @@ function editMode(edit) {
         postcode.setAttribute("disabled", "disabled");
     }
 }
-function displaydetails(){
 
+function cleardetails(){//does work but not in the system. only used for testing something
+
+    document.getElementById('fName').value = "" ;
+    document.getElementById("sName").value="";
+    document.getElementById("dob").value="";
+    document.getElementById("AD1").value="";
+    document.getElementById("AD2").value="";
+    document.getElementById("AD3").value="";
+    document.getElementById("postcode").value="";
+    
+}
+function displaydetails(){
+    
     var fName = document.getElementById('fName');
     var sName = document.getElementById("sName");
     var dob = document.getElementById("dob");
@@ -63,6 +75,6 @@ function displaydetails(){
   }
     console.log(fName)
 
-    
 }
+cleardetails();
 displaydetails();
