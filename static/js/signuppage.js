@@ -161,7 +161,7 @@ function red_items(check, account){
         if (check[item] == 'red'){
             element.style.borderColor = "#FF0000";
         }else{
-            element.style.borderColor = "#ccc;";
+            element.style.borderColor = "#ccc";
         }
     }
     
