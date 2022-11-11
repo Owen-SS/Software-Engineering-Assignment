@@ -8,7 +8,6 @@ body {
 
 #top{
     float: right;
-    position: fixed;
     margin-left: 80%;
     z-index: 1;
     background-color: #2195f3;
@@ -207,10 +206,6 @@ body {
     border-color: white;
     color: white;
     */
-}
-
-#filter p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Radio buttons - - - - - - */

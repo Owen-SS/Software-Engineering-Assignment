@@ -3,7 +3,7 @@
   padding:0;
 }
 
-label, span, .title{
+label, span, .title, div, input, button{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -27,7 +27,6 @@ label, span, .title{
 #title{
   text-align: center;
   font-size: large;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color:rgb(255, 255, 255);
   align-content: center;
 }
@@ -40,6 +39,53 @@ label, span, .title{
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
+}
+
+.user-option .container {
+  width: 30%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-option .container input {
+  float: left;
+  display: none;
+  cursor: pointer;
+}
+
+.user-option .checkmark {
+  transition: 0.2s;
+  font-size: small;
+  text-align: center;
+  float: left;
+  left: 0;
+  padding-top: 8.5%;
+  padding-bottom: 8.5%;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.user-option .container:hover input ~ .checkmark {
+  transition: 0.2s;
+  background-color: rgb(219, 216, 216);
+}
+
+.user-option .container #student:checked ~ .checkmark {
+  transition: 0.2s;
+  color: white;
+  background-color: #2196F3;
+}
+
+.user-option .container #company:checked ~ .checkmark {
+  transition: 0.2s;
+  color: white;
+  background-color: #f32121;
+}
+
+.user-option .checkmark:after {
+  position: absolute;
+  display: none;
 }
 
 #signup-form .container div{
@@ -63,6 +109,10 @@ label, span, .title{
 }
 
 #signup-form #username{
+  width: 99%;
+}
+
+#signup-form #cName{
   width: 99%;
 }
 
@@ -95,6 +145,7 @@ button:hover {
 
 #signup-form .container {
   padding: 20px;
+  border: none;
 }
 
 #signup-form .psw {

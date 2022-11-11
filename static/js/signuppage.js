@@ -1,3 +1,5 @@
+let account = "student"; 
+
 function capture(){
 
     let uploadObject = [];
@@ -15,11 +17,18 @@ function capture(){
 
     fName = document.getElementById("fName").value;
     sName = document.getElementById("sName").value;
-    user_input.push(fName);
-    user_input.push(sName);
+    cName = document.getElementById("cName").value;
+    if (account == "student"){
+        user_input.push(fName);
+        user_input.push(sName);
+    }else{
+        user_input.push(cName)
+    }
 
     dob = document.getElementById("dob").value;
-    user_input.push(dob);
+    if (account == "student"){
+        user_input.push(dob);
+    }
 
     addOne = document.getElementById("AD1").value;
     addTwo = document.getElementById("AD2").value;
@@ -35,51 +44,92 @@ function capture(){
     user_input.push(password);
     user_input.push(password_match);
 
-    id = sName + date.toString();
+    if (account == "student"){
+        id = sName + date.toString();
+    }else{
+        id = cName + date.toString();
+    }
+    
 
     for (let input in user_input){
         if (user_input[input].length == 0){
-            check.push('red')
+            check.push('red');
         }else{
-            check.push('none')
+            check.push('none');
         }
     }
 
-    console.log(check)
+    console.log(check);
 
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
-    }else if(phone_number.length != 11 & phone_number.length > 0){
+    }else if(phone_number.length != 11){
         check.splice(1, 1, 'red');
         alert("Invalid phone number");
+    }else if(addOne.length == 0){
+        alert("Please add your address")
+    }else if(postcode.length == 0){
+        alert("Please add your postcode")
     }else if (password != password_match) {
         check.splice(8, 1, 'red');
         check.splice(9, 1, 'red');
         alert("Passwords do not match");
     }else if (password.length ==0){
         alert('Please add a password')
-    }else{
-        uploadObject.push(id);
-        uploadObject.push(email);
-        uploadObject.push(phone_number);
-        uploadObject.push(fName);
-        uploadObject.push(sName);
-        uploadObject.push(dob);
-        uploadObject.push(addOne);
-        uploadObject.push(addTwo);
-        uploadObject.push(addThree);
-        uploadObject.push(postcode);
-        uploadObject.push(username);
-        uploadObject.push(password);
-        upload = true;
-    }
+    }else if (account=="student"){
 
-    red_items(check)
+        if(fName.length == 0 || sName.length == 0){
+            alert("Please add your name");
+        }else{
+            uploadObject.push(
+                id, 
+                email,
+                phone_number,
+                fName,
+                sName,
+                dob,
+                addOne,
+                addTwo,
+                addThree,
+                postcode,
+                username,
+                password
+            );
+            upload = true;
+        }
+
+    }else if (account=="company"){
+        if (cName == 0){
+            alert("Please add company name");
+        }else{
+            uploadObject.push(
+                id, 
+                email,
+                phone_number,
+                cName,
+                addOne,
+                addTwo,
+                addThree,
+                postcode,
+                username,
+                password
+            );
+        }
+    }
+    red_items(check, account)
 
     console.log(uploadObject);
     if (upload == true){
+        let url = "/error";
         let xhttp = new XMLHttpRequest();
-        let url = "/student/upload";
+        
+        if (account == "student"){
+            url = "/student/upload";
+        }else if(account =="company"){
+            url = "/company/upload";
+        }
+
+
         xhttp.onreadystatechange = function() {
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
@@ -97,17 +147,60 @@ function capture(){
     }
 }
 
-function red_items(check){
-    let items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match' ]
-
+function red_items(check, account){
+    let items = []
+    console.log(account)
+    if (account == "student"){
+        items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match']
+    }else{
+        items = ['email', 'phoneNum', 'cName', 'AD1', 'postcode', 'username', 'password', 'password_match']
+    }
     for (let item in items){
 
         var element = document.getElementById(items[item]);
         if (check[item] == 'red'){
             element.style.borderColor = "#FF0000";
         }else{
-            element.style.borderColor = "#ccc;";
+            element.style.borderColor = "#ccc";
         }
     }
     
+}
+
+function companyMode(){
+    account = "company"; 
+    var top = document.getElementById("top");
+    var lowerBtn = document.getElementById("lower-button");
+    var title = document.getElementById("top-title");
+    var companyName = document.getElementById("company-name");
+    var studentName = document.getElementById("student-name");
+    var dob = document.getElementById("date-birth");
+
+    title.innerHTML = "Create Company Account";
+
+    top.style.backgroundColor = "#f32121";
+    lowerBtn.style.backgroundColor = "#f32121";
+
+    companyName.style.display = "block";
+    studentName.style.display = "none";
+    dob.style.display = "none";
+}
+
+function studentMode(){
+    account = "student";
+    var top = document.getElementById("top");
+    var lowerBtn = document.getElementById("lower-button");
+    var title = document.getElementById("top-title");
+    var companyName = document.getElementById("company-name");
+    var studentName = document.getElementById("student-name");
+    var dob = document.getElementById("date-birth");
+
+    title.innerHTML = "Create Student Account";
+
+    top.style.backgroundColor = "#2196F3";
+    lowerBtn.style.backgroundColor = "#2196F3";
+    
+    companyName.style.display = "none";
+    studentName.style.display = "block";
+    dob.style.display = "block";
 }
