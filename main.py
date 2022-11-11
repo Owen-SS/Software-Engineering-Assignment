@@ -115,4 +115,8 @@ def checkDetails():
 
   return messageFail
 
+@app.route("/displayDetails", methods=['PUT']) # Display details - - -
+def displayDetails():
+  None
+
 app.run(host='0.0.0.0', port=8080)

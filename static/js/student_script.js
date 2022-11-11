@@ -38,3 +38,17 @@ function editMode(edit) {
         postcode.setAttribute("disabled", "disabled");
     }
 }
+function displaydetails(){
+
+    var fName = document.getElementById("fName");
+    var sName = document.getElementById("sName");
+    var dob = document.getElementById("dob");
+    var addOne = document.getElementById("AD1");
+    var addTwo = document.getElementById("AD2");
+    var addThree = document.getElementById("AD3");
+    var postcode = document.getElementById("postcode");
+
+    fName.innerHTML="Test";
+
+}
+displaydetails();
