@@ -113,10 +113,9 @@ body {
 #searchBox{
     position: sticky;
     top: 0px;
-    height: 100px;
     margin-top: 5%;
     width: 74.41%;
-    height: 70px;
+    height: 10%;
     background-color: rgb(250, 249, 248);
     text-align: center;
     /*
@@ -277,10 +276,6 @@ body {
     border-color: white;
     color: white;
     */
-}
-
-#filter p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Radio buttons - - - - - - */
