@@ -149,7 +149,7 @@ def displayDetails():
             position_username += data[10]
             position_password += data[11]
 
-            print(position_id)
+  print(position_id)
           
 
 #Can remove print statement was just making sure i could acess each piece of data within the csv file. Have not tried to iterate through to find the correct data for each user yet or sorted out the javascript side
