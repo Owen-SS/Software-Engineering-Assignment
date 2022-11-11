@@ -156,12 +156,10 @@ def getdetailsV2():
     id_raw = row[0]
 
     id_check = id_raw[2:-1]
-    print(id_check)
-    print(id)
 
     if id_check == id:
       found = True
-      
+
       i = 1
       while i <= 10:
         if i == 1:
@@ -176,8 +174,13 @@ def getdetailsV2():
         
 
   if found == True:
+    data_ready = ''
     print(data_send)
-    return jsonify(data_send)
+    for x in data_send:
+      data_ready += x + ', '
+    print(data_ready)
+
+    return jsonify(data = data_ready)
   else:
     return messageFail
 

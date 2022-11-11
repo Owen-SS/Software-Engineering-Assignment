@@ -123,7 +123,7 @@ function displaydetailsV2(){
     let strResponse = "Error: no response";
     if (this.readyState == 4 && this.status == 200) {
       strResponse = JSON.parse(this.responseText);
-      data_res = strResponse.message
+      data_res = strResponse.data
     }
   };
   xhttp.open("PUT", url, true);
