@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/script.js"></script>
+    <script src="../static/js/dropdown.js"></script>
+    <script src="../static/js/stickybar.js"></script>
     <title>Jobs"R"us</title>
 </head>
 <body>
@@ -17,60 +19,64 @@
         <div id = "TextUser">
         <p>Good evening [User]</p>
         <p class="location"><img src="../static/icons/location-icon.png" onclick="getLocation()"></p>
-    </div>
+        </div>
     </div>
     
-        <div id = "nav">
-            <ul>
-                <li><a href="/employer">Tiagos page</a></li>
-                <li><a href="/student">Student Dashboard</a></li>
-                <li><a href="/login">Login page</a></li>
-                <li><a href="/signup">Sign up page</a></li>
-            </ul>
-        </div>
-
-    <div id="filters">
-        <p class="title"> Filters </p>
-        <div id="filterOption">
-            <label class="container">
-                <input type="radio" checked="checked" name="jobType">
-                <span class="checkmark">Full-time</span>
-            </label>
-            <label class="container">
-                <input type="radio" name="jobType">
-                <span class="checkmark">Part-time</span>
-            </label>
-            <label class="container">
-                <input type="radio" name="jobType">
-                <span class="checkmark">Both</span>
-            </label>
-        </div>
-        <div id="filterOption">
-            <label class="container">
-                <input type="radio" checked="checked" name="jobDistance">
-                <span class="checkmark">5 miles</span>
-            </label>
-            <label class="container">
-                <input type="radio" name="jobDistance">
-                <span class="checkmark">10 miles</span>
-            </label>
-            <label class="container">
-                <input type="radio" name="jobDistance">
-                <span class="checkmark">20 miles</span>
-            </label>
-        </div>
-
+    <div id = "nav">
+        <ul>
+            <li><a href="/employer">Tiagos page</a></li>
+            <li><a href="/student">Student Dashboard</a></li>
+            <li><a href="/login">Login page</a></li>
+            <li><a href="/signup">Sign up page</a></li>
+        </ul>
     </div>
 
-    <div id="searchBox">
-        <div class="search">
-            <input type="text" placeholder="Search Jobs!">
+    <div id = "options">
+        <div id="searchBox">
+            <div class="search">
+                <input type="text" placeholder="Search Jobs!">
+            </div>
+            <div class="where">
+                <input type="text" placeholder="Add Location">
+            </div>
         </div>
-        <div class="where">
-            <input type="text" placeholder="Add Location">
+
+        <div id="filter-dropdown">
+            <button id="dropdown-button" onclick="toggle_filter_dropdown()">Filters</button>
+            <div id="dropdown-content">
+                <div id="filterOption">
+                    <label class="container">
+                        <input type="radio" checked="checked" name="jobType">
+                        <span class="checkmark">Full-time</span>
+                    </label>
+                    <label class="container">
+                        <input type="radio" name="jobType">
+                        <span class="checkmark">Part-time</span>
+                    </label>
+                    <label class="container">
+                        <input type="radio" name="jobType">
+                        <span class="checkmark">Both</span>
+                    </label>
+                </div>
+
+                <div id="filterOption">
+                    <label class="container">
+                        <input type="radio" checked="checked" name="jobDistance">
+                        <span class="checkmark">5 miles</span>
+                    </label>
+                    <label class="container">
+                        <input type="radio" name="jobDistance">
+                        <span class="checkmark">10 miles</span>
+                    </label>
+                    <label class="container">
+                        <input type="radio" name="jobDistance">
+                        <span class="checkmark">20 miles</span>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
-
+    
     <div id="job-list">
 
         <div id="job">
@@ -92,7 +98,6 @@
             This is a job box
         </div>
     </div>
-    
     
 </body>
 </html>
