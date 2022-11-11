@@ -118,24 +118,23 @@ def checkDetails():
 
 @app.route("/displayDetails", methods=("POST","GET")) # Display details - - -
 def displayDetails():
-  None
+  position_id = ""
+  position_email= ""
+  position_phoneNumber=""
+  position_name= ""
+  position_surname= ""
+  position_dob= ""
+  position_addressOne= ""
+  position_addressTwo= ""
+  position_addressThree= ""
+  position_postcode= ""
+  position_username= ""
+  position_password= ""
   filename = "data/student/accounts/student-account.csv"
   with open(filename, 'r') as csvfile:
     datareader = csv.reader(csvfile)
     for row in datareader:
         print(row)
-        position_id = ""
-        position_email= ""
-        position_phoneNumber=""
-        position_name= ""
-        position_surname= ""
-        position_dob= ""
-        position_addressOne= ""
-        position_addressTwo= ""
-        position_addressThree= ""
-        position_postcode= ""
-        position_username= ""
-        position_password= ""
         for data in datareader:
             position_id += data[0]
             position_email += data[1]
@@ -150,21 +149,24 @@ def displayDetails():
             position_username += data[10]
             position_password += data[11]
 
-#Can remove print statement was just making sure i could acess each piece of data within the csv file. Have not tried to iterate through to find the correct data for each user yet or sorted out the java side
-            print(
-            position_id,
-            position_email,  
-            position_phoneNumber,
-            position_name,
-            position_surname,
-            position_dob,
-            position_addressOne,
-            position_addressTwo,
-            position_addressThree,
-            position_postcode,
-            position_username,
-            position_password
-            )
+            print(position_id)
+          
+
+#Can remove print statement was just making sure i could acess each piece of data within the csv file. Have not tried to iterate through to find the correct data for each user yet or sorted out the javascript side
+            #print(
+           # position_id,
+           # position_email,  
+           # position_phoneNumber,
+           # position_name,
+           # position_surname,
+           # position_dob,
+           # position_addressOne,
+          #  position_addressTwo,
+          #  position_addressThree,
+          #  position_postcode,
+          ##  position_username,
+          #  position_password
+          #  )
         
 
 displayDetails()
