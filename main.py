@@ -135,7 +135,7 @@ def getdetails():
 
   return "Error reading file"
 
-@app.route("/displaydetails_V2", methods =['GET'])
+@app.route("/displaydetails_V2", methods =['PUT'])
 def getdetailsV2():
   found = False
   file_csv = "data/student/accounts/student-account.csv"
@@ -149,34 +149,35 @@ def getdetailsV2():
   data = df.to_numpy()
 
   id = req[0]
-  data = {
-    "first-name": 'Error',
-    "surname": 'Error',
-    "email": 'Error',
-    "phone-number": 'Error',
-    "dob": 'Error',
-    "address-one": 'Error',
-    "address-two": 'Error',
-    "address-three": 'Error',
-    "postcode": 'Error',
-    "usernmae": 'Error'
-  }
+
+  data_send = []
 
   for row in data:
     id_raw = row[0]
 
     id_check = id_raw[2:-1]
+    print(id_check)
+    print(id)
 
     if id_check == id:
       found = True
-
-      i = 0
-
-      while i < 10:
-        None
+      
+      i = 1
+      while i <= 10:
+        if i == 1:
+          data_raw = row[i]
+          data_app = data_raw[1:-1]
+          data_send.append(data_app)
+        else:
+          data_raw = row[i]
+          data_app = data_raw[2:-1]
+          data_send.append(data_app)
+        i+=1
+        
 
   if found == True:
-    return jsonify(data)
+    print(data_send)
+    return jsonify(data_send)
   else:
     return messageFail
 

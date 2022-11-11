@@ -51,6 +51,7 @@ function cleardetails(){//does work but not in the system. only used for testing
     
 }
 
+/*
 function retrivedatafromjson(){
     console.log("getting data from file");
     let fName = document.getElementById("fName");
@@ -77,7 +78,7 @@ function retrivedatafromjson(){
         let postcodehtml = ""
         for(item of response){
           let message = "Click here to view";
-          /*htmlString +="<input 'data-id= '"+item.id+"'data-email='"+item.email+"'data-phone_number='"+item.phone_number+"'data-name= '"+item.name+"'data-surname= '"+item.surname+"'data-dob= '"+item.dob+"'data-addressOne='"+item.addressOne+"'data-addressTwo= '"+item.addressTwo+"'data-addressThree'"+item.addressThree+"'data-postcode= '"+item.postcode+"'data-username= '"+item.username+"'data-password= '"+item.password+"</input>";*/
+          /*htmlString +="<input 'data-id= '"+item.id+"'data-email='"+item.email+"'data-phone_number='"+item.phone_number+"'data-name= '"+item.name+"'data-surname= '"+item.surname+"'data-dob= '"+item.dob+"'data-addressOne='"+item.addressOne+"'data-addressTwo= '"+item.addressTwo+"'data-addressThree'"+item.addressThree+"'data-postcode= '"+item.postcode+"'data-username= '"+item.username+"'data-password= '"+item.password+"</input>";
           fNamehtml += "<input 'data-name= '"+item.name+"</input>";
           sNamehtml += "<input 'data-surname= '"+item.surname+"</input>";
           dobhtml += "<input 'data-dob= '"+item.dob+"</input>";
@@ -102,7 +103,7 @@ function retrivedatafromjson(){
     }
   request.open("GET","/displaydetails", true);
   request.send();
-}
+}*/
 
 function displaydetailsV2(){
   let fName = document.getElementById("fName");
@@ -113,13 +114,16 @@ function displaydetailsV2(){
   let addThree = document.getElementById("AD3");
   let postcode = document.getElementById("postcode");
 
-  let url = "/checkDetails";
+  uploadObject = ["Smithy1667832522128"]
+
+  let url = "/displaydetails_V2";
   let xhttp = new XMLHttpRequest();
+  let data_res = "Error"
   xhttp.onreadystatechange = function() {
     let strResponse = "Error: no response";
     if (this.readyState == 4 && this.status == 200) {
       strResponse = JSON.parse(this.responseText);
-      alert(strResponse.message);
+      data_res = strResponse.message
     }
   };
   xhttp.open("PUT", url, true);
@@ -130,6 +134,7 @@ function displaydetailsV2(){
   //send it
   xhttp.send(data);
 
+  console.log(data_res)
 
 
   fName.value = fNamehtml; 
@@ -144,6 +149,4 @@ function displaydetailsV2(){
 
 }
 
-
-cleardetails();
 displaydetailsV2();
