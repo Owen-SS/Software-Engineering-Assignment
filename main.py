@@ -135,6 +135,49 @@ def getdetails():
 
   return "Error reading file"
 
+@app.route("/displaydetails_V2", methods =['GET'])
+def getdetailsV2():
+  found = False
+  file_csv = "data/student/accounts/student-account.csv"
 
+  messageOK = jsonify(message="Error retrieving data")
+  messageFail = jsonify(message="login failed")
+
+  req = request.get_json()
+
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
+
+  id = req[0]
+  data = {
+    "first-name": 'Error',
+    "surname": 'Error',
+    "email": 'Error',
+    "phone-number": 'Error',
+    "dob": 'Error',
+    "address-one": 'Error',
+    "address-two": 'Error',
+    "address-three": 'Error',
+    "postcode": 'Error',
+    "usernmae": 'Error'
+  }
+
+  for row in data:
+    id_raw = row[0]
+
+    id_check = id_raw[2:-1]
+
+    if id_check == id:
+      found = True
+
+      i = 0
+
+      while i < 10:
+        None
+
+  if found == True:
+    return jsonify(data)
+  else:
+    return messageFail
 
 app.run(host='0.0.0.0', port=8080)

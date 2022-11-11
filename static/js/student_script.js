@@ -100,9 +100,50 @@ function retrivedatafromjson(){
           alert(response);
       }
     }
-        request.open("GET","/displaydetails", true);
-        request.send();
-  }
+  request.open("GET","/displaydetails", true);
+  request.send();
+}
+
+function displaydetailsV2(){
+  let fName = document.getElementById("fName");
+  let sName = document.getElementById("sName");
+  let dob = document.getElementById("dob");
+  let addOne = document.getElementById("AD1");
+  let addTwo = document.getElementById("AD2");
+  let addThree = document.getElementById("AD3");
+  let postcode = document.getElementById("postcode");
+
+  let url = "/checkDetails";
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    let strResponse = "Error: no response";
+    if (this.readyState == 4 && this.status == 200) {
+      strResponse = JSON.parse(this.responseText);
+      alert(strResponse.message);
+    }
+  };
+  xhttp.open("PUT", url, true);
+  // Converting JSON data to string
+  var data = JSON.stringify(uploadObject);
+  // Set the request header i.e. which type of content you are sending
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //send it
+  xhttp.send(data);
+
+
+
+  fName.value = fNamehtml; 
+  sName.value = sNamehtml;
+  dob.value = dobhtml;
+  addOne.value = addOnehtml;
+  addTwo.value = addTwohtml;
+  addThree.value = addThreehtml;
+  postcode.value = postcodehtml;
+
+
+
+}
+
 
 cleardetails();
-displaydetails();
+displaydetailsV2();
