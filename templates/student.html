@@ -8,7 +8,7 @@
     <script src="../static/js/student_script.js"></script>
     <title>Student Page</title>
 </head>
-<body onload="displaydetails()">
+<body onload="retrivedatafromjson()">
     <div id="top">
         <p id="title"> Welcome to Jobs"R"us </p> 
     </div>
@@ -19,9 +19,9 @@
     </div>
     </div>
     <div id = "StudentDashboard">
-        <form action="/displayDetails" target="_blank" class = "userinput">
+        <form class = "userinput">
             <div class="name">
-                <input type="text" placeholder="First Name" id="fName" name = "fName" disabled >
+                <input type="text" placeholder="First Name" id="fName" name = "fName" disabled accept=".csv">
                 <input type="text" placeholder="Second Name" id="sName" disabled>
             </div>
 

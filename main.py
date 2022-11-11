@@ -116,60 +116,24 @@ def checkDetails():
   return messageFail
    
 
-@app.route("/displayDetails", methods=("POST","GET")) # Display details - - -
-def displayDetails():
-  position_id = ""
-  position_email= ""
-  position_phoneNumber=""
-  position_name= ""
-  position_surname= ""
-  position_dob= ""
-  position_addressOne= ""
-  position_addressTwo= ""
-  position_addressThree= ""
-  position_postcode= ""
-  position_username= ""
-  position_password= ""
-  filename = "data/student/accounts/student-account.csv"
-  with open(filename, 'r') as csvfile:
-    datareader = csv.reader(csvfile)
-    for row in datareader:
-        print(row)
-        for data in datareader:
-            position_id += data[0]
-            position_email += data[1]
-            position_phoneNumber += data[2]
-            position_name += data[3]
-            position_surname += data[4]
-            position_dob += data[5]
-            position_addressOne += data[6]
-            position_addressTwo += data[7]
-            position_addressThree += data[8]
-            position_postcode += data[9]
-            position_username += data[10]
-            position_password += data[11]
+@app.route("/displaydetails", methods =['GET'])
+def getdetails():
+  print("Getting details")
 
-  print(position_id)
-          
+  root_path =os.path.realpath(os.path.dirname(__file__)) 
+  file_path = os.path.join(root_path,"data","student/accounts/student-account.json")
 
-#Can remove print statement was just making sure i could acess each piece of data within the csv file. Have not tried to iterate through to find the correct data for each user yet or sorted out the javascript side
-            #print(
-           # position_id,
-           # position_email,  
-           # position_phoneNumber,
-           # position_name,
-           # position_surname,
-           # position_dob,
-           # position_addressOne,
-          #  position_addressTwo,
-          #  position_addressThree,
-          #  position_postcode,
-          ##  position_username,
-          #  position_password
-          #  )
-        
+  with open(file_path,'r') as file:
+    file_contents = json.load(file)
+    print(file_contents)
+    
+    response = make_response(
+    file_contents,
+    200
+    )
+    return response
 
-displayDetails()
+  return "Error reading file"
 
 
 

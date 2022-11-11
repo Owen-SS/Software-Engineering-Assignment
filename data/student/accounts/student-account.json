@@ -1,44 +1,45 @@
+{"studentDetails":
 [
     {
-        "['id'": "['Smithy1667832522128'",
-        " 'email'": " 'john@smithy.com'",
-        " 'phone_number'": " '07983625567'",
-        " 'name'": " 'John'",
-        " 'surname'": " 'Smithy'",
-        " 'dob'": " '2000-11-17'",
-        " 'addressOne'": " 'Lint hill'",
-        " 'addressTwo'": " 'Small town'",
-        " 'addressThree'": " 'Gillfod'",
-        " 'postcode'": " 'GL7 2XB'",
-        " 'username'": " 'jsmithy00'",
-        " 'password']": " 'Smithy22']"
+        "id": "Smithy1667832522128",
+        "email": "john@smithy.com",
+        "phone_number": "07983625567",
+        "name": "John",
+        "surname": "Smithy",
+        "dob": "2000-11-17",
+        "addressOne": "Lint hill",
+        "addressTwo": "Small town",
+        "addressThree": "Gillfod",
+        "postcode": "GL7 2XB",
+        "username": "jsmithy00",
+        "password": "Smithy22"
     },
     {
-        "['id'": "['c1668110735996'",
-        " 'email'": " 'c'",
-        " 'phone_number'": " 'ccccccccccc'",
-        " 'name'": " 'c'",
-        " 'surname'": " 'c'",
-        " 'dob'": " '2022-11-08'",
-        " 'addressOne'": " 'c'",
-        " 'addressTwo'": " 'c'",
-        " 'addressThree'": " 'c'",
-        " 'postcode'": " 'c'",
-        " 'username'": " 'c'",
-        " 'password']": " 'c']"
+        "id": "c1668110735996",
+        "email": "c",
+        "phone_number": "ccccccccccc",
+        "name": "c",
+        "surname": "c",
+        "dob": "2022-11-08",
+        "addressOne": "c",
+        "addressTwo": "c",
+        "addressThree": "c",
+        "postcode": "c",
+        "username": "c",
+        "password": "c"
     },
     {
-        "['id'": "['Staddon1668167986484'",
-        " 'email'": " 'owen.staddon@icloud.com'",
-        " 'phone_number'": " '07804219285'",
-        " 'name'": " 'Owen'",
-        " 'surname'": " 'Staddon'",
-        " 'dob'": " '2002-04-05'",
-        " 'addressOne'": " '1999090 hello world '",
-        " 'addressTwo'": " 'universe'",
-        " 'addressThree'": " 'galaxy'",
-        " 'postcode'": " 'HU12'",
-        " 'username'": " 'owenstaddon'",
-        " 'password']": " '12345']"
-    }
-]
+        "id": "Staddon1668167986484",
+        "email": "owen.staddon@icloud.com",
+        "phone_number": "07804219285",
+        "name": "Owen",
+        "surname": "Staddon",
+        "dob": "2002-04-05",
+        "addressOne": "999090 hello world",
+        "addressTwo": "universe",
+        "addressThree": "galaxy",
+        "postcode": "HU12",
+        "username": "owenstaddon",
+        "password": "12345"
+    }]
+}

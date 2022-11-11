@@ -50,33 +50,59 @@ function cleardetails(){//does work but not in the system. only used for testing
     document.getElementById("postcode").value="";
     
 }
-function displaydetails(){
-    
-    var fName = document.getElementById('fName');
-    var sName = document.getElementById("sName");
-    var dob = document.getElementById("dob");
-    var addOne = document.getElementById("AD1");
-    var addTwo = document.getElementById("AD2");
-    var addThree = document.getElementById("AD3");
-    var postcode = document.getElementById("postcode");
 
-    //sName.placeholder = "Test";
-   // document.getElementsByName('fName')[0].placeholder='new text for email';
-
-   if (fName,sName,dob,addOne, addTwo, addThree, postcode  !== undefined && fName,sName,dob,addOne, addTwo, addThree, postcode  !== null) {
-    // Now we know that foo is defined, we are good to go. !== means if the operands are not True it will return this
-    fName.value = 'preloaded first name';
-    sName.value = 'preloaded surname';
-    dob.value = '06/09/2004'//not working on website=
-    addOne.value = 'preloaded first address' ;
-    addTwo.value = 'preloaded second address'; 
-    addThree.value='preloaded third address'; 
-    postcode.value = 'preloaded postcode';
+function retrivedatafromjson(){
+    console.log("getting data from file");
+    let fName = document.getElementById("fName");
+    let sName = document.getElementById("sName");
+    let dob = document.getElementById("dob");
+    let addOne = document.getElementById("AD1");
+    let addTwo = document.getElementById("AD2");
+    let addThree = document.getElementById("AD3");
+    let postcode = document.getElementById("postcode");
+    let request = new XMLHttpRequest();
+  // in this if statement, if request is equal to 4th readystate(page has loaded completey) and the status code is anywhere between 200 to 299 which means the response was successful. The response will then get the json file to show the data it holds with a counter on the side and the data process in a specific order. The else if is if the ready state was not 4 and was maybe stuck in the 3rd ready state which means its loading with a status code of 400-499 which is client error response, if it was a 500-599 it would be a server error response. the website will display an error message with the status code of the error.
+    request.onreadystatechange = function(){
+      let response = "";
+    if(this.readyState == 4 && this.status == 200){
+        //process the response
+        response = JSON.parse(this.responseText).studentDetails;
+        let htmlString = "";
+        let fNamehtml= "";
+        let sNamehtml= "";
+        let dobhtml= "";//date not working at this time
+        let addOnehtml = "";
+        let addTwohtml = "";
+        let addThreehtml = "";
+        let postcodehtml = ""
+        for(item of response){
+          let message = "Click here to view";
+          /*htmlString +="<input 'data-id= '"+item.id+"'data-email='"+item.email+"'data-phone_number='"+item.phone_number+"'data-name= '"+item.name+"'data-surname= '"+item.surname+"'data-dob= '"+item.dob+"'data-addressOne='"+item.addressOne+"'data-addressTwo= '"+item.addressTwo+"'data-addressThree'"+item.addressThree+"'data-postcode= '"+item.postcode+"'data-username= '"+item.username+"'data-password= '"+item.password+"</input>";*/
+          fNamehtml += "<input 'data-name= '"+item.name+"</input>";
+          sNamehtml += "<input 'data-surname= '"+item.surname+"</input>";
+          dobhtml += "<input 'data-dob= '"+item.dob+"</input>";
+          addOnehtml += "<input 'data-addressOne= '"+item.addressOne+"</input>";
+          addTwohtml += "<input 'data-addressTwo= '"+item.addressTwo+"</input>";
+          addThreehtml += "<input 'data-addressThree= '"+item.addressThree+"</input>";
+          postcodehtml += "<input 'data-postcode= '"+item.postcode+"</input>"
+          }
+      fName.value = fNamehtml; 
+      sName.value = sNamehtml;
+      dob.value = dobhtml;
+      addOne.value = addOnehtml;
+      addTwo.value = addTwohtml;
+      addThree.value = addThreehtml;
+      postcode.value = postcodehtml;
+      }
+      else if(this.readyState == 4 && this.status != 200){
+        //show error to user
+          response = "Error:"+this.statusText;
+          alert(response);
+      }
+    }
+        request.open("GET","/displaydetails", true);
+        request.send();
   }
-    console.log(fName)
-
-}
-
 
 cleardetails();
 displaydetails();
