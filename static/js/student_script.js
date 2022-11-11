@@ -105,7 +105,7 @@ function retrivedatafromjson(){
   request.send();
 }*/
 
-function displaydetailsV2(){
+function getDetails(){
   let fName = document.getElementById("fName");
   let sName = document.getElementById("sName");
   let dob = document.getElementById("dob");
@@ -122,8 +122,11 @@ function displaydetailsV2(){
   xhttp.onreadystatechange = function() {
     let strResponse = "Error: no response";
     if (this.readyState == 4 && this.status == 200) {
+      console.log("here")
       strResponse = JSON.parse(this.responseText);
       data_res = strResponse.data
+
+      console.log(data_res)
     }
   };
   xhttp.open("PUT", url, true);
@@ -134,7 +137,6 @@ function displaydetailsV2(){
   //send it
   xhttp.send(data);
 
-  console.log(data_res)
 
 
   fName.value = fNamehtml; 
@@ -149,4 +151,8 @@ function displaydetailsV2(){
 
 }
 
-displaydetailsV2();
+function displaydetailsV2(){
+  None
+}
+
+getDetails();

@@ -174,13 +174,9 @@ def getdetailsV2():
         
 
   if found == True:
-    data_ready = ''
     print(data_send)
-    for x in data_send:
-      data_ready += x + ', '
-    print(data_ready)
 
-    return jsonify(data = data_ready)
+    return jsonify(data = data_send)
   else:
     return messageFail
 
