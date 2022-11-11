@@ -146,8 +146,7 @@ body {
 #searchBox .where,
 #searchBox .search{
     background-color: rgb(250, 249, 248);
-    text-align: center;
-    width: 40%;
+    width: 50%;
     height: 100%;
     position: relative;
     float: left;
@@ -159,9 +158,6 @@ body {
 
 #searchBox .where input[type=text],
 #searchBox .search input[type=text] {
-    /*margin-right: auto;
-    margin-left: auto;*/
-    padding: -10px;
     width: 80%;
     height: 60%;
     border: 2px solid;
@@ -173,7 +169,6 @@ body {
 
 /* Filters - - - - - - */
 #filter-dropdown{
-    position: relative;
     float: right;
     text-align: center;
     width: 30%;
@@ -269,8 +264,7 @@ body {
     text-align: center;
     width: 100%;
     height: 1000px;
-    padding: 5px;
-    margin-top: 1%;
+
     position: relative;
     /*border: 5px;
     border-style: solid;
