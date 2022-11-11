@@ -76,5 +76,7 @@ function displaydetails(){
     console.log(fName)
 
 }
+
+
 cleardetails();
 displaydetails();
