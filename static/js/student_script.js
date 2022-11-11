@@ -40,7 +40,7 @@ function editMode(edit) {
 }
 function displaydetails(){
 
-    var fName = document.getElementById("fName");
+    var fName = document.getElementsByName('fName');
     var sName = document.getElementById("sName");
     var dob = document.getElementById("dob");
     var addOne = document.getElementById("AD1");
@@ -48,7 +48,11 @@ function displaydetails(){
     var addThree = document.getElementById("AD3");
     var postcode = document.getElementById("postcode");
 
-    fName.innerHTML="Test";
+    sName.placeholder = "Test";
+    document.getElementsByName('fName')[0].placeholder='new text for email';
+
+    console.log(fName)
+    fName.placeholder = 'new text for email';
 
 }
 displaydetails();
