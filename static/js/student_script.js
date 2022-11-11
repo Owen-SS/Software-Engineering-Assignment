@@ -106,14 +106,6 @@ function retrivedatafromjson(){
 }*/
 
 function getDetails(){
-  let fName = document.getElementById("fName");
-  let sName = document.getElementById("sName");
-  let dob = document.getElementById("dob");
-  let addOne = document.getElementById("AD1");
-  let addTwo = document.getElementById("AD2");
-  let addThree = document.getElementById("AD3");
-  let postcode = document.getElementById("postcode");
-
   uploadObject = ["Smithy1667832522128"]
 
   let url = "/displaydetails_V2";
@@ -127,6 +119,7 @@ function getDetails(){
       data_res = strResponse.data
 
       console.log(data_res)
+      displaydetailsV2(data_res)
     }
   };
   xhttp.open("PUT", url, true);
@@ -136,23 +129,24 @@ function getDetails(){
   xhttp.setRequestHeader("Content-Type", "application/json");
   //send it
   xhttp.send(data);
-
-
-
-  fName.value = fNamehtml; 
-  sName.value = sNamehtml;
-  dob.value = dobhtml;
-  addOne.value = addOnehtml;
-  addTwo.value = addTwohtml;
-  addThree.value = addThreehtml;
-  postcode.value = postcodehtml;
-
-
-
 }
 
-function displaydetailsV2(){
-  None
+function displaydetailsV2(data){
+  let fName = document.getElementById("fName");
+  let sName = document.getElementById("sName");
+  let dob = document.getElementById("dob");
+  let addOne = document.getElementById("AD1");
+  let addTwo = document.getElementById("AD2");
+  let addThree = document.getElementById("AD3");
+  let postcode = document.getElementById("postcode");
+
+  fName.value = data[2]; 
+  sName.value = data[3];
+  dob.value = data[4];
+  addOne.value = data[5];
+  addTwo.value = data[6];
+  addThree.value = data[7];
+  postcode.value = data[8];
 }
 
 getDetails();
