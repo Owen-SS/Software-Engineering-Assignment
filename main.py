@@ -202,8 +202,8 @@ def updateDetails():
       i = 0
       x = 1
       while i <=11:
-        if i >=3 and i <=9:
-          replace.append(req[i-2])
+        if i >=1 and i <=9:
+          replace.append(req[i])
         else:
           data_edit = row[i]
           replace.append(data_edit)
