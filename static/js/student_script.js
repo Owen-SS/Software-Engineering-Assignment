@@ -96,7 +96,8 @@ function displaydetails(data){
   postcode.value = data[8];
 }
 
-function update(){
+function updateDetails(){
+  let id = "Smithy1667832522128"
   let fName = document.getElementById("fName").value;
   let sName = document.getElementById("sName").value;
   let dob = document.getElementById("dob").value;
@@ -105,6 +106,34 @@ function update(){
   let addThree = document.getElementById("AD3").value;
   let postcode = document.getElementById("postcode").value;
 
+  uploadObject.push(
+    id,
+    fName,
+    sName,
+    dob,
+    addOne,
+    addTwo,
+    addThree,
+    postcode
+    );
+
+  url = "/student/update";
+  let xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+      let strResponse = "Error: no response";
+      if (this.readyState == 4 && this.status == 200) {
+          strResponse = JSON.parse(this.responseText);
+          alert(strResponse.message);
+      }
+  };
+  xhttp.open("PUT", url, true);
+  // Converting JSON data to string
+  var data = JSON.stringify(uploadObject);
+  // Set the request header i.e. which type of content you are sending
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //send it
+  xhttp.send(data);
 }
 
 getDetails();

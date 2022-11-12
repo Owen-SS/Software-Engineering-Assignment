@@ -174,14 +174,51 @@ def getdetailsV2():
         
 
   if found == True:
-    print(data_send)
 
     return jsonify(data = data_send)
   else:
     return messageFail
 
-@app.route("/update/student", methods =['PUT'])
+@app.route("/student/update", methods =['PUT'])
 def updateDetails():
-  None
+  print('update/student')
+  found = False
+  file_csv = "data/student/accounts/student-account.csv"
+
+  messageOK = jsonify(message="Update complete!")
+  messageFail = jsonify(message="Update failed...")
+
+  req = request.get_json()
+
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
+
+  df = df.drop([1])
+  print(df)
+
+  id = req[0]
+
+  data_send = []
+
+  for row in data:
+    id_raw = row[0]
+    id_check = id_raw[2:-1]
+
+    if id_check == id:
+      found = True
+      replace = row
+      i = 0
+      while i <=7:
+        replace[i+3] = req[i]
+        i+=1
+
+        
+
+  if found == True:
+    print(data_send)
+
+    return jsonify(data = data_send)
+  else:
+    return messageFail
 
 app.run(host='0.0.0.0', port=8080)
