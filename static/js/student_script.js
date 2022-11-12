@@ -66,7 +66,12 @@ function getDetails(){
       data_res = strResponse.data
 
       console.log(data_res)
-      displaydetails(data_res)
+      if (strResponse.message != 404){
+        displaydetails(data_res)
+      }else{
+        alert("Whoops somthing went wrong!")
+        console.log("Get details error - " + strResponse.message)
+      }
     }
   };
   xhttp.open("PUT", url, true);
