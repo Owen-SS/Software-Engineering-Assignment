@@ -30,7 +30,6 @@ def render_error():
 # - - - - Json update - - - -
   
 def jsonUpdate(file_csv, file_json, req): # Update Json - - -
-  print("jsonUpdate")
   
   jsonArray = []
   
@@ -57,7 +56,6 @@ def studentUpload():
   file_json = "data/student/accounts/student-account.json"
   messageOK = jsonify(message="Upload complete!")
   messageFail = jsonify(message="Uploading failed...")
-  print('saving upload')
   
   req = request.get_json()
 
@@ -67,7 +65,6 @@ def studentUpload():
     print("Create a file!")
 
   df.loc[len(df)] = req
-  print(df)
 
   if request.is_json:
     df.to_csv(file_csv, encoding='utf-8', index=False)
@@ -82,7 +79,6 @@ def companyUpload():
   file_json = "data/company/accounts/company-account.json"
   messageOK = jsonify(message="Upload complete!")
   messageFail = jsonify(message="Uploading failed...")
-  print('saving upload')
   
   req = request.get_json()
 
@@ -148,38 +144,27 @@ def getdetailsV2():
   found = False
   file_csv = "data/student/accounts/student-account.csv"
 
-  messageOK = jsonify(message="Error retrieving data")
-  messageFail = jsonify(message="login failed")
+  messageFail = jsonify(data='None', message=404)
 
   req = request.get_json()
 
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  print(data)
-
   id = req[0]
 
   data_send = []
 
   for row in data:
-    id_raw = row[0]
-
-    id_check = id_raw[2:-1]
+    id_check = row[0]
 
     if id_check == id:
       found = True
 
       i = 1
       while i <= 10:
-        if i == 1:
-          data_raw = row[i]
-          data_app = data_raw[1:-1]
-          data_send.append(data_app)
-        else:
-          data_raw = row[i]
-          data_app = data_raw[2:-1]
-          data_send.append(data_app)
+        data_app = row[i]
+        data_send.append(data_app)
         i+=1
         
 
@@ -191,7 +176,6 @@ def getdetailsV2():
 
 @app.route("/student/update", methods =['PUT'])
 def updateDetails():
-  print('update/student')
   found = False
   file_csv = "data/student/accounts/student-account.csv"
 
@@ -203,38 +187,30 @@ def updateDetails():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  # df = df.drop([1])
-  print("CSV")
-  print(df)
   print("req")
   print(req)
 
   id = req[0]
   index = 0
+  replace = []
   for row in data:
-    id_raw = row[0]
-    id_check = id_raw[2:-1]
+    id_check = row[0]
 
     if id_check == id:
       found = True
       df = df.drop([index])
-      replace = []
       i = 0
       x = 1
       while i <=11:
         if i >=3 and i <=7:
           replace.append(req[x])
-          x+=1
-        elif i == 11:
-          data_raw = row[i]
-          data_edit = data_raw[2:-2]
-          replace.append(data_edit)
+          x=+1
         else:
-          data_raw = row[i]
-          data_edit = data_raw[2:-1]
+          data_edit = row[i]
           replace.append(data_edit)
         i+=1
     index+=1
+  print(replace)
 
   df.loc[len(df)] = replace
 
