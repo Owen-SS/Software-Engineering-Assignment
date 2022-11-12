@@ -61,8 +61,16 @@ def studentUpload():
   
   req = request.get_json()
 
+  try:
+    df = pd.read_csv(file_csv)
+  except Exception:
+    print("Create a file!")
+
+  df.loc[len(df)] = req
+  print(df)
+
   if request.is_json:
-    jsonUpdate(file_csv, file_json, req)
+    df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK, 200
 
   else:
@@ -228,11 +236,8 @@ def updateDetails():
         i+=1
     index+=1
 
-  print("replace")
-  print(replace)
-  # df2 = pd.DataFrame(replace, columns = ['id', 'email', 'phone_number', 'name', 'surname', 'dob', 'addressOne', 'addressTwo', 'addressThree', 'postcode', 'username', 'password'])
   df.loc[len(df)] = replace
-  print(df)
+
   if found == True:
     df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK
