@@ -180,4 +180,8 @@ def getdetailsV2():
   else:
     return messageFail
 
+@app.route("/update/student", methods =['PUT'])
+def updateDetails():
+  None
+
 app.run(host='0.0.0.0', port=8080)

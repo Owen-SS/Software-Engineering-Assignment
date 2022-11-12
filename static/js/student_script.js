@@ -36,6 +36,7 @@ function editMode(edit) {
         addTwo.setAttribute("disabled", "disabled");
         addThree.setAttribute("disabled", "disabled");
         postcode.setAttribute("disabled", "disabled");
+        updateDetails();
     }
 }
 
@@ -50,6 +51,63 @@ function cleardetails(){//does work but not in the system. only used for testing
     document.getElementById("postcode").value="";
     
 }
+
+function getDetails(){
+  uploadObject = ["Smithy1667832522128"]
+
+  let url = "/displaydetails_V2";
+  let xhttp = new XMLHttpRequest();
+  let data_res = "Error"
+  xhttp.onreadystatechange = function() {
+    let strResponse = "Error: no response";
+    if (this.readyState == 4 && this.status == 200) {
+      console.log("here")
+      strResponse = JSON.parse(this.responseText);
+      data_res = strResponse.data
+
+      console.log(data_res)
+      displaydetails(data_res)
+    }
+  };
+  xhttp.open("PUT", url, true);
+  // Converting JSON data to string
+  var data = JSON.stringify(uploadObject);
+  // Set the request header i.e. which type of content you are sending
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //send it
+  xhttp.send(data);
+}
+
+function displaydetails(data){
+  let fName = document.getElementById("fName");
+  let sName = document.getElementById("sName");
+  let dob = document.getElementById("dob");
+  let addOne = document.getElementById("AD1");
+  let addTwo = document.getElementById("AD2");
+  let addThree = document.getElementById("AD3");
+  let postcode = document.getElementById("postcode");
+
+  fName.value = data[2]; 
+  sName.value = data[3];
+  dob.value = data[4];
+  addOne.value = data[5];
+  addTwo.value = data[6];
+  addThree.value = data[7];
+  postcode.value = data[8];
+}
+
+function update(){
+  let fName = document.getElementById("fName").value;
+  let sName = document.getElementById("sName").value;
+  let dob = document.getElementById("dob").value;
+  let addOne = document.getElementById("AD1").value;
+  let addTwo = document.getElementById("AD2").value;
+  let addThree = document.getElementById("AD3").value;
+  let postcode = document.getElementById("postcode").value;
+
+}
+
+getDetails();
 
 /*
 function retrivedatafromjson(){
@@ -104,49 +162,3 @@ function retrivedatafromjson(){
   request.open("GET","/displaydetails", true);
   request.send();
 }*/
-
-function getDetails(){
-  uploadObject = ["Smithy1667832522128"]
-
-  let url = "/displaydetails_V2";
-  let xhttp = new XMLHttpRequest();
-  let data_res = "Error"
-  xhttp.onreadystatechange = function() {
-    let strResponse = "Error: no response";
-    if (this.readyState == 4 && this.status == 200) {
-      console.log("here")
-      strResponse = JSON.parse(this.responseText);
-      data_res = strResponse.data
-
-      console.log(data_res)
-      displaydetailsV2(data_res)
-    }
-  };
-  xhttp.open("PUT", url, true);
-  // Converting JSON data to string
-  var data = JSON.stringify(uploadObject);
-  // Set the request header i.e. which type of content you are sending
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  //send it
-  xhttp.send(data);
-}
-
-function displaydetailsV2(data){
-  let fName = document.getElementById("fName");
-  let sName = document.getElementById("sName");
-  let dob = document.getElementById("dob");
-  let addOne = document.getElementById("AD1");
-  let addTwo = document.getElementById("AD2");
-  let addThree = document.getElementById("AD3");
-  let postcode = document.getElementById("postcode");
-
-  fName.value = data[2]; 
-  sName.value = data[3];
-  dob.value = data[4];
-  addOne.value = data[5];
-  addTwo.value = data[6];
-  addThree.value = data[7];
-  postcode.value = data[8];
-}
-
-getDetails();
