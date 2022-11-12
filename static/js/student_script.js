@@ -97,7 +97,9 @@ function displaydetails(data){
 }
 
 function updateDetails(){
+
   let id = "Smithy1667832522128"
+
   let fName = document.getElementById("fName").value;
   let sName = document.getElementById("sName").value;
   let dob = document.getElementById("dob").value;
@@ -107,7 +109,6 @@ function updateDetails(){
   let postcode = document.getElementById("postcode").value;
 
   uploadObject.push(
-    id,
     fName,
     sName,
     dob,
@@ -135,8 +136,6 @@ function updateDetails(){
   //send it
   xhttp.send(data);
 }
-
-getDetails();
 
 /*
 function retrivedatafromjson(){

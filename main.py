@@ -148,6 +148,8 @@ def getdetailsV2():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
+  print(data)
+
   id = req[0]
 
   data_send = []
@@ -193,31 +195,47 @@ def updateDetails():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  df = df.drop([1])
+  # df = df.drop([1])
+  print("CSV")
   print(df)
+  print("req")
+  print(req)
 
   id = req[0]
-
-  data_send = []
-
+  index = 0
   for row in data:
     id_raw = row[0]
     id_check = id_raw[2:-1]
 
     if id_check == id:
       found = True
-      replace = row
+      df = df.drop([index])
+      replace = []
       i = 0
-      while i <=7:
-        replace[i+3] = req[i]
+      x = 1
+      while i <=11:
+        if i >=3 and i <=7:
+          replace.append(req[x])
+          x+=1
+        elif i == 11:
+          data_raw = row[i]
+          data_edit = data_raw[2:-2]
+          replace.append(data_edit)
+        else:
+          data_raw = row[i]
+          data_edit = data_raw[2:-1]
+          replace.append(data_edit)
         i+=1
+    index+=1
 
-        
-
+  print("replace")
+  print(replace)
+  # df2 = pd.DataFrame(replace, columns = ['id', 'email', 'phone_number', 'name', 'surname', 'dob', 'addressOne', 'addressTwo', 'addressThree', 'postcode', 'username', 'password'])
+  df.loc[len(df)] = replace
+  print(df)
   if found == True:
-    print(data_send)
-
-    return jsonify(data = data_send)
+    df.to_csv(file_csv, encoding='utf-8', index=False)
+    return messageOK
   else:
     return messageFail
 
