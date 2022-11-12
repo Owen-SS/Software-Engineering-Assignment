@@ -204,3 +204,7 @@ function studentMode(){
     studentName.style.display = "block";
     dob.style.display = "block";
 }
+
+function pageStart(){
+    document.getElementById("student").checked = true;
+}
