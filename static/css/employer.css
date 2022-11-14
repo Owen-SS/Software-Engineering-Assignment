@@ -1,42 +1,110 @@
-#job{
-    transition: 0.3s;
-    margin-top: 10px;
-    background-color: white;
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+label, span, .title{
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+#top{
+    float: right;
+    position: fixed;
+    margin-left: 80%;
+    z-index: 1;
+    background-color: #2195f3;
+    width: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0px 0px 0px 10px;
+    height:40px;
+}
+  
+#user{
+    color: white;
+    background-color: #2196F3;
+    height: 100px;
+    width: 30%;
+    max-width: 300px;
+    border-radius: 0px 5px 5px 0px;
+}
+  
+#TextUser{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 22%;
+    position: relative;
+    top:25px; 
+}
+  
+#title{
+    text-align: center;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:rgb(255, 255, 255);
+    align-content: center;
+}
+  
+#dashboard .divs{
+    margin-top: 3%;
+    background-color: rgb(250, 249,248);
+}
+  
+#StudentDetails label{
+    text-align: center;
+    background-color: white;
+    padding: 15px 1%;
+    display: inline-block;
     border-radius: 5px;
-    overflow: hidden;
+    width: 47%;
+    color: rgb(145, 145, 145);
+  }
+  
+  
+#StudentDetails input{
+    width: 49%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline:none;
 }
-
-#job:hover{
+  
+  
+#StudentDetails div{
+    margin-left: 2%;
+}
+  
+#StudentDetails .name{
+    height: 20%;
+}
+  
+#StudentDetails .dob{
+    height: 5%;
+}
+  
+  #StudentDetails .address{
+    height: 20%;
+}
+  
+#StudentDetails button{
+    text-align: center;
+    display: inline-block;
+    background-color: #2196F3;
+    padding: 1% 2%;
+    color: white;
+    border: 0;
+    margin: 3% 2% 4.5%;
     cursor: pointer;
-    transition: 0.3s;
-    background-color: rgb(230, 230, 230);
-    padding-right: 10px;
-    padding-left: 10px;
+    width: 10%;
+    border-radius: 5px;
 }
-
-#job img{
-    float: left;
-    padding: 1%;
+  
+#student-options {
+    background-color: #eee;
     margin-top: 5%;
-    width: 20%;
-    height: 80%;
-}
-
-#job .company-name, .job-title, .job-description, .wage, .hours-per-week{
-    float: left;
-    padding: 1%;
-    margin-top: 5%; 
-    border: 2px;
-    border-style: solid;
-    width: 20%; 
-}
-
-#job .company-name{
-    width: 20%; 
-    border-color: black;
+    width: 30%;
+    height: 60%;
+    float: right;
 }

@@ -4,53 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/employer.css">
-    <script src="../static/js/script.js"></script>
-    <title>Jobs"R"us</title>
+    <link rel="stylesheet" href="../static/css/student_style.css">
+    <script src="../static/js/student_script.js"></script>
+    <title>Student Page</title>
 </head>
-<body>
+<body onload="getDetails()">
     <div id="top">
         <p id="title"> Welcome to Jobs"R"us </p> 
     </div>
 
     <div id="user">
         <div id = "TextUser">
-        <p>Good evening [User]</p>
-        <p class="location"><img src="../static/icons/location-icon.png" onclick="getLocation()"></p>
+        <p id="top-name"></p>
+    </div>
+    </div>
+    <div id="dashboard">
+        <div id = "StudentDetails" class = "divs">
+            <div class="name">
+                <input type="text" placeholder="First Name" id="fName" disabled >
+                <input type="text" placeholder="Second Name" id="sName" disabled>
+            </div>
+
+            <div id="otherDetails">
+                <input type="text" placeholder="Email" id="email" disabled>
+                <input type="text" placeholder="Phone number" id="phoneNum" disabled>
+            </div>
+
+            <div class="dob">
+                <label for="DOB"><b>Date of birth</b></label>
+                <input type="date" placeholder="Date of Birth" name="DOB" id="dob" disabled>
+            </div>
+
+            <div class="address">
+                <input type="text" placeholder="Address Line 1" id="AD1" disabled>
+                <input type="text" placeholder="Address Line 2" id="AD2" disabled>
+                <input type="text" placeholder="Address Line 3" id="AD3" disabled>
+                <input type="text" placeholder="Postcode" id="postcode" disabled>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="edit" value="Yes" onclick="editMode(value)">Edit</button>
+                <button type="button" id="save" value="No" style="background-color: #eee;" onclick="editMode(value)"> Save</button>
+                <button type="button" id="delete" style="background-color: #f32121;" onclick="deleteAccount()"> Delete account</button>
+            </div>
+        </div>
+
+        <div id="applicationTrack" class = "divs">
+            <h2> Track applications</h2>
+        </div>
+
+        <div id="appliedApplications" class = "divs">
+            <h2> Applied application</h2>
+        </div>
+
+        <div id="favourites" class = "divs">
+            <h2>Favourites</h2>
+        </div>
+
+        <div id = "upload cv" class = "divs">
+            <h2>Upload CV</h2>
         </div>
     </div>
 
     
-    <div id="job">
-
-        <img src="../static/icons/epic.jpg">
-
-        <div class="company-name">Company Name:
-            <p>Autofill company name</p>
-        </div>
-
-        <div class="job-title">Job Title:
-            <input type="text" placeholder="Job title">
-        </div>
-
-        <div class="job-description">Job Description:
-            <input type="text" placeholder="Job description">
-        </div>
-
-        <div class="wage">Wage:
-            <input type="text" placeholder="Wage">
-        </div>
-
-        <div class="hours-per-week">Hours Per Week:
-            <input type="text" placeholder="Hours per week">
-        </div>
-    </div>
-
-    <label class="container">
-        <button type="button">Publish</button>
-    </label>
-    
-
 </body>
 </html>
