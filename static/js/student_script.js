@@ -61,7 +61,7 @@ function cleardetails(){
 }
 
 function getDetails(){
-  uploadObject = ["Smithy1667832522128"]
+  uploadObject = ["None"]
 
   let url = "/displaydetails";
   let xhttp = new XMLHttpRequest();
