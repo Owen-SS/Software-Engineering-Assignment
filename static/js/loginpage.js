@@ -14,13 +14,13 @@ function login(){
     }
 
     if (check == true){
-        let url = "/checkDetails";
+        let url = "/login";
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                alert(strResponse.message);
+                alert(strResponse.data);
             }
         };
         xhttp.open("PUT", url, true);
