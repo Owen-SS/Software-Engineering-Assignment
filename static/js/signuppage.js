@@ -99,7 +99,9 @@ function capture(){
             alert("Please add your name");
         }else{
             uploadObject.push(
-                id, 
+                id,
+                username,
+                password,
                 email,
                 phone_number,
                 fName,
@@ -108,9 +110,7 @@ function capture(){
                 addOne,
                 addTwo,
                 addThree,
-                postcode,
-                username,
-                password
+                postcode
             );
             upload = true;
         }
@@ -120,16 +120,16 @@ function capture(){
             alert("Please add company name");
         }else{
             uploadObject.push(
-                id, 
+                id,
+                username,
+                password,
                 email,
                 phone_number,
                 cName,
                 addOne,
                 addTwo,
                 addThree,
-                postcode,
-                username,
-                password
+                postcode
             );
             upload = true;
         }
