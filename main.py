@@ -55,7 +55,6 @@ def jsonUpdate(file_csv, file_json, req): # Update Json - - -
 @app.route("/student/upload", methods=['PUT']) # Device uploader - - -
 def studentUpload():
   file_csv = "data/student/accounts/student-account.csv"
-  file_json = "data/student/accounts/student-account.json"
   messageOK = jsonify(message="Upload complete!")
   messageFail = jsonify(message="Uploading failed...")
   
@@ -123,7 +122,6 @@ def checkDetails():
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
   found = False
-  print("This is the login id for a user:" + session.get('ID'))
   file_csv = "data/student/accounts/student-account.csv"
 
   messageFail = jsonify(data='None', message=404)
@@ -133,7 +131,7 @@ def getdetails():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  id = req[0]
+  id = session.get('ID')
 
   data_send = []
 
@@ -172,7 +170,7 @@ def updateDetails():
   print("req")
   print(req)
 
-  id = req[0]
+  id = session.get('ID')
   index = 0
   replace = []
   for row in data:
@@ -214,7 +212,7 @@ def deleteAccount():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  id = req[0]
+  id = session.get('ID')
   index = 0
   replace = []
   for row in data:
