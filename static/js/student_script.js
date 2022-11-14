@@ -103,22 +103,19 @@ function displaydetails(data){
   let addThree = document.getElementById("AD3");
   let postcode = document.getElementById("postcode");
 
-  email.value = data[0]; 
-  phoneNum.value = data[1]; 
-  fName.value = data[2]; 
-  topName.innerHTML = "Welcome - " + data[2]; 
-  sName.value = data[3];
-  dob.value = data[4];
-  addOne.value = data[5];
-  addTwo.value = data[6];
-  addThree.value = data[7];
-  postcode.value = data[8];
+  email.value = data[3]; 
+  phoneNum.value = data[4]; 
+  fName.value = data[5]; 
+  topName.innerHTML = "Welcome - " + data[5]; 
+  sName.value = data[6];
+  dob.value = data[7];
+  addOne.value = data[8];
+  addTwo.value = data[9];
+  addThree.value = data[10];
+  postcode.value = data[11];
 }
 
 function updateDetails(){
-
-  let id = "Smithy1667832522128"
-
   let fName = document.getElementById("fName").value;
   let sName = document.getElementById("sName").value;
   let email = document.getElementById('email').value;
@@ -141,7 +138,7 @@ function updateDetails(){
     postcode
     );
 
-  url = "/student/update";
+  url = "/update/details";
   let xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function() {
@@ -162,13 +159,11 @@ function updateDetails(){
 
 function deleteAccount(){
   uploadObject = ["None"]
-    let del = false
-    if (confirm("Are you sure you want to delete your account?")) {
-      del = true
-
-    } else {
-      txt = "You pressed Cancel!";
-    }
+  let del = false
+  if (confirm("Are you sure you want to delete your account?")) {
+    del = true
+  } 
+  
   if(del == true){
     let url = "/delete/account";
     let xhttp = new XMLHttpRequest();
