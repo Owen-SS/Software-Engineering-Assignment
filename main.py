@@ -105,11 +105,8 @@ def checkDetails():
   password = req[1]
 
   for row in data:
-    username_raw = row[10]
-    password_raw = row[11]
-
-    username_check = username_raw[2:-1]
-    password_check = password_raw[2:-2]
+    username_check = row[10]
+    password_check = row[11]
 
     if username_check == username:
       if password_check == password:
