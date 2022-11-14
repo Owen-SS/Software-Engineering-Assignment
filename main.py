@@ -81,30 +81,32 @@ def companyUpload():
   else:
     return messageFail
 
-@app.route("/checkDetails", methods=['PUT']) # Device uploader - - -
+@app.route("/login", methods=['PUT']) # Device uploader - - -
 def checkDetails():
-  file_csv = "data/student/accounts/student-account.csv"
+  found = False
 
-  messageOK = jsonify(message="Error")
-  messageFail = jsonify(message="login failed")
+  file_csv = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
+
+  messageFail = jsonify(data="login failed", message=200)
 
   req = request.get_json()
 
-  df = pd.read_csv(file_csv)
-  data = df.to_numpy()
+  for x in file_csv:
+    df = pd.read_csv(x)
+    data = df.to_numpy()
 
-  username = req[0]
-  password = req[1]
+    username = req[0]
+    password = req[1]
 
-  for row in data:
-    username_check = row[10]
-    password_check = row[11]
+    for row in data:
+      username_check = row[1]
+      password_check = row[2]
 
-    if username_check == username:
-      if password_check == password:
-        session['ID'] = row[0]
-        messageOK = jsonify(message="Welcome - " + str(row[3]))
-        return messageOK
+      if username_check == username:
+        if password_check == password:
+          session['ID'] = row[0]
+          messageOK = jsonify(data="Welcome - " + str(row[5]), message=200)
+          return messageOK
 
 
   return messageFail
@@ -113,6 +115,8 @@ def checkDetails():
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
   found = False
+
+  # file_csv = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
   file_csv = "data/student/accounts/student-account.csv"
 
   messageFail = jsonify(data='None', message=404)
@@ -171,9 +175,8 @@ def updateDetails():
       found = True
       df = df.drop([index])
       i = 0
-      x = 1
       while i <=11:
-        if i >=1 and i <=9:
+        if i >=3 and i <=11:
           replace.append(req[i])
         else:
           data_edit = row[i]
