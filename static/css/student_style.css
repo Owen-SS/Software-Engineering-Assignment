@@ -44,35 +44,24 @@ label, span, .title{
   align-content: center;
 }
 
-#dashboard div {
-  width: 100%;
-  margin-top: 2%;
-  min-height: 200px;
-  background-color: rgb(250, 249, 248);
+#dashboard .divs{
+  margin-top: 3%;
+  background-color: rgb(250, 249,248);
 }
 
 #StudentDetails label{
   text-align: center;
   background-color: white;
-  padding: 15px 20px;
+  padding: 15px 1%;
   display: inline-block;
   border-radius: 5px;
-  width: 35%;
+  width: 47%;
   color: rgb(145, 145, 145);
 }
 
-img{
-  width: 10%;
-  display: grid;
-}
-
-#userinput{
-  position: absolute;
-  width: 20%;
-}
 
 #StudentDetails input{
-  width: 40%;
+  width: 49%;
   padding: 15px 20px;
   margin: 10px 0;
   display: inline-block;
@@ -81,6 +70,7 @@ img{
   border-radius: 5px;
   outline:none;
 }
+
 
 #StudentDetails div{
   margin-left: 2%;
@@ -91,7 +81,7 @@ img{
 }
 
 #StudentDetails .dob{
-  height: 20%;
+  height: 5%;
 }
 
 #StudentDetails .address{
