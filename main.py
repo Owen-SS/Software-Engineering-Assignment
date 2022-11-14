@@ -115,29 +115,10 @@ def checkDetails():
 
 
   return messageFail
-   
 
-@app.route("/displaydetails", methods =['GET'])
+
+@app.route("/displaydetails", methods =['PUT'])
 def getdetails():
-  print("Getting details")
-
-  root_path =os.path.realpath(os.path.dirname(__file__)) 
-  file_path = os.path.join(root_path,"data","student/accounts/student-account.json")
-
-  with open(file_path,'r') as file:
-    file_contents = json.load(file)
-    print(file_contents)
-    
-    response = make_response(
-    file_contents,
-    200
-    )
-    return response
-
-  return "Error reading file"
-
-@app.route("/displaydetails_V2", methods =['PUT'])
-def getdetailsV2():
   found = False
   file_csv = "data/student/accounts/student-account.csv"
 
