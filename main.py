@@ -1,7 +1,9 @@
-from flask import Flask, render_template, jsonify, request, make_response
+from flask import Flask, render_template, jsonify, request, make_response, session
 import sys, json, os, csv
 import pandas as pd
 app = Flask('app')
+#This secret key is needed for session
+app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
 @app.route('/')
 def hello_world():
@@ -107,10 +109,10 @@ def checkDetails():
   for row in data:
     username_check = row[10]
     password_check = row[11]
-
     if username_check == username:
       if password_check == password:
         id = row[0]
+        session['ID'] = id
         messageOK = jsonify(message="Welcome - " + str(row[3]))
         return messageOK
 
@@ -120,6 +122,8 @@ def checkDetails():
 
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
+  #This is just a test to make sure cookies work. In order to get the value from a cookie, use session.get('ENTER COOKIE NAME YOU WANT')
+  print("This is the login id for a user:" + session.get('ID'))
   found = False
   file_csv = "data/student/accounts/student-account.csv"
 
