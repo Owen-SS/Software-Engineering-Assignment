@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/student_style.css">
-    <script src="../static/js/student_script.js"></script>
-    <title>Student Page</title>
+    <link rel="stylesheet" href="../static/css/employer.css">
+    <script src="../static/js/employer.js"></script>
+    <title>Employer Page</title>
 </head>
 <body onload="getDetails()">
     <div id="top">
@@ -19,20 +19,14 @@
     </div>
     </div>
     <div id="dashboard">
-        <div id = "StudentDetails" class = "divs">
+        <div id = "EmployerDetails" class = "divs">
             <div class="name">
-                <input type="text" placeholder="First Name" id="fName" disabled >
-                <input type="text" placeholder="Second Name" id="sName" disabled>
+                <input type="text" placeholder="Company Name" id="cName" disabled >
             </div>
 
             <div id="otherDetails">
-                <input type="text" placeholder="Email" id="email" disabled>
-                <input type="text" placeholder="Phone number" id="phoneNum" disabled>
-            </div>
-
-            <div class="dob">
-                <label for="DOB"><b>Date of birth</b></label>
-                <input type="date" placeholder="Date of Birth" name="DOB" id="dob" disabled>
+                <input type="text" placeholder="Company Email" id="cEmail" disabled>
+                <input type="text" placeholder="Phone number" id="cPhoneNum" disabled>
             </div>
 
             <div class="address">
@@ -42,6 +36,12 @@
                 <input type="text" placeholder="Postcode" id="postcode" disabled>
             </div>
 
+            <div class="userAccount">
+                <input type="text" placeholder="Username" id="cUsername" disabled>
+                <input type="text" placeholder="Password ****" id="cPassword" disabled>
+
+            </div>
+
             <div class="buttons">
                 <button type="button" id="edit" value="Yes" onclick="editMode(value)">Edit</button>
                 <button type="button" id="save" value="No" style="background-color: #eee;" onclick="editMode(value)"> Save</button>
@@ -49,20 +49,20 @@
             </div>
         </div>
 
-        <div id="applicationTrack" class = "divs">
-            <h2> Track applications</h2>
+        <div id="createJobListing" class = "divs">
+            <h2> Create Job Listing</h2>
         </div>
 
-        <div id="appliedApplications" class = "divs">
-            <h2> Applied application</h2>
+        <div id="Insights" class = "divs">
+            <h2> Insights?(How many people have viewed, clicked on?)</h2>
         </div>
 
-        <div id="favourites" class = "divs">
-            <h2>Favourites</h2>
+        <div id="job listings" class = "divs">
+            <h2>job listings(if there are many different jobs the company are psoting maybe a way to track applicants off this>)</h2>
         </div>
 
-        <div id = "upload cv" class = "divs">
-            <h2>Upload CV</h2>
+        <div id = "PremiumOption" class = "divs">
+            <h2>Premium option in which allows a company to pay money in order to get their job alert to be seen by more people</h2>
         </div>
     </div>
 

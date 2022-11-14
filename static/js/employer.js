@@ -5,11 +5,9 @@ function editMode(edit) {
     var editBtn = document.getElementById("edit");
     var saveBtn = document.getElementById("save");
   
-    var fName = document.getElementById("fName");
-    var sName = document.getElementById("sName");
-    var email = document.getElementById('email')
-    var phoneNum = document.getElementById('phoneNum')
-    var dob = document.getElementById("dob");
+    var cName = document.getElementById("cName");
+    var cEmail = document.getElementById('cEmail')
+    var cPhoneNum = document.getElementById('cPhoneNum')
     var addOne = document.getElementById("AD1");
     var addTwo = document.getElementById("AD2");
     var addThree = document.getElementById("AD3");
@@ -19,11 +17,9 @@ function editMode(edit) {
         console.log("edit")
         editBtn.style.backgroundColor = "#eee";
         saveBtn.style.backgroundColor = "#2196F3";
-        fName.removeAttribute("disabled");
-        sName.removeAttribute("disabled");
-        email.removeAttribute("disabled");
-        phoneNum.removeAttribute("disabled");
-        dob.removeAttribute("disabled");
+        cName.removeAttribute("disabled");
+        cEmail.removeAttribute("disabled");
+        cPhoneNum.removeAttribute("disabled");
         addOne.removeAttribute("disabled");
         addTwo.removeAttribute("disabled");
         addThree.removeAttribute("disabled");
@@ -33,11 +29,9 @@ function editMode(edit) {
         console.log("save")
         editBtn.style.backgroundColor = "#2196F3";
         saveBtn.style.backgroundColor = "#eee";
-        fName.setAttribute("disabled", "disabled");
-        sName.setAttribute("disabled", "disabled");
-        email.setAttribute("disabled", "disabled");
-        phoneNum.setAttribute("disabled", "disabled");
-        dob.setAttribute("disabled", "disabled");
+        cName.setAttribute("disabled", "disabled");
+        cEmail.setAttribute("disabled", "disabled");
+        cPhoneNum.setAttribute("disabled", "disabled");
         addOne.setAttribute("disabled", "disabled");
         addTwo.setAttribute("disabled", "disabled");
         addThree.setAttribute("disabled", "disabled");
@@ -48,11 +42,9 @@ function editMode(edit) {
   
   function cleardetails(){
   
-      document.getElementById('fName').value = "";
-      document.getElementById("sName").value="";
-      document.getElementById('email').value = "";
-      document.getElementById('phoneNum').value = "";
-      document.getElementById("dob").value="";
+      document.getElementById('cName').value = "";
+      document.getElementById('cEmail').value = "";
+      document.getElementById('cPhoneNum').value = "";
       document.getElementById("AD1").value="";
       document.getElementById("AD2").value="";
       document.getElementById("AD3").value="";
@@ -93,22 +85,18 @@ function editMode(edit) {
   
   function displaydetails(data){
     let topName = document.getElementById("top-name");
-    let fName = document.getElementById("fName");
-    let sName = document.getElementById("sName");
-    let email = document.getElementById('email');
-    let phoneNum = document.getElementById('phoneNum');
-    let dob = document.getElementById("dob");
+    let cName = document.getElementById("cName");
+    let cEmail = document.getElementById('cEmail');
+    let cPhoneNum = document.getElementById('cPhoneNum');
     let addOne = document.getElementById("AD1");
     let addTwo = document.getElementById("AD2");
     let addThree = document.getElementById("AD3");
     let postcode = document.getElementById("postcode");
   
-    email.value = data[0]; 
-    phoneNum.value = data[1]; 
-    fName.value = data[2]; 
+    cEmail.value = data[0]; 
+    cPhoneNum.value = data[1]; 
+    cName.value = data[2]; 
     topName.innerHTML = "Welcome - " + data[2]; 
-    sName.value = data[3];
-    dob.value = data[4];
     addOne.value = data[5];
     addTwo.value = data[6];
     addThree.value = data[7];
@@ -119,22 +107,18 @@ function editMode(edit) {
   
     let id = "Smithy1667832522128"
   
-    let fName = document.getElementById("fName").value;
-    let sName = document.getElementById("sName").value;
-    let email = document.getElementById('email').value;
-    let phoneNum = document.getElementById('phoneNum').value;
-    let dob = document.getElementById("dob").value;
+    let cName = document.getElementById("cName").value;
+    let cEmail = document.getElementById('cEmail').value;
+    let cPhoneNum = document.getElementById('cPhoneNum').value;
     let addOne = document.getElementById("AD1").value;
     let addTwo = document.getElementById("AD2").value;
     let addThree = document.getElementById("AD3").value;
     let postcode = document.getElementById("postcode").value;
   
     uploadObject.push(
-      email,
-      phoneNum,
-      fName,
-      sName,
-      dob,
+      cEmail,
+      cPhoneNum,
+      cName,
       addOne,
       addTwo,
       addThree,

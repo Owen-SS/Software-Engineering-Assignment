@@ -12,7 +12,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     position: fixed;
     margin-left: 80%;
     z-index: 1;
-    background-color: #2195f3;
+    background-color:#f32121;
     width: 25%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -22,7 +22,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   
 #user{
     color: white;
-    background-color: #2196F3;
+    background-color: #f32121;
     height: 100px;
     width: 30%;
     max-width: 300px;
@@ -49,18 +49,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     background-color: rgb(250, 249,248);
 }
   
-#StudentDetails label{
-    text-align: center;
-    background-color: white;
-    padding: 15px 1%;
-    display: inline-block;
-    border-radius: 5px;
-    width: 47%;
-    color: rgb(145, 145, 145);
-  }
-  
-  
-#StudentDetails input{
+   
+#EmployerDetails input{
     width: 49%;
     padding: 15px 20px;
     margin: 10px 0;
@@ -70,25 +60,29 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     border-radius: 5px;
     outline:none;
 }
-  
-  
-#StudentDetails div{
+
+#EmployerDetails div{
     margin-left: 2%;
 }
   
-#StudentDetails .name{
+#EmployerDetails .name{
+    height: 20%;
+}
+
+#EmployerDetails .otherDetails{
+    height: 20%;
+}
+
+  
+#EmployerDetails .address{
+    height: 20%;
+}
+
+#EmployerDetails .userAccount{
     height: 20%;
 }
   
-#StudentDetails .dob{
-    height: 5%;
-}
-  
-  #StudentDetails .address{
-    height: 20%;
-}
-  
-#StudentDetails button{
+#EmployerDetails button{
     text-align: center;
     display: inline-block;
     background-color: #2196F3;
@@ -101,10 +95,3 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     border-radius: 5px;
 }
   
-#student-options {
-    background-color: #eee;
-    margin-top: 5%;
-    width: 30%;
-    height: 60%;
-    float: right;
-}
