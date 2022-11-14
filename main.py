@@ -29,34 +29,13 @@ def render_signuppage():
 def render_error():
   return render_template('error.html')
 
-# - - - - Json update - - - -
-  
-def jsonUpdate(file_csv, file_json, req): # Update Json - - -
-  
-  jsonArray = []
-  
-  with open(file_csv, 'a') as fd:
-    fd.write(str(req) + "\n")
-  
-  with open(file_csv, encoding='utf-8') as csvf:
-    csvReader = csv.DictReader(csvf)
-    
-    for row in csvReader:
-      jsonArray.append(row)
-      
-    with open(file_json, 'w', encoding='utf-8') as jsonf:
-      jsonString = json.dumps(jsonArray, indent=4)
-      jsonf.write(jsonString)
-      
-  return
-
 # Uploading data - - -
 
-@app.route("/student/upload", methods=['PUT']) # Device uploader - - -
+@app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
   file_csv = "data/student/accounts/student-account.csv"
-  messageOK = jsonify(message="Upload complete!")
-  messageFail = jsonify(message="Uploading failed...")
+  messageOK = jsonify(data="Account created!", message= 200)
+  messageFail = jsonify(data="None", message=500)
   
   req = request.get_json()
 
@@ -69,18 +48,18 @@ def studentUpload():
 
   if request.is_json:
     df.to_csv(file_csv, encoding='utf-8', index=False)
-    return messageOK, 200
+    return messageOK
 
   else:
-    return messageFail, 400
+    return messageFail
 
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
   print("company upload")
   file_csv = "data/company/accounts/company-account.csv"
 
-  messageOK = jsonify(message="Upload complete!")
-  messageFail = jsonify(message="Uploading failed...")
+  messageOK = jsonify(data="Account created!", message= 200)
+  messageFail = jsonify(data="None", message=500)
   
   req = request.get_json()
 
@@ -93,10 +72,10 @@ def companyUpload():
 
   if request.is_json:
     df.to_csv(file_csv, encoding='utf-8', index=False)
-    return messageOK, 200
+    return messageOK
 
   else:
-    return messageFail, 400
+    return messageFail
 
 @app.route("/checkDetails", methods=['PUT']) # Device uploader - - -
 def checkDetails():

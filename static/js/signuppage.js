@@ -1,7 +1,24 @@
 let account = "student"; 
 
-function capture(){
+function cleardetails(){
 
+    document.getElementById('fName').value = "";
+    document.getElementById("sName").value="";
+    document.getElementById("cName").value="";
+    document.getElementById('email').value = "";
+    document.getElementById('phoneNum').value = "";
+    document.getElementById("dob").value="";
+    document.getElementById("AD1").value="";
+    document.getElementById("AD2").value="";
+    document.getElementById("AD3").value="";
+    document.getElementById("postcode").value="";
+    document.getElementById("username").value="";
+    document.getElementById("password").value="";
+    document.getElementById("password_match").value="";
+      
+}
+
+function capture(){
     let uploadObject = [];
     let user_input = [];
     let check = [];
@@ -135,7 +152,13 @@ function capture(){
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                alert(strResponse.message);
+                if (strResponse.message == 200){
+                    cleardetails();
+                    alert(strResponse.data);
+                }else {
+                    alert("Whoops somthing went wrong!");
+                    console.log("Save details error - " + strResponse.message);
+                }
             }
         };
         xhttp.open("PUT", url, true);

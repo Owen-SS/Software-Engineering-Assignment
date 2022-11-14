@@ -43,20 +43,20 @@ function editMode(edit) {
       addThree.setAttribute("disabled", "disabled");
       postcode.setAttribute("disabled", "disabled");
       updateDetails();
-  }
+    }
 }
 
 function cleardetails(){
 
-    document.getElementById('fName').value = "";
-    document.getElementById("sName").value="";
-    document.getElementById('email').value = "";
-    document.getElementById('phoneNum').value = "";
-    document.getElementById("dob").value="";
-    document.getElementById("AD1").value="";
-    document.getElementById("AD2").value="";
-    document.getElementById("AD3").value="";
-    document.getElementById("postcode").value="";
+  document.getElementById('fName').value = "";
+  document.getElementById("sName").value="";
+  document.getElementById('email').value = "";
+  document.getElementById('phoneNum').value = "";
+  document.getElementById("dob").value="";
+  document.getElementById("AD1").value="";
+  document.getElementById("AD2").value="";
+  document.getElementById("AD3").value="";
+  document.getElementById("postcode").value="";
     
 }
 
