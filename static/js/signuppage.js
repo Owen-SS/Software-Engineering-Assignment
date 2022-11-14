@@ -114,6 +114,7 @@ function capture(){
                 username,
                 password
             );
+            upload = true;
         }
     }
     red_items(check, account)

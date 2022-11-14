@@ -74,17 +74,25 @@ def studentUpload():
   else:
     return messageFail, 400
 
-@app.route("/company/upload", methods=['PUT']) # Device uploader - - -
+@app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
+  print("company upload")
   file_csv = "data/company/accounts/company-account.csv"
-  file_json = "data/company/accounts/company-account.json"
+
   messageOK = jsonify(message="Upload complete!")
   messageFail = jsonify(message="Uploading failed...")
   
   req = request.get_json()
 
+  try:
+    df = pd.read_csv(file_csv)
+  except Exception:
+    print("Create a file!")
+
+  df.loc[len(df)] = req
+
   if request.is_json:
-    jsonUpdate(file_csv, file_json, req)
+    df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK, 200
 
   else:
