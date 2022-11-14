@@ -93,20 +93,17 @@ function editMode(edit) {
     let addThree = document.getElementById("AD3");
     let postcode = document.getElementById("postcode");
   
-    cEmail.value = data[0]; 
-    cPhoneNum.value = data[1]; 
-    cName.value = data[2]; 
-    topName.innerHTML = "Welcome - " + data[2]; 
-    addOne.value = data[5];
-    addTwo.value = data[6];
-    addThree.value = data[7];
-    postcode.value = data[8];
+    cEmail.value = data[3]; 
+    cPhoneNum.value = data[4]; 
+    cName.value = data[5]; 
+    topName.innerHTML = "Welcome - " + data[5]; 
+    addOne.value = data[6];
+    addTwo.value = data[7];
+    addThree.value = data[8];
+    postcode.value = data[9];
   }
   
   function updateDetails(){
-  
-    let id = "Smithy1667832522128"
-  
     let cName = document.getElementById("cName").value;
     let cEmail = document.getElementById('cEmail').value;
     let cPhoneNum = document.getElementById('cPhoneNum').value;
@@ -125,7 +122,7 @@ function editMode(edit) {
       postcode
       );
   
-    url = "/student/update";
+    url = "/update/details";
     let xhttp = new XMLHttpRequest();
   
     xhttp.onreadystatechange = function() {
@@ -145,5 +142,38 @@ function editMode(edit) {
   }
   
   function deleteAccount(){
-    let id = "Smithy1667832522128"
+    uploadObject = ["None"]
+    let del = false
+    if (confirm("Are you sure you want to delete your account?")) {
+      del = true
+    } 
+    
+    if(del == true){
+      let url = "/delete/account";
+      let xhttp = new XMLHttpRequest();
+      let data_res = "Error"
+      xhttp.onreadystatechange = function() {
+        let strResponse = "Error: no response";
+        if (this.readyState == 4 && this.status == 200) {
+          console.log("here")
+          strResponse = JSON.parse(this.responseText);
+          data_res = strResponse.data
+  
+          console.log(data_res)
+          if (strResponse.message != 404){
+            displaydetails(data_res)
+          }else{
+            alert("Whoops somthing went wrong!")
+            console.log("Get details error - " + strResponse.message)
+          }
+        }
+      };
+      xhttp.open("PUT", url, true);
+      // Converting JSON data to string
+      var data = JSON.stringify(uploadObject);
+      // Set the request header i.e. which type of content you are sending
+      xhttp.setRequestHeader("Content-Type", "application/json");
+      //send it
+      xhttp.send(data);
+    }
   }
