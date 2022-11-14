@@ -7,7 +7,11 @@ app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
 @app.route('/')
 def hello_world():
-  return render_template('index.html')
+  return render_template('login.html')
+
+@app.route('/jobview')
+def render_jobview():
+  return render_template('jobview.html')
 
 @app.route('/employer')
 def render_employer():
