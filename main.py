@@ -199,13 +199,13 @@ def updateDetails():
   else:
     return messageFail
 
-@app.route("/delete/Account", methods =['PUT'])
+@app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
-
+  found = False
   file_csv = "data/student/accounts/student-account.csv"
 
-  messageOK = jsonify(message="Deleted account")
-  messageFail = jsonify(message="Something went wrong")
+  messageOK = jsonify(data="Deleted account",message=200)
+  messageFail = jsonify(data='None', message=404)
 
   req = request.get_json()
 
