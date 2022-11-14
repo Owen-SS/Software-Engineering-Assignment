@@ -109,10 +109,10 @@ def checkDetails():
   for row in data:
     username_check = row[10]
     password_check = row[11]
+
     if username_check == username:
       if password_check == password:
-        id = row[0]
-        session['ID'] = id
+        session['ID'] = row[0]
         messageOK = jsonify(message="Welcome - " + str(row[3]))
         return messageOK
 
@@ -122,9 +122,8 @@ def checkDetails():
 
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
-  #This is just a test to make sure cookies work. In order to get the value from a cookie, use session.get('ENTER COOKIE NAME YOU WANT')
-  print("This is the login id for a user:" + session.get('ID'))
   found = False
+  print("This is the login id for a user:" + session.get('ID'))
   file_csv = "data/student/accounts/student-account.csv"
 
   messageFail = jsonify(data='None', message=404)
@@ -204,11 +203,33 @@ def updateDetails():
 
 @app.route("/delete/Account", methods =['PUT'])
 def deleteAccount():
-  
+
   file_csv = "data/student/accounts/student-account.csv"
 
-  messageOK = jsonify(message="Update complete!")
-  messageFail = jsonify(message="Update failed...")
+  messageOK = jsonify(message="Deleted account")
+  messageFail = jsonify(message="Something went wrong")
+
+  req = request.get_json()
+
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
+
+  id = req[0]
+  index = 0
+  replace = []
+  for row in data:
+    id_check = row[0]
+
+    if id_check == id:
+      found = True
+      df = df.drop([index])
+    index+=1
+
+  if found == True:
+    df.to_csv(file_csv, encoding='utf-8', index=False)
+    return messageOK
+  else:
+    return messageFail
 
 
 app.run(host='0.0.0.0', port=8080)

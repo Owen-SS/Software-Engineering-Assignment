@@ -159,3 +159,7 @@ function updateDetails(){
   //send it
   xhttp.send(data);
 }
+
+function deleteAccount(){
+  let id = "Smithy1667832522128"
+}
