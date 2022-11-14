@@ -1,4 +1,4 @@
-id,email,phone_number,name,surname,dob,addressOne,addressTwo,addressThree,postcode,username,password
+id,username,password,email,phone_number,name,surname,dob,addressOne,addressTwo,addressThree,postcode
 
 Smithy1667832522128,john@smithy.com,07983625567,John,Smithy,2000-11-17,Lint hill,Small town,Gillfod,GL7 2XB,jsmithy00,Smithy22
 
