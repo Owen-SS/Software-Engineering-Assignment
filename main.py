@@ -110,6 +110,7 @@ def checkDetails():
 
     if username_check == username:
       if password_check == password:
+        id = row[0]
         messageOK = jsonify(message="Welcome - " + str(row[3]))
         return messageOK
 
