@@ -198,4 +198,13 @@ def updateDetails():
   else:
     return messageFail
 
+@app.route("/delete/Account", methods =['PUT'])
+def deleteAccount():
+  
+  file_csv = "data/student/accounts/student-account.csv"
+
+  messageOK = jsonify(message="Update complete!")
+  messageFail = jsonify(message="Update failed...")
+
+
 app.run(host='0.0.0.0', port=8080)

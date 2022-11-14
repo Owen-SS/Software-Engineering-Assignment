@@ -19,7 +19,7 @@
     </div>
     </div>
     <div id = "StudentDashboard">
-        <form class = "userinput">
+        <div class = "userinput">
             <div class="name">
                 <input type="text" placeholder="First Name" id="fName" disabled >
                 <input type="text" placeholder="Second Name" id="sName" disabled>
@@ -45,8 +45,9 @@
             <div class="buttons">
                 <button type="button" id="edit" value="Yes" onclick="editMode(value)">Edit</button>
                 <button type="button" id="save" value="No" style="background-color: #eee;" onclick="editMode(value)"> Save</button>
+                <button type="button" id="delete" style="background-color: #f32121;" onclick="deleteAccount()"> Delete account</button>
             </div>
-        </form>
+        </div>
     </div>
 
     <div id="button-list">
