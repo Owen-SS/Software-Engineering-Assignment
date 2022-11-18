@@ -35,6 +35,58 @@ class Post(db.Model):
     return f"Post ('{self.title}', '{self.date_posted}', '{self.content}')"
 
 
+#Added code by owen may not work
+#Code does not work
+#class UserStudent(db.Model):
+  #id = db.Column(db.Integer, primary_key= True)
+  #firstName =  db.Column(db.String(20), unique = True, nullable = False )
+  #secondName = db.Column(db.String(20), unique = True, nullable = False )
+  #email = db.Column(db.String(120), unique = True, nullable = False )
+  #phoneNumber =  db.Column(db.String(11), unique = True, nullable = False )
+  #dateOfBirth = db.Column(db.String(10), unique = True, nullable = False )
+  #addressOne = db.Column(db.String(30), unique = True, nullable = False )
+  #addressTwo = db.Column(db.String(30), unique = True, nullable = False )
+  #addressThree = db.Column(db.String(30), unique = True, nullable = False )
+  #postcode = db.Column(db.String(10), unique = True, nullable = False )
+
+  #username = db.Column(db.String(20), unique = True, nullable = False )
+  #password = db.Column(db.String(60), nullable = False)
+  #passwordMatch = db.Column(db.String(60), nullable = False)
+
+
+  def __repr__(self):
+    return f"UserStudent('{self.firstName}', '{self.secondName}', '{self.email}', '{self.phoneNumber}', '{self.dateOfBirth}', '{self.addressOne}', '{self.addressTwo}', '{self.addressThree}', '{self.postcode}', '{self.username}', '{self.password}', '{self.passwordMatch}')"
+
+app.route("/Userdata",methods = ["POST"])
+#Code works
+uname="JENER"
+uemail="BBB@GMAIL.COM"
+upassword = "thepassword"
+
+user1 = User(username= uname, email= uemail,password = upassword)
+app.app_context().push()
+db.session.add(user1)
+db.session.commit()
+#code does not work below
+#app.route("/Userdatafromform", methods = ["POST"])
+#def userdatafromform():
+  #fname= request.form.id['fName']
+  #sname= request.form.id['sName']
+ # uemail=request.form.id["email"]
+  #pnumber=request.form["phoneNum"]
+ # dateob=request.form.id["dob"]
+ # add1=request.form.id["AD1"]
+ # add2=request.form.id["AD2"]
+ # add3=request.form.id["AD3"]
+  #pc=request.form.id["postcode"] 
+  #uname=request.form.id["username"] 
+  #upassword=request.form.id["password"]
+  #upasswordm=request.form.id["password_match"]
+
+  #userInput = UserStudent(firstName= fname , secondName = sname, email= uemail, phoneNumber= pnumber , dateOfBirth= dateob , addressOne= add1, addressTwo = add2, addressThree = add3, postcode=pc, username=uname, password=upassword, passwordMatch=upasswordm)
+  #app.app_context().push()
+  #db.session.add(userInput)
+  #db.session.commit()
 
 
 @app.route('/')
