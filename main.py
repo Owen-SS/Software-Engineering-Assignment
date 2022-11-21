@@ -13,92 +13,8 @@ from database import *
 
 app = Flask('app')
 
-"""
 #This secret key is needed for session
 app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
-
-class User(db.Model):
-  id = db.Column(db.Integer, primary_key= True)
-  username = db.Column(db.String(20), unique = True, nullable = False )
-  email = db.Column(db.String(120), unique = True, nullable = False )
-  image_file = db.Column(db.String(20), nullable = False, default= 'default.jpg')
-  password = db.Column(db.String(60), nullable = False)
-  posts = db.relationship('Post', backref='author',lazy= True)
-
-
-  def __repr__(self):
-    return f"User ('{self.username}', '{self.email}', '{self.image_file}')"
-
-class Post(db.Model):
-  id = db.Column(db.Integer, primary_key= True)
-  title = db.Column(db.String(100), nullable = False)
-  date_posted = db.Column(db.DateTime,nullable=False, default = datetime.utcnow)
-  content = db.Column(db.Text, nullable = False)
-  user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
-
-  def __repr__(self):
-    return f"Post ('{self.title}', '{self.date_posted}', '{self.content}')"
-
-
-#Added code by owen may not work
-#Code does not work
-#class UserStudent(db.Model):
-  #id = db.Column(db.Integer, primary_key= True)
-  #firstName =  db.Column(db.String(20), unique = True, nullable = False )
-  #secondName = db.Column(db.String(20), unique = True, nullable = False )
-  #email = db.Column(db.String(120), unique = True, nullable = False )
-  #phoneNumber =  db.Column(db.String(11), unique = True, nullable = False )
-  #dateOfBirth = db.Column(db.String(10), unique = True, nullable = False )
-  #addressOne = db.Column(db.String(30), unique = True, nullable = False )
-  #addressTwo = db.Column(db.String(30), unique = True, nullable = False )
-  #addressThree = db.Column(db.String(30), unique = True, nullable = False )
-  #postcode = db.Column(db.String(10), unique = True, nullable = False )
-
-  #username = db.Column(db.String(20), unique = True, nullable = False )
-  #password = db.Column(db.String(60), nullable = False)
-  #passwordMatch = db.Column(db.String(60), nullable = False)
-
-
-  def __repr__(self):
-    return f"UserStudent('{self.firstName}', '{self.secondName}', '{self.email}', '{self.phoneNumber}', '{self.dateOfBirth}', '{self.addressOne}', '{self.addressTwo}', '{self.addressThree}', '{self.postcode}', '{self.username}', '{self.password}', '{self.passwordMatch}')"
-
-
-app.route("/Userdata",methods = ["POST"])
-#Code works
-uname="JENER"
-uemail="BBB@GMAIL.COM"
-upassword = "thepassword"
-
-user1 = User(username= uname, email= uemail,password = upassword)
-app.app_context().push()
-db.session.add(user1)
-db.session.commit()
-#code does not work below
-#app.route("/Userdatafromform", methods = ["POST"])
-#def userdatafromform():
-  #fname= request.form.id['fName']
-  #sname= request.form.id['sName']
- # uemail=request.form.id["email"]
-  #pnumber=request.form["phoneNum"]
- # dateob=request.form.id["dob"]
- # add1=request.form.id["AD1"]
- # add2=request.form.id["AD2"]
- # add3=request.form.id["AD3"]
-  #pc=request.form.id["postcode"] 
-  #uname=request.form.id["username"] 
-  #upassword=request.form.id["password"]
-  #upasswordm=request.form.id["password_match"]
-
-  #userInput = UserStudent(firstName= fname , secondName = sname, email= uemail, phoneNumber= pnumber , dateOfBirth= dateob , addressOne= add1, addressTwo = add2, addressThree = add3, postcode=pc, username=uname, password=upassword, passwordMatch=upasswordm)
-  #app.app_context().push()
-  #db.session.add(userInput)
-  #db.session.commit()
-
-"""
-
-currentUserID = -1
 
 
 #Our database connection variables
@@ -108,6 +24,18 @@ PASSWORD = "software-database" #Need to reset password lol
 DATABASE = 'assignment'
 
 db = Database(HOST,USER,PASSWORD,DATABASE)
+
+def datefix(raw_dob):
+
+  print(raw_dob)
+  ym = "{year}-{month}".format(month=raw_dob.month, year=raw_dob.year)
+  d = "{day}".format(day=raw_dob.day)
+  if int(d) < 10:
+    d = "-0"+ str(d)
+  dob = ym + d
+
+  return dob
+
 
 
 @app.route('/')
@@ -148,7 +76,7 @@ def studentUpload():
 
   try:
     req = request.get_json()
-    print("Adding student account: \n", req)
+    # print("Adding student account: \n", req)
     db.addStudent(req)
     return messageOK
   except:
@@ -164,7 +92,7 @@ def companyUpload():
 
   try:
     req = request.get_json()
-    print("Adding employer account: \n", req)
+    # print("Adding employer account: \n", req)
     db.addEmployer(req)
     return messageOK
   except:
@@ -186,9 +114,9 @@ def login():
     req = request.get_json()
     print("Checking account details: ", req)
     
-    #Setting global currentUserID var so can be accessed on all web pages
-    global currentUserID
+    #caching currentUserID var so can be accessed on all web pages
     currentUserID = db.login(req[0], req[1])
+    session['ID'] = currentUserID
 
     if currentUserID != -1:
       #Do epic stuff here to reroute to correct account
@@ -202,23 +130,28 @@ def login():
 
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
-  messageFail = jsonify(data='failed to load account data', message=404)
+
+  id = session.get('ID')
 
   try:
     #Get user's data from correlating userID
-    account_data = db.getAccountData(currentUserID)
-    print(account_data)
+    account_data = db.getAccountData(id)
+    account_data = account_data[0]
+    data_list = []
 
-    #Pass data to website
-    data_to_send = jsonify(account_data)
-    print(data_to_send)
+    for x in account_data:
+      data_list.append(x)
 
-    #Ask someone to help to pass to site because IDK how rn
+    print(data_list)
 
+    
+    dob = datefix(data_list[7])
+    data_list[7] = dob
+    
     #This sends account data website
-    return jsonify(data = data_to_send)
-  except:
-    return messageFail
+    return jsonify(data = data_list)
+  except Exception as e:
+    return jsonify(data='failed to load account data', message=404, error = str(e))
 
 
 @app.route("/update/details", methods =['PUT'])

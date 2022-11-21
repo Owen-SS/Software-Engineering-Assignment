@@ -69,7 +69,6 @@ function getDetails(){
   xhttp.onreadystatechange = function() {
     let strResponse = "Error: no response";
     if (this.readyState == 4 && this.status == 200) {
-      console.log("here")
       strResponse = JSON.parse(this.responseText);
       data_res = strResponse.data
 
@@ -79,6 +78,7 @@ function getDetails(){
       }else{
         alert("Whoops somthing went wrong!")
         console.log("Get details error - " + strResponse.message)
+        console.log("Error - " + strResponse.error)
       }
     }
   };
