@@ -27,7 +27,7 @@ db = Database(HOST,USER,PASSWORD,DATABASE)
 
 def datefix(raw_dob):
 
-  print(raw_dob)
+  #print(raw_dob)
   ym = "{year}-{month}".format(month=raw_dob.month, year=raw_dob.year)
   d = "{day}".format(day=raw_dob.day)
   if int(d) < 10:
@@ -92,7 +92,7 @@ def companyUpload():
 
   try:
     req = request.get_json()
-    # print("Adding employer account: \n", req)
+    print("Adding employer account: \n", req)
     db.addEmployer(req)
     return messageOK
   except:

@@ -8,8 +8,13 @@ class Database(object):
         self.database = database
         self.schema = self.connect()
 
-
+    
     def connect(self):
+        """
+        Connects to database
+
+        :return schema: schema that is used within the database
+        """
         schema = mysql.connector.connect(
         host = self.host,
         user = self.user,
@@ -20,6 +25,14 @@ class Database(object):
 
 
     def executeQuery(self, query):
+        """
+        Executes query in the database
+
+        :param query: string of SQL query to execute
+
+        :return outputList: Output that is returned from the executed query within the database
+        """
+
         print("executing: ", query)
 
         try:
@@ -34,6 +47,10 @@ class Database(object):
 
 
     def commit(self):
+        """
+        Commits changes made to the database
+        """
+
         self.schema.commit()
 
 
@@ -41,14 +58,20 @@ class Database(object):
     #Addding to database
 
     def addStudent(self, studentData):
+        """
+        Adds a student account the student table in the schema
+
+        :param studentData: list of student account data to be added
+        """
+
         query = """INSERT INTO student 
         (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
         VALUES
         ("{username}", "{password}", "{email}", "{phonenumber}", "{name}", 
-        "{surname}", "{dob}", "{address1}", "{address2}", "{address3}", "{postcode}");""".format(#studentData[0], 
-        username=studentData[1], password=studentData[2], email=studentData[3], phonenumber=studentData[4], 
-        name=studentData[5], surname=studentData[6], dob=studentData[7], address1=studentData[8], 
-        address2=studentData[9], address3=studentData[10], postcode=studentData[11])
+        "{surname}", "{dob}", "{address1}", "{address2}", "{address3}", "{postcode}");""".format( 
+        username=studentData[0], password=studentData[1], email=studentData[2], phonenumber=studentData[3], 
+        name=studentData[4], surname=studentData[5], dob=studentData[6], address1=studentData[7], 
+        address2=studentData[8], address3=studentData[9], postcode=studentData[10])
 
         self.executeQuery(query)
 
@@ -56,14 +79,20 @@ class Database(object):
 
 
     def addEmployer(self, employerData):
+        """
+        Adds an employer account to the employer table in the schema
+
+        :param employerData: list of employerData to be added
+        """
+
         query = """INSERT INTO employer 
         (username,password,email,phonenumber,companyname,address1,address2,address3,postcode)
         VALUES
         ("{username}", "{password}", "{email}", "{phonenumber}", "{companyname}", 
-        "{address1}", "{address2}", "{address3}", "{postcode}");""".format(#studentData[0], 
-        username=employerData[1], password=employerData[2], email=employerData[3], phonenumber=employerData[4], 
-        companyname=employerData[5], address1=employerData[6], address2=employerData[7], address3=employerData[8], 
-        postcode=employerData[9])
+        "{address1}", "{address2}", "{address3}", "{postcode}");""".format( 
+        username=employerData[0], password=employerData[1], email=employerData[2], phonenumber=employerData[3], 
+        companyname=employerData[4], address1=employerData[5], address2=employerData[6], address3=employerData[7], 
+        postcode=employerData[8])
 
         self.executeQuery(query)
 
@@ -73,6 +102,15 @@ class Database(object):
     #Reading data
 
     def login(self, username, password):
+        """
+        Validates login of a specific username and password by comparing them to accounts stored in the database
+
+        :param username: string to be found within the accounts table
+        :param password: string to be compared to password of account data with matching username found within the accounts table
+
+        :return loginID: The unique ID of the account from the accounts table
+        """
+
         loginID = -1
 
         #Retrieves data
@@ -91,7 +129,15 @@ class Database(object):
                     
         return loginID
 
+
     def getAccountData(self, accountID):
+        """
+        Retrieves account data from the accounts table for a specific account
+
+        :param accountID: Specific and unique identifier for the account within the accounts table
+
+        :return accountData: Tuple of account data
+        """
         accountData = ["Default data"]
 
         if accountID != -1:
