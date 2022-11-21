@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+  }
+  
+  label, span, .title, div, input, button{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  #top{
+    background-color: #2196F3;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    border-radius: 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  
+  #top .title{
+    text-align: center;
+    font-size: xx-large;
+    color: white;
+  }
+  
+  #title{
+    text-align: center;
+    font-size: large;
+    color:rgb(255, 255, 255);
+    align-content: center;
+  }
+  
+  #signup-form{
+    background-color: rgb(250, 249, 248);
+    margin-top: 5%;
+    padding:2% 5%;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+  }
+  
+  .user-option .container {
+    width: 30%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .user-option .container input {
+    float: left;
+    display: none;
+    cursor: pointer;
+  }
+  
+  .user-option .checkmark {
+    transition: 0.2s;
+    font-size: small;
+    text-align: center;
+    float: left;
+    left: 0;
+    padding-top: 8.5%;
+    padding-bottom: 8.5%;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+  
+  .user-option .container:hover input ~ .checkmark {
+    transition: 0.2s;
+    background-color: rgb(219, 216, 216);
+  }
+  
+  .user-option .container #student:checked ~ .checkmark {
+    transition: 0.2s;
+    color: white;
+    background-color: #2196F3;
+  }
+  
+  .user-option .container #company:checked ~ .checkmark {
+    transition: 0.2s;
+    color: white;
+    background-color: #f32121;
+  }
+  
+  .user-option .checkmark:after {
+    position: absolute;
+    display: none;
+  }
+  
+  #signup-form .container div{
+    margin-top: 2%;
+  }
+  
+  #signup-form input, #signup-form label{
+    width: 49%;
+    padding: 2% 2%;
+    margin: 1% 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline:none;
+  }
+  
+  #signup-form label {
+    font-size: small;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #signup-form #username{
+    width: 99%;
+  }
+  
+  #signup-form #cName{
+    width: 99%;
+  }
+  
+  #signup-form .buttons input{
+    width: 45%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline:none;
+  }
+  
+  button {
+    background-color: #2196F3;
+    padding: 14px 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: white;
+    border:0;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: rgb(40,95,216);
+  }
+  
+  #signup-form .container {
+    padding: 20px;
+    border: none;
+  }
+  
+  #signup-form .psw {
+    float: right;
+    padding-top: 16px;
+  }
