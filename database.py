@@ -1,6 +1,15 @@
 import mysql.connector
 
 class Database(object):
+    """
+        Used to contact, retrieve, and manipulate mySQL database
+
+        :param host: The IPV4 or endpoint where the database is being hosted as a string
+        :param user: The username used to access the database
+        :param password: The password used to access the database
+        :param database: The name of schema being accessed within the database
+
+        """
     def __init__(self, host, user, password, database):
         self.host = host
         self.user = user
@@ -15,6 +24,7 @@ class Database(object):
 
         :return schema: schema that is used within the database
         """
+
         schema = mysql.connector.connect(
         host = self.host,
         user = self.user,
