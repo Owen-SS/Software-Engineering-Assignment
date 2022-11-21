@@ -48,7 +48,13 @@ function login(){
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                alert(strResponse.data);
+                console.log("Login - " + strResponse.data)
+                if (strResponse.message == 200) {
+                    window.location = "/jobview"
+                }else {
+                    alert(strResponse.data);
+                    console.log("Code - " + strResponse.message)
+                }
             }
         };
         xhttp.open("PUT", url, true);
