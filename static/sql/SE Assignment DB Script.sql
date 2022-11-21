@@ -1,5 +1,5 @@
 --Creates Database
-CREATE DATABASE IF NOT EXISTS Assignment;
+CREATE DATABASE IF NOT EXISTS assignment;
 
 
 --Ensures we are using the correct database

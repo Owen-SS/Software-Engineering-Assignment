@@ -102,10 +102,10 @@ currentUserID = -1
 
 
 #Our database connection variables
-HOST = "172.20.10.11" #Get actual IP #Currently run locally on my laptop
-USER = "Client" 
-PASSWORD = "SKS_Accounting_148" #Need to reset password lol
-DATABASE = 'Assignment'
+HOST = "aws-database.cwjsojfqpy2s.eu-west-2.rds.amazonaws.com" #Server endpoint
+USER = "SE_DB" 
+PASSWORD = "software-database" #Need to reset password lol
+DATABASE = 'assignment'
 
 db = Database(HOST,USER,PASSWORD,DATABASE)
 
