@@ -8,57 +8,37 @@
     <script src="../static/js/jobcreation.js"></script>
     <title>Create job listing</title>
 </head>
-<body onload="pageStart()">
+<body >
     <div id="top">
-        <p class="title" id="top-title">Create Student Account</p> 
+        <p class="title" id="top-title">Create Job Listing</p> 
     </div>
 
-    <div id = "signup-form">
-        <div class="user-option">
-            <label class="container">
-                <input type="radio" checked="checked" name="jobType"  id="student" onclick="studentMode()">
-                <span class="checkmark">Student</span>
-            </label>
-            <label class="container">
-                <input type="radio" name="jobType" id="company" onclick="companyMode()">
-                <span class="checkmark">Company</span>
-            </label>
-        </div>
+    <div id = "createjoblistingform">
         <form class="container">
-            <div id="student-name">
-                <input type="text" placeholder="First Name" id="fName" required>
-                <input type="text" placeholder="Second Name" id="sName" required>
+            <div id="jobName">
+                <input type="text" placeholder="Job Name" id="jName" required>
             </div>
 
-            <div id="company-name" style="display: none;">
-                <input type="text" placeholder="Company name" id="cName" required>
+            <div id="cTypeandStartdate">
+                <input type="text" placeholder="Contract type" id="contractType" required>
+                <input type="text" placeholder="Start date" id="sDate" required>
             </div>
 
-            <div id="otherDetails">
-                <input type="text" placeholder="Email" id="email" required>
-                <input type="text" placeholder="Phone number" id="phoneNum">
+            <div id="salandloc">
+                <input type="text" placeholder="Salary" id="salary" required>
+                <input type="text" placeholder="location" id="loc" required>
             </div>
 
-            <div id="date-birth">
-                <label for="DOB"><b>Date of birth:</b></label>
-                <input type="date" name="DOB" id="dob" required>
-            </div>
-            
-            <div id="address">
-                <input type="text" placeholder="Address Line 1" id="AD1" required>
-                <input type="text" placeholder="Address Line 2" id="AD2">
-                <input type="text" placeholder="Address Line 3" id="AD3">
-                <input type="text" placeholder="Postcode" id="postcode" required>
+            <div id="jDesc">
+                <textarea type="text" placeholder="Job Description" id="jDescription" required></textarea>
             </div>
 
-            <div id="cred">
-                <input type="text" placeholder="Create Username" name="uname" id="username" required>
-                <input type="password" placeholder="Create Password" name="psw" id="password" required>
-                <input type="password" placeholder="Confirm Password" name="pswM" id="password_match" required>
+            <div id="cUS">
+                <input type="text" placeholder="Contact details" id="contact Us" required>
             </div>
 
             <div class="form-buttons">
-                <button onclick="capture()" id="lower-button">Create</button>
+                <button id="lower-button">Create job listing</button>
             </div>
         </form>
     </div>
