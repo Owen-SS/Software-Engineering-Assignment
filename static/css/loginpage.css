@@ -81,3 +81,50 @@ label, span, .title{
   float: right;
   padding-top: 16px;
 }
+
+.user-option .container {
+  width: 30%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-option .container input {
+  float: left;
+  display: none;
+  cursor: pointer;
+}
+
+.user-option .checkmark {
+  transition: 0.2s;
+  font-size: small;
+  text-align: center;
+  float: left;
+  left: 0;
+  padding-top: 8.5%;
+  padding-bottom: 8.5%;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.user-option .container:hover input ~ .checkmark {
+  transition: 0.2s;
+  background-color: rgb(219, 216, 216);
+}
+
+.user-option .container #student:checked ~ .checkmark {
+  transition: 0.2s;
+  color: white;
+  background-color: #2196F3;
+}
+
+.user-option .container #company:checked ~ .checkmark {
+  transition: 0.2s;
+  color: white;
+  background-color: #f32121;
+}
+
+.user-option .checkmark:after {
+  position: absolute;
+  display: none;
+}
