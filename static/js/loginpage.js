@@ -1,3 +1,8 @@
+function pageStart(){
+    document.getElementById("student").checked = true;
+    studentMode()
+}
+
 function companyMode(){
     account = "company"; 
     var top = document.getElementById("top");
