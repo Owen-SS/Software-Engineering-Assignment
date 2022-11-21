@@ -81,8 +81,16 @@ def studentUpload():
   try:
     req = request.get_json()
     # print("Adding student account: \n", req)
-    db.addStudent(req)
-    return messageOK
+    added = db.addStudent(req)
+
+    #Account added successfully
+    if added[0]:
+      return messageOK
+    #Account failed to add
+    else:
+      messageOK = jsonify(data=added[1], message= 200)
+      return messageOK
+
   except:
     return messageFail
 
