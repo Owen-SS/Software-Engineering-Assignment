@@ -1,12 +1,19 @@
 from flask import Flask, render_template, jsonify, request, make_response, session
 import sys, json, os, csv
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pandas as pd
 
+#Makes other file accessible for import
+THIS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(THIS_DIRECTORY + "\static\sql")
+
+from database import *
 
 
 app = Flask('app')
+
+"""
 #This secret key is needed for session
 app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -57,6 +64,7 @@ class Post(db.Model):
   def __repr__(self):
     return f"UserStudent('{self.firstName}', '{self.secondName}', '{self.email}', '{self.phoneNumber}', '{self.dateOfBirth}', '{self.addressOne}', '{self.addressTwo}', '{self.addressThree}', '{self.postcode}', '{self.username}', '{self.password}', '{self.passwordMatch}')"
 
+
 app.route("/Userdata",methods = ["POST"])
 #Code works
 uname="JENER"
@@ -87,6 +95,19 @@ db.session.commit()
   #app.app_context().push()
   #db.session.add(userInput)
   #db.session.commit()
+
+"""
+
+currentUserID = -1
+
+
+#Our database connection variables
+HOST = "127.0.0.1" #Get actual IP #Currently run locally on my laptop
+USER = "root" 
+PASSWORD = "SKS_Accounting_148" #Need to rest password lol
+DATABASE = 'Assignment'
+
+db = Database(HOST,USER,PASSWORD,DATABASE)
 
 
 @app.route('/')
@@ -121,116 +142,84 @@ def render_error():
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
-  file_csv = "data/student/accounts/student-account.csv"
+  print("Student upload")
   messageOK = jsonify(data="Account created!", message= 200)
   messageFail = jsonify(data="None", message=500)
-  
-  req = request.get_json()
 
   try:
-    df = pd.read_csv(file_csv)
-  except Exception:
-    print("Create a file!")
-
-  df.loc[len(df)] = req
-
-  if request.is_json:
-    df.to_csv(file_csv, encoding='utf-8', index=False)
+    req = request.get_json()
+    print("Adding student account: \n", req)
+    db.addStudent(req)
     return messageOK
-
-  else:
+  except:
     return messageFail
+
 
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
   print("company upload")
-  file_csv = "data/company/accounts/company-account.csv"
-
   messageOK = jsonify(data="Account created!", message= 200)
   messageFail = jsonify(data="None", message=500)
-  
-  req = request.get_json()
+
 
   try:
-    df = pd.read_csv(file_csv)
-  except Exception:
-    print("Create a file!")
-
-  df.loc[len(df)] = req
-
-  if request.is_json:
-    df.to_csv(file_csv, encoding='utf-8', index=False)
+    req = request.get_json()
+    print("Adding employer account: \n", req)
+    db.addEmployer(req)
     return messageOK
-
-  else:
+  except:
     return messageFail
+
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
-
-  file_csv = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
-  accounts = ['student', 'company']
+  messageOK = jsonify(data="Logged in!", message= 200)
   messageFail = jsonify(data="login failed", message=200)
 
-  req = request.get_json()
-  i = 0
-  for x in file_csv:
-    df = pd.read_csv(x)
-    data = df.to_numpy()
+  #Have database
+  #Read accounts data
+  #Search through accounts for mathcing username
+  #Check if password matches
+  #Set current user or display incorrect login details message
 
-    username = req[0]
-    password = req[1]
+  try:
+    req = request.get_json()
+    print("Checking account details: ", req)
+    
+    #Setting global currentUserID var so can be accessed on all web pages
+    global currentUserID
+    currentUserID = db.login(req[0], req[1])
 
-    for row in data:
-      username_check = row[1]
-      password_check = row[2]
+    if currentUserID != -1:
+      #Do epic stuff here to reroute to correct account
+      return messageOK
+    else:
+      return messageFail
+  except:
+    return messageFail
 
-      if username_check == username:
-        if password_check == password:
-          session['ID'] = row[0]
-          session['account'] = accounts[i]
-          messageOK = jsonify(data="Welcome - " + str(row[5]), message=200)
-          return messageOK
-    i+=1
-
-
-  return messageFail
 
 
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
-  found = False
-  account = session.get('account')
-  file_path = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
+  messageFail = jsonify(data='failed to load account data', message=404)
 
-  if account == "student":
-    file_csv = file_path[0]
-  elif account == "company":
-    file_csv = file_path[1]
-  
-  messageFail = jsonify(data='None', message=404)
+  try:
+    #Get user's data from correlating userID
+    account_data = db.getAccountData(currentUserID)
+    print(account_data)
 
-  df = pd.read_csv(file_csv)
-  data = df.to_numpy()
+    #Pass data to website
+    data_to_send = jsonify(account_data)
+    print(data_to_send)
 
-  id = session.get('ID')
+    #Ask someone to help to pass to site because IDK how rn
 
-  data_send = []
-
-  for row in data:
-    id_check = row[0]
-
-    if id_check == id:
-      found = True
-
-      for i in row:
-        data_send.append(i)
-
-  if found == True:
-
-    return jsonify(data = data_send)
-  else:
+    #This sends account data website
+    return jsonify(data = data_to_send)
+  except:
     return messageFail
+
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():
