@@ -66,6 +66,10 @@ def render_signuppage():
 def render_error():
   return render_template('error.html')
 
+@app.route('/createjoblisting')
+def createjoblisting():
+  return render_template('jobcreation.html')
+
 # Uploading data - - -
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
