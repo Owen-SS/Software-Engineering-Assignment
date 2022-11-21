@@ -61,13 +61,6 @@ function capture(){
     user_input.push(password);
     user_input.push(password_match);
 
-    if (account == "student"){
-        id = sName + date.toString();
-    }else{
-        id = cName + date.toString();
-    }
-    
-
     for (let input in user_input){
         if (user_input[input].length == 0){
             check.push('red');
@@ -99,7 +92,6 @@ function capture(){
             alert("Please add your name");
         }else{
             uploadObject.push(
-                id,
                 username,
                 password,
                 email,
@@ -120,7 +112,6 @@ function capture(){
             alert("Please add company name");
         }else{
             uploadObject.push(
-                id,
                 username,
                 password,
                 email,
