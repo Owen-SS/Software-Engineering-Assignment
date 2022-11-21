@@ -55,7 +55,11 @@ function login(){
                 strResponse = JSON.parse(this.responseText);
                 console.log("Login - " + strResponse.data)
                 if (strResponse.message == 200) {
-                    window.location = "/jobview"
+                    if (account == "student") {
+                        window.location = "/jobview"
+                    }else {
+                        window.location = "/employer"
+                    }
                 }else {
                     alert(strResponse.data);
                     console.log("Code - " + strResponse.message)
