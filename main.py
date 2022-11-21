@@ -66,6 +66,10 @@ def render_signuppage():
 def render_error():
   return render_template('error.html')
 
+@app.route('/createjoblisting')
+def createjoblisting():
+  return render_template('jobcreation.html')
+
 # Uploading data - - -
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
@@ -101,8 +105,9 @@ def companyUpload():
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
-  messageOK = jsonify(data="Logged in!", message= 200)
-  messageFail = jsonify(data="login failed", message=200)
+  messageOK = jsonify(data="Login success", message=200)
+  messageFail = jsonify(data="login failed", message=404)
+  id = -1
 
   #Have database
   #Read accounts data
@@ -110,20 +115,15 @@ def login():
   #Check if password matches
   #Set current user or display incorrect login details message
 
-  try:
-    req = request.get_json()
-    print("Checking account details: ", req)
-    
-    #caching currentUserID var so can be accessed on all web pages
-    currentUserID = db.login(req[0], req[1])
-    session['ID'] = currentUserID
+  req = request.get_json()
 
-    if currentUserID != -1:
-      #Do epic stuff here to reroute to correct account
-      return messageOK
-    else:
-      return messageFail
-  except:
+  #caching currentUserID var so can be accessed on all web pages
+  id = db.login(req[0], req[1])
+  session['ID'] = id
+
+  if id != -1:
+    return messageOK
+  else:
     return messageFail
 
 

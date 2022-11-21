@@ -8,12 +8,22 @@
     <script src="../static/js/loginpage.js"></script>
     <title>Login Page</title>
 </head>
-<body>
+<body onload="studentMode()">
     <div id="top">
-        <p class="title">Student login - Jobs"R"us </p> 
+        <p class="title" id="title">Student login - Jobs"R"us </p> 
     </div>
 
     <div id = "loginform">
+      <div class="user-option">
+        <label class="container">
+            <input type="radio" checked="checked" name="jobType"  id="student" onclick="studentMode()">
+            <span class="checkmark">Student</span>
+        </label>
+        <label class="container">
+            <input type="radio" name="jobType" id="company" onclick="companyMode()">
+            <span class="checkmark">Company</span>
+        </label>
+      </div>
         <div class="container">
           <label for="uname" class="cred"><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="uname" id="username">
@@ -21,8 +31,8 @@
           <label for="psw" class="cred"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" id="password">
       
-          <button type="submit" onclick="login()">Login</button>
-          <button class="signup" onclick="window.location.href='/signup';">Sign up</button>
+          <button type="submit" id="loginButton" onclick="login()">Login</button>
+          <button class="signup" id="signButton" onclick="window.location.href='/signup';">Sign up</button>
           <label class="remember">
             <input type="checkbox" checked="unchecked" name="remember"> Remember me
           </label>

@@ -1,3 +1,31 @@
+function companyMode(){
+    account = "company"; 
+    var top = document.getElementById("top");
+    var loginButton = document.getElementById("loginButton");
+    var signButton = document.getElementById("signButton");
+    var title = document.getElementById("title");
+
+    title.innerHTML = "Login - Company Account";
+
+    top.style.backgroundColor = "#f32121";
+    loginButton.style.backgroundColor = "#f32121";
+    signButton.style.backgroundColor = "#f32121";
+}
+
+function studentMode(){
+    account = "student";
+    var top = document.getElementById("top");
+    var loginButton = document.getElementById("loginButton");
+    var signButton = document.getElementById("signButton");
+    var title = document.getElementById("title");
+
+    title.innerHTML = "Login - Student Account";
+
+    top.style.backgroundColor = "#2196F3";
+    loginButton.style.backgroundColor = "#2196F3";
+    signButton.style.backgroundColor = "#2196F3";
+}
+
 function login(){
     let check = false
     let uploadObject = []
@@ -9,7 +37,7 @@ function login(){
     }else if(password.length == 0){
         alert("please enter your password")
     }else{
-        uploadObject.push(username, password)
+        uploadObject.push(username, password, account)
         check = true 
     }
 
@@ -20,7 +48,13 @@ function login(){
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                alert(strResponse.data);
+                console.log("Login - " + strResponse.data)
+                if (strResponse.message == 200) {
+                    window.location = "/jobview"
+                }else {
+                    alert(strResponse.data);
+                    console.log("Code - " + strResponse.message)
+                }
             }
         };
         xhttp.open("PUT", url, true);
