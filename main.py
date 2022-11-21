@@ -102,8 +102,8 @@ currentUserID = -1
 
 
 #Our database connection variables
-HOST = "127.0.0.1" #Get actual IP #Currently run locally on my laptop
-USER = "root" 
+HOST = "10.126.188.233" #Get actual IP #Currently run locally on my laptop
+USER = "Tiago" 
 PASSWORD = "SKS_Accounting_148" #Need to rest password lol
 DATABASE = 'Assignment'
 
