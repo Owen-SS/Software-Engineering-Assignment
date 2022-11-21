@@ -94,11 +94,12 @@ class Database(object):
     def getAccountData(self, accountID):
         accountData = ["Default data"]
 
-        try:
-            query = """SELECT * FROM student WHERE idstudent={ID};""".format(ID=accountID)
-            accountData = self.executeQuery(query)
-        except:
-            print("Error in finding account details of Account ID:", accountID)
+        if accountID != -1:
+            try:
+                query = """SELECT * FROM student WHERE idstudent={ID};""".format(ID=accountID)
+                accountData = self.executeQuery(query)
+            except:
+                print("Error in finding account details of Account ID:", accountID)
 
         return accountData
 
