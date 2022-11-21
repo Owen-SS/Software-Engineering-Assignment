@@ -118,7 +118,7 @@ def login():
   req = request.get_json()
 
   #caching currentUserID var so can be accessed on all web pages
-  id = db.login(req[0], req[1])
+  id = db.login(req[0], req[1], req[2])
   session['ID'] = id
 
   if id != -1:

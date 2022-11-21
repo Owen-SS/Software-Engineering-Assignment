@@ -72,11 +72,14 @@ class Database(object):
     
     #Reading data
 
-    def login(self, username, password):
+    def login(self, username, password, account):
         loginID = -1
 
         #Retrieves data
-        query = "SELECT idstudent, username, password FROM student;" #Create amalgamation of student and employer to hold all logins
+        if account == "student":
+            query = "SELECT idstudent, username, password FROM student;" #Create amalgamation of student and employer to hold all logins
+        else:
+            query = "SELECT idemployer, username, password FROM employer;" #Create amalgamation of student and employer to hold all logins
         accountData = self.executeQuery(query)
 
         #Checks for username in account data and validates account's existence
