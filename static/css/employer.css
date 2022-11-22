@@ -94,4 +94,20 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     width: 10%;
     border-radius: 5px;
 }
-  
+
+#createJobListing button{
+    text-align: center;
+    display: inline-block;
+    background-color: #f32121;
+    padding: 1% 2%;
+    color: white;
+    border: 0;
+    margin: 3% 2% 4.5%;
+    cursor: pointer;
+    width: 10%;
+    border-radius: 5px;
+}
+a{
+    color:inherit;
+    text-decoration: none;
+}
