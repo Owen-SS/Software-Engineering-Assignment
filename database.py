@@ -116,8 +116,11 @@ class Database(object):
         query = """INSERT INTO student 
         (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
         VALUES
-        ("a", "a", "a", 09876543234, "a", 
-        "a", "2022-11-23", "a", "a", "a", "a")"""
+        ("{username}", "{password}", "{email}", "{phonenumber}", "{companyname}", 
+        "{address1}", "{address2}", "{address3}", "{postcode}");""".format( 
+        username=employerData[0], password=employerData[1], email=employerData[2], phonenumber=employerData[3], 
+        companyname=employerData[4], address1=employerData[5], 
+        address2=employerData[6], address3=employerData[7], postcode=employerData[8])
 
         queryResponse, error = self.executeQuery(query)
         print(queryResponse)
@@ -125,14 +128,34 @@ class Database(object):
         self.commit()
 
     
+    def deleteAccount(self, accountID, accountType):
+        """
+        Get account type
+        Get account ID
+        Delete row with matching ID from correct table
+        """
+
+        if accountType == "student":
+            query = "DELETE FROM student WHERE idstudent={};".format(accountID)
+        else:
+            query = "DELETE FROM employer WHERE idemployer={};".format(accountID)
+
+        queryResponse, error = self.executeQuery(query)
+        print(queryResponse)
+
+        self.commit()
+            
+
+    
     #Reading data
 
-    def login(self, username, password, account):
+    def login(self, username, password, accountType):
         """
         Validates login of a specific username and password by comparing them to accounts stored in the database
 
         :param username: string to be found within the accounts table
         :param password: string to be compared to password of account data with matching username found within the accounts table
+        :param accountType: string of what type of account is being logged into
 
         :return loginID: The unique ID of the account from the accounts table
         """
@@ -140,7 +163,7 @@ class Database(object):
         loginID = -1
 
         #Retrieves data
-        if account == "student":
+        if accountType == "student":
             query = "SELECT idstudent, username, password FROM student;" #Create amalgamation of student and employer to hold all logins
         else:
             query = "SELECT idemployer, username, password FROM employer;" #Create amalgamation of student and employer to hold all logins
@@ -162,19 +185,25 @@ class Database(object):
         return loginID
 
 
-    def getAccountData(self, accountID):
+    def getAccountData(self, accountID, accountType):
         """
         Retrieves account data from the accounts table for a specific account
 
         :param accountID: Specific and unique identifier for the account within the accounts table
+        :param accountType: string of what type of account is being logged into
 
         :return accountData: Tuple of account data
         """
+
         accountData = ["Default data"]
 
         if accountID != -1:
             try:
-                query = """SELECT * FROM student WHERE idstudent={ID};""".format(ID=accountID)
+                if accountType == "student":
+                    query = """SELECT * FROM student WHERE idstudent={ID};""".format(ID=accountID)
+                else:
+                    query = """SELECT * FROM employer WHERE idemployer={ID};""".format(ID=accountID)
+
                 accountData, error = self.executeQuery(query)
             except:
                 print("Error in finding account details of Account ID:", accountID)
