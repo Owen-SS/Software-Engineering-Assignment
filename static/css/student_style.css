@@ -108,3 +108,8 @@ label, span, .title{
   height: 60%;
   float: right;
 }
+
+#uploadCv input{
+  width:30%;
+  height:10%;
+}
