@@ -143,8 +143,11 @@ def getdetails():
 
   try:
     #Get user's data from correlating userID
+    print("HERE")
     account_data = db.getAccountData(id)
+    print("\nacc:", account_data)
     account_data = account_data[0]
+    print(account_data)
     data_list = []
 
     for x in account_data:

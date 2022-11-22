@@ -119,7 +119,7 @@ class Database(object):
         ("a", "a", "a", 09876543234, "a", 
         "a", "2022-11-23", "a", "a", "a", "a")"""
 
-        queryResponse = self.executeQuery(query)
+        queryResponse, error = self.executeQuery(query)
         print(queryResponse)
 
         self.commit()
@@ -144,16 +144,19 @@ class Database(object):
             query = "SELECT idstudent, username, password FROM student;" #Create amalgamation of student and employer to hold all logins
         else:
             query = "SELECT idemployer, username, password FROM employer;" #Create amalgamation of student and employer to hold all logins
-        accountData = self.executeQuery(query)
+        
+        accountData, err = self.executeQuery(query)
+        print("Account data: ", accountData)
 
         #Checks for username in account data and validates account's existence
         for row in range(len(accountData)):
             if username == accountData[row][1]:
-                print(username, "exists in accounts database")
+                print(username, "is a valid username")
 
                 if password == accountData[row][2]:
                     print("password matches username")
                     loginID = accountData[row][0]
+                    print("User's unique database ID:", accountData[row][0])
                     break
                     
         return loginID
@@ -172,7 +175,7 @@ class Database(object):
         if accountID != -1:
             try:
                 query = """SELECT * FROM student WHERE idstudent={ID};""".format(ID=accountID)
-                accountData = self.executeQuery(query)
+                accountData, error = self.executeQuery(query)
             except:
                 print("Error in finding account details of Account ID:", accountID)
 
@@ -205,6 +208,6 @@ if __name__ == "__main__":
 
     db.addStudent(["a", "a", "a", "09876543234", "a", "a", "2022-11-23", "a", "a", "a", "a"])
 
-    output, e = db.executeQuery(query)
+    output, error = db.executeQuery(query)
     print("output", output)
     print(e)
