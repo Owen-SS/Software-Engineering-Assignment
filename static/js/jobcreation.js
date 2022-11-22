@@ -95,3 +95,17 @@ function createdJobListing(){
     }
 }
 
+function red_items(check_listing){
+    let items = []
+    console.log(job_name, contract_type, start_date, salary, locat, job_description, contact_us)
+    items = [ "jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
+    for (let item in items){
+
+        var element = document.getElementById(items[item]);
+        if (check_listing[item] == 'red'){
+            element.style.borderColor = "#FF0000";
+        }else{
+            element.style.borderColor = "#ccc";
+        }
+    }
+}
