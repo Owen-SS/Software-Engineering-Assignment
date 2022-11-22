@@ -139,25 +139,21 @@ def login():
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
 
-  id = session.get('ID')
+  id = session.get('ID') #Also need to cache accountType
+  accountType = "student" #Need to find account type from cache
 
   try:
     #Get user's data from correlating userID
-    print("HERE")
-    account_data = db.getAccountData(id)
-    print("\nacc:", account_data)
+    account_data = db.getAccountData(id, accountType)
     account_data = account_data[0]
-    print(account_data)
     data_list = []
 
     for x in account_data:
       data_list.append(x)
 
-    print(data_list)
-
-    
-    dob = datefix(data_list[7])
-    data_list[7] = dob
+    if accountType == "student":
+      dob = datefix(data_list[7])
+      data_list[7] = dob
     
     #This sends account data website
     return jsonify(data = data_list)
@@ -217,37 +213,17 @@ def updateDetails():
 
 @app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
-  found = False
+  messageOK = jsonify(message="Account deleted!")
+  messageFail = jsonify(message="Account deletion failed...")
 
-  account = session.get('account')
   id = session.get('ID')
+  accountType = "student" #Need to find account type from cache
   
-  file_path = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
+  try:
+    db.deleteAccount(id, accountType)
 
-  if account == "student":
-    file_csv = file_path[0]
-  elif account == "company":
-    file_csv = file_path[1]
-  
-  df = pd.read_csv(file_csv)
-  data = df.to_numpy()
-
-  messageOK = jsonify(data="Deleted account",message=200)
-  messageFail = jsonify(data='None', message=404)
-
-  index = 0
-  for row in data:
-    id_check = row[0]
-
-    if id_check == id:
-      found = True
-      df = df.drop([index])
-    index+=1
-
-  if found == True:
-    df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK
-  else:
+  except:
     return messageFail
 
 
