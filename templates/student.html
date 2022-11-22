@@ -53,19 +53,14 @@
             <h2>Favourites</h2>
         </div>
 
-        <div id = "uploadCv" class = "divs">
+        <div action = "cvContents()" id = "uploadCv" class = "divs">
             <h2>Upload CV</h2>
             <form method="post" enctype="multipart/form-data">
                 <div>
                   <label for="cv_upload">Choose from files a CV to upload (.docx,.PDF)</label>
-                  <input
-                    type="file"
-                    id="cv_upload"
-                    name="cv_upload"
-                    accept=".docx, .pdf"
-                    multiple />
+                  <input type="file" id="cv_upload" name="cv_upload" accept=".docx, .pdf" multiple />
                 </div>
-                <div class="preview">
+                <div id="preview">
                   <p>No files currently selected for upload</p>
                 </div>
                 <div>

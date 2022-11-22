@@ -193,3 +193,16 @@ function deleteAccount(){
     xhttp.send(data);
   }
 }
+
+
+/* should allow a user to view there cv in another page i need to create a page for it
+Also still need to make th ep tag change when the file is selected */
+function cvContents(){
+  const reader = new FileReader()
+
+  let files = document.getElementById('cv_upload').files
+  reader.onload = async (event) => {
+      document.getElementById('preview').setAttribute('src', event.target.result)
+  }
+  reader.readAsDataURL(files[0])
+}
