@@ -140,7 +140,6 @@ class Database(object):
         (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
         VALUES
         (
-            "{id}",
             "{username}", 
             "{password}", 
             "{email}", 
@@ -151,7 +150,6 @@ class Database(object):
             "{address3}", 
             "{postcode}"
         );""".format( 
-            id=2,
             username=employerData[0], 
             password=employerData[1], 
             email=employerData[2],
