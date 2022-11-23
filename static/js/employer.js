@@ -153,11 +153,12 @@ function editMode(edit) {
           strResponse = JSON.parse(this.responseText);
           data_res = strResponse.data
   
-          if (strResponse.message != 404){
+          if (strResponse.message == 200){
             displaydetails(data_res)
+            window.location = "/login"
           }else{
             alert("Whoops somthing went wrong!")
-            console.log("Get details error - " + strResponse.message)
+            console.log("Delete details error - " + strResponse.error + " | " + strResponse.message);
           }
         }
       };
