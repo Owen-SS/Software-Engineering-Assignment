@@ -203,25 +203,20 @@ class Database(object):
         """
 
         loginID = -1
-
         #Retrieves data
         if accountType == "student":
             query = "SELECT idstudent, username, password FROM student;" #Create amalgamation of student and employer to hold all logins
         else:
             query = "SELECT idemployer, username, password FROM employer;" #Create amalgamation of student and employer to hold all logins
         
-        accountData, err = self.executeQuery(query)
-        print("Account data: ", accountData)
+        accountData, error = self.executeQuery(query)
 
         #Checks for username in account data and validates account's existence
         for row in range(len(accountData)):
             if username == accountData[row][1]:
-                print(username, "is a valid username")
 
                 if password == accountData[row][2]:
-                    print("password matches username")
                     loginID = accountData[row][0]
-                    print("User's unique database ID:", accountData[row][0])
                     break
                     
         return loginID

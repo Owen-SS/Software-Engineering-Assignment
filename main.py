@@ -124,7 +124,6 @@ def companyUpload():
 def login():
   messageOK = jsonify(data="Login success", message=200)
   messageFail = jsonify(data="login failed", message=404)
-  id = -1
 
   #Have database
   #Read accounts data
