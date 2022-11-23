@@ -53,7 +53,7 @@ function login(){
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                console.log("Login - " + strResponse.data)
+                console.log("Login - " + strResponse.data + " | Code - " + strResponse.message)
                 if (strResponse.message == 200) {
                     if (account == "student") {
                         window.location = "/jobview"
@@ -62,7 +62,6 @@ function login(){
                     }
                 }else {
                     alert(strResponse.data);
-                    console.log("Code - " + strResponse.message)
                 }
             }
         };
