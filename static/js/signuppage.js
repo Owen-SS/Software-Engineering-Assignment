@@ -146,6 +146,7 @@ function capture(){
                 if (strResponse.message == 200){
                     cleardetails();
                     alert(strResponse.data);
+                    window.location = "/login"
                 }else {
                     alert("Whoops something went wrong!");
                     console.log("Save details error - " + strResponse.error + " | " + strResponse.message);
