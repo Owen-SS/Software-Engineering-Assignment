@@ -75,40 +75,49 @@ def createjoblisting():
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
   print("Student upload")
-  messageOK = jsonify(data="Account created!", message= 200)
-  messageFail = jsonify(data="None", message=500)
+  messageOK = jsonify(data="Account created!", message=200, error="None")
+  messageFail = jsonify(data="None", message=500, error="None")
 
   try:
     req = request.get_json()
     # print("Adding student account: \n", req)
-    added = db.addStudent(req)
+    dbMessage = db.addStudent(req)
 
     #Account added successfully
-    if added[0]:
+    if dbMessage[0]:
       return messageOK
     #Account failed to add
     else:
-      messageOK = jsonify(data=added[1], message= 200)
-      return messageOK
+      messageFail = jsonify(data="None", message=500, error=dbMessage[2])
+      return messageFail
 
-  except:
+  except Exception as e:
+    messageFail = jsonify(data="None", message=500, error=str(e))
     return messageFail
 
 
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
-  print("company upload")
-  messageOK = jsonify(data="Account created!", message= 200)
-  messageFail = jsonify(data="None", message=500)
+  messageOK = jsonify(data="Account created!", message=200, error="None")
+  messageFail = jsonify(data="None", message=500, error="None")
 
 
   try:
     req = request.get_json()
-    print("Adding employer account: \n", req)
-    db.addEmployer(req)
-    return messageOK
-  except:
+    dbMessage = db.addEmployer(req)
+
+  except Exception as e:
+    messageFail = jsonify(data="None", message=500, error=str(e))
     return messageFail
+  
+  if dbMessage[0]:
+    return messageOK
+  else:
+    messageFail = jsonify(data="None", message=500, error=dbMessage[2])
+    return messageFail
+
+
+    
 
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -

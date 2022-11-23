@@ -148,7 +148,7 @@ function capture(){
                     alert(strResponse.data);
                 }else {
                     alert("Whoops somthing went wrong!");
-                    console.log("Save details error - " + strResponse.message);
+                    console.log("Save details error - " + strResponse.error + " | " + strResponse.message);
                 }
             }
         };

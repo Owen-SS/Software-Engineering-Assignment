@@ -84,26 +84,47 @@ class Database(object):
         :return added: Boolean to state whether account was added or not
         """
 
-        added = [True, "Account added successfully"]
+        message = [True, "Account added successfully", "None"]
 
         query = """INSERT INTO student 
         (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
         VALUES
-        ("{username}", "{password}", "{email}", "{phonenumber}", "{name}", 
-        "{surname}", "{dob}", "{address1}", "{address2}", "{address3}", "{postcode}");""".format( 
-        username=studentData[0], password=studentData[1], email=studentData[2], phonenumber=studentData[3], 
-        name=studentData[4], surname=studentData[5], dob=studentData[6], address1=studentData[7], 
-        address2=studentData[8], address3=studentData[9], postcode=studentData[10])
-
-        queryResponse, error = self.executeQuery(query)
+        (
+            "{username}",
+            "{password}", 
+            "{email}", 
+            "{name}",
+            "{phonenumber}",
+            "{surname}", 
+            "{dob}", 
+            "{address1}", 
+            "{address2}", 
+            "{address3}", 
+            "{postcode}"
+        );""".format(
+            username=studentData[0], 
+            password=studentData[1], 
+            email=studentData[2], 
+            phonenumber=studentData[3], 
+            name=studentData[4], 
+            surname=studentData[5], 
+            dob=studentData[6], 
+            address1=studentData[7], 
+            address2=studentData[8], 
+            address3=studentData[9], 
+            postcode=studentData[10]
+        )
+        
+        error = self.executeQuery(query)
 
         if error[0] == 1062:
-            print("\nACCOUNT NOT ADDED: This account has not been added due to duplicates already existing in the database...\n" + error[2])
-            added = [False, "Account not added due to " + error[2]]
+            message = [False, "Account creation failed" + error[2]]
+        elif error[0] != 0:
+            message = [False, "Account creation failed", error]
 
         self.commit()
 
-        return added
+        return message
 
 
     def addEmployer(self, employerData):
@@ -113,19 +134,42 @@ class Database(object):
         :param employerData: list of employerData to be added
         """
 
+        message = [True, "Account added successfully", "None"]
+
         query = """INSERT INTO student 
         (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
         VALUES
-        ("{username}", "{password}", "{email}", "{phonenumber}", "{companyname}", 
-        "{address1}", "{address2}", "{address3}", "{postcode}");""".format( 
-        username=employerData[0], password=employerData[1], email=employerData[2], phonenumber=employerData[3], 
-        companyname=employerData[4], address1=employerData[5], 
-        address2=employerData[6], address3=employerData[7], postcode=employerData[8])
+        (
+            "{id}",
+            "{username}", 
+            "{password}", 
+            "{email}", 
+            "{phonenumber}", 
+            "{companyname}", 
+            "{address1}", 
+            "{address2}", 
+            "{address3}", 
+            "{postcode}"
+        );""".format( 
+            id=2,
+            username=employerData[0], 
+            password=employerData[1], 
+            email=employerData[2],
+            phonenumber=employerData[3], 
+            companyname=employerData[4], 
+            address1=employerData[5], 
+            address2=employerData[6], 
+            address3=employerData[7], 
+            postcode=employerData[8]
+        )
+        
+        error = self.executeQuery(query)
 
-        queryResponse, error = self.executeQuery(query)
-        print(queryResponse)
+        if error[0] != 0:
+            message = [False, "Account creation failed", error]
 
         self.commit()
+        return message
 
     
     def deleteAccount(self, accountID, accountType):
