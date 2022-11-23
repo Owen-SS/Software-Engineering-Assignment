@@ -136,6 +136,7 @@ def login():
   #caching currentUserID var so can be accessed on all web pages
   id = db.login(req[0], req[1], req[2])
   session['ID'] = id
+  session['account'] = req[2] # Either 'student' or 'company'
 
   if id != -1:
     return messageOK
@@ -147,19 +148,19 @@ def login():
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
 
-  id = session.get('ID') #Also need to cache accountType
-  accountType = "student" #Need to find account type from cache
+  id = session.get('ID')
+  account = session.get('account')
 
   try:
     #Get user's data from correlating userID
-    account_data = db.getAccountData(id, accountType)
+    account_data = db.getAccountData(id, account)
     account_data = account_data[0]
     data_list = []
 
     for x in account_data:
       data_list.append(x)
 
-    if accountType == "student":
+    if account == "student":
       dob = datefix(data_list[7])
       data_list[7] = dob
     
