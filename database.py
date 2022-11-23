@@ -177,15 +177,21 @@ class Database(object):
         Delete row with matching ID from correct table
         """
 
+        message = [True, "Account added successfully", "None"]
+
         if accountType == "student":
             query = "DELETE FROM student WHERE idstudent={};".format(accountID)
         else:
             query = "DELETE FROM employer WHERE idemployer={};".format(accountID)
 
         queryResponse, error = self.executeQuery(query)
-        print(queryResponse)
+
+        if error[0] != 0:
+            message = [False, "Account creation failed", error]
 
         self.commit()
+
+        return message
             
 
     

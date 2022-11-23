@@ -222,17 +222,23 @@ def updateDetails():
 
 @app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
-  messageOK = jsonify(message="Account deleted!")
-  messageFail = jsonify(message="Account deletion failed...")
+
+  messageOK = jsonify(data="Account deleted!", message=200, error="None")
+  messageFail = jsonify(data="Account deletion failed", message=500, error="None")
 
   id = session.get('ID')
-  accountType = "student" #Need to find account type from cache
+  accountType = session.get('account') #Need to find account type from cache
   
   try:
-    db.deleteAccount(id, accountType)
+    dbMessage = db.deleteAccount(id, accountType)
 
+  except Exception as e:
+    return jsonify(data='failed to delete account data', message=500, error = str(e))
+
+  if dbMessage[0]:
     return messageOK
-  except:
+  else:
+    messageFail = jsonify(data="None", message=500, error=dbMessage[2])
     return messageFail
 
 
