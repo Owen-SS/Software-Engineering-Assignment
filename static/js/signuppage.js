@@ -147,7 +147,7 @@ function capture(){
                     cleardetails();
                     alert(strResponse.data);
                 }else {
-                    alert("Whoops somthing went wrong!");
+                    alert("Whoops something went wrong!");
                     console.log("Save details error - " + strResponse.error + " | " + strResponse.message);
                 }
             }
