@@ -1,6 +1,4 @@
 function editMode(edit) {
-  console.log("Ran")
-  console.log(edit)
 
   var editBtn = document.getElementById("edit");
   var saveBtn = document.getElementById("save");
@@ -16,7 +14,6 @@ function editMode(edit) {
   var postcode = document.getElementById("postcode");
 
   if (edit == "Yes") {
-      console.log("edit")
       editBtn.style.backgroundColor = "#eee";
       saveBtn.style.backgroundColor = "#2196F3";
       fName.removeAttribute("disabled");
@@ -30,7 +27,6 @@ function editMode(edit) {
       postcode.removeAttribute("disabled");
       
   } else if (edit == "No") {
-      console.log("save")
       editBtn.style.backgroundColor = "#2196F3";
       saveBtn.style.backgroundColor = "#eee";
       fName.setAttribute("disabled", "disabled");
@@ -72,7 +68,6 @@ function getDetails(){
       strResponse = JSON.parse(this.responseText);
       data_res = strResponse.data
 
-      console.log(data_res)
       if (strResponse.message != 404){
         displaydetails(data_res)
       }else{
@@ -171,11 +166,9 @@ function deleteAccount(){
     xhttp.onreadystatechange = function() {
       let strResponse = "Error: no response";
       if (this.readyState == 4 && this.status == 200) {
-        console.log("here")
         strResponse = JSON.parse(this.responseText);
         data_res = strResponse.data
 
-        console.log(data_res)
         if (strResponse.message != 404){
           displaydetails(data_res)
         }else{
