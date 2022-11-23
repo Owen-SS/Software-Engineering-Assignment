@@ -92,9 +92,9 @@ class Database(object):
         (
             "{username}",
             "{password}", 
-            "{email}", 
-            "{name}",
+            "{email}",
             "{phonenumber}",
+            "{name}",
             "{surname}", 
             "{dob}", 
             "{address1}", 
@@ -115,7 +115,7 @@ class Database(object):
             postcode=studentData[10]
         )
         
-        error = self.executeQuery(query)
+        SQLres, error = self.executeQuery(query)
 
         if error[0] == 1062:
             message = [False, "Account creation failed" + error[2]]
@@ -136,8 +136,8 @@ class Database(object):
 
         message = [True, "Account added successfully", "None"]
 
-        query = """INSERT INTO student 
-        (username,password,email,phonenumber,name,surname,dob,address1,address2,address3,postcode)
+        query = """INSERT INTO employer 
+        (username,password,email,phonenumber,companyname,address1,address2,address3,postcode)
         VALUES
         (
             "{username}", 
@@ -161,7 +161,7 @@ class Database(object):
             postcode=employerData[8]
         )
         
-        error = self.executeQuery(query)
+        SQLres, error = self.executeQuery(query)
 
         if error[0] != 0:
             message = [False, "Account creation failed", error]
