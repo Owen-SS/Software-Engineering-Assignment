@@ -69,8 +69,6 @@ function capture(){
         }
     }
 
-    console.log(check);
-
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
     }else if(phone_number.length != 11){
@@ -127,7 +125,6 @@ function capture(){
     }
     red_items(check, account)
 
-    console.log(uploadObject);
     if (upload == true){
         let url = "/error";
         let xhttp = new XMLHttpRequest();
@@ -165,7 +162,6 @@ function capture(){
 
 function red_items(check, account){
     let items = []
-    console.log(account)
     if (account == "student"){
         items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match']
     }else{
