@@ -72,6 +72,8 @@ def createjoblisting():
 
 # Uploading data - - -
 
+testData = ["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
+
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
   print("Student upload")
@@ -143,8 +145,6 @@ def jobListingUpload():
 
 
 
-    
-
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
@@ -183,12 +183,18 @@ def getdetails():
     if account == "student":
       dob = datefix(data_list[7])
       data_list[7] = dob
-    
+
     #This sends account data website
     return jsonify(data = data_list)
   except Exception as e:
     return jsonify(data='failed to load account data', message=404, error = str(e))
 
+@app.route("/display/jobview", methods = ['GET'])
+def displayJobview():
+
+  data = testData
+
+  return jsonify(data=data, message=200, error="none")
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():
