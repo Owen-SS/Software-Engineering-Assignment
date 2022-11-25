@@ -163,12 +163,15 @@ def getdetails():
     if account == "student":
       dob = datefix(data_list[7])
       data_list[7] = dob
-    
+
     #This sends account data website
     return jsonify(data = data_list)
   except Exception as e:
     return jsonify(data='failed to load account data', message=404, error = str(e))
 
+@app.route("/display/jobview", methods = ['GET'])
+def displayJobview():
+  data = 
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():
