@@ -72,7 +72,7 @@ def createjoblisting():
 
 # Uploading data - - -
 
-["Epic Job","Permanent","20th sepetember","10,000", "Poole",""]
+["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
