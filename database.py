@@ -282,4 +282,4 @@ if __name__ == "__main__":
 
     output, error = db.executeQuery(query)
     print("output", output)
-    print(e)
+    print(error)
