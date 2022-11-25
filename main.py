@@ -72,7 +72,7 @@ def createjoblisting():
 
 # Uploading data - - -
 
-["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
+testData = ["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
@@ -171,7 +171,10 @@ def getdetails():
 
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
-  data = 
+
+  data = testData
+
+  return jsonify(data=data, message=200, error="none")
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():
