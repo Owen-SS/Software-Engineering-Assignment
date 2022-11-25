@@ -44,6 +44,7 @@ class Database(object):
         :return error: List of error information
         """
         error = [0,"SQL State", "Error Message  (No Error Detected)"]
+        print(query)
 
         try:
             mycursor = self.schema.cursor()
@@ -53,6 +54,7 @@ class Database(object):
         except mysql.connector.Error as err:
             error = [err.errno, err.sqlstate, err.msg]
             outputList = [err.errno, err.sqlstate, err.msg]
+            print(error)
             """
             print("ERROR: the following query is invalid: " + query)
             print("Error Code:", err.errno)
@@ -115,7 +117,7 @@ class Database(object):
             postcode=studentData[10]
         )
         
-        SQLres, error = self.executeQuery(query)
+        dbMessage, error = self.executeQuery(query)
 
         if error[0] == 1062:
             message = [False, "Account creation failed" + error[2]]
@@ -161,13 +163,47 @@ class Database(object):
             postcode=employerData[8]
         )
         
-        SQLres, error = self.executeQuery(query)
+        dbMessage, error = self.executeQuery(query)
 
         if error[0] != 0:
             message = [False, "Account creation failed", error]
 
         self.commit()
+
         return message
+
+    
+    def addJobListing(self, listingData):
+        message = [True, "Listing Uploaded successfully", "None"]
+
+        query = """INSERT INTO joblisting
+                (jobname, startdate, salary, location, jobdescription, contactdetails)
+                VALUES
+                (
+                    "{jobname}"
+                    "{startdate}"
+                    "{salary}"
+                    "{location}"
+                    "{jobdescription}"
+                    "{contactdetails}"
+                )""".format(
+                    jobname = listingData[0],
+                    startdate = listingData[1],
+                    salary = listingData[2],
+                    location = listingData[3],
+                    jobdescription = listingData[4],
+                    contactdetails = listingData[5]
+                )
+        
+        dbMessage, error = self.executeQuery(query)
+
+        if error[0] != 0:
+            message = [False, "Account creation failed", error]
+
+        self.commit()
+
+        return message
+        
 
     
     def deleteAccount(self, accountID, accountType):
@@ -283,3 +319,7 @@ if __name__ == "__main__":
     output, error = db.executeQuery(query)
     print("output", output)
     print(error)
+
+
+#Add extra field to db for parttime/fulltime
+#Fix upload of job listing

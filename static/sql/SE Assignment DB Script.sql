@@ -39,6 +39,18 @@ CREATE TABLE `assignment`.`employer` (
   UNIQUE INDEX `idemployer_UNIQUE` (`idemployer` ASC) VISIBLE);
 
 
+  CREATE TABLE `joblisting` (
+  `idjoblisting` int NOT NULL AUTO_INCREMENT,
+  `jobname` varchar(45) NOT NULL,
+  `startdate` date NOT NULL,
+  `salary` float NOT NULL,
+  `location` varchar(45) NOT NULL,
+  `jobdescription` varchar(45) NOT NULL,
+  `contactdetails` varchar(45) NOT NULL,
+  PRIMARY KEY (`idjoblisting`),
+  UNIQUE KEY `idjoblisting_UNIQUE` (`idjoblisting` ASC) VISIBLE)
+
+
 --Displays student table
 SELECT * FROM student;
 

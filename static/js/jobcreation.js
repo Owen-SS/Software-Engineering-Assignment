@@ -44,7 +44,7 @@ function createdJobListing(){
     
     if (job_name.length == 0){
         alert("Please add the title of the role");
-    }else if(salary.length != 4){
+    }else if(salary.length <= 3){
         check_listing.splice(1, 1, 'red');
         alert("Invalid salary");
     }else if(locat.length == 0){
@@ -56,12 +56,12 @@ function createdJobListing(){
     }else{
         uploadJobListing.push(
             job_name,
-            contract_type,
             start_date,
             salary,
             locat,
             job_description,
-            contact_us
+            contact_us,
+            contract_type
             );
             upload = true;
         }

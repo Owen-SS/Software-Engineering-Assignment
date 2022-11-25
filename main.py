@@ -113,8 +113,34 @@ def companyUpload():
   if dbMessage[0]:
     return messageOK
   else:
-    messageFail = jsonify(data="None", message=500, error=dbMessage[2])
+    messageFail = jsonify(data="Failed to create account", message=500, error=dbMessage[2])
     return messageFail
+
+  
+@app.route("/joblisting/upload", methods=["PUT"])
+def jobListingUpload():
+  messageOK = jsonify(data="Job listing created!", message=200, error="None")
+  messageFail = jsonify(data="None", message=500, error="None")
+
+  print("called")
+
+  try:
+    req = request.get_json()
+    print(req)
+    dbMessage = db.addJobListing(req)
+  except Exception as e:
+    messageFail = jsonify(data="None", message=500, error=str(e))
+    return messageFail
+  
+  if dbMessage[0]:
+    return messageOK
+  else:
+    messageFail = jsonify(data="Failed to upload job listing", message=500, error=dbMessage[2])
+    return messageFail
+
+
+
+
 
 
     
@@ -123,13 +149,7 @@ def companyUpload():
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
   messageOK = jsonify(data="Login success", message=200)
-  messageFail = jsonify(data="login failed", message=404)
-
-  #Have database
-  #Read accounts data
-  #Search through accounts for mathcing username
-  #Check if password matches
-  #Set current user or display incorrect login details message
+  messageFail = jsonify(data="login failed", message=500)
 
   req = request.get_json()
 
