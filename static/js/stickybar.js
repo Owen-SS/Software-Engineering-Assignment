@@ -16,8 +16,6 @@ window.onscroll = function() {toggleSticky(window.optionsOffset)};
 
 function toggleSticky(optionsOffset) {
 
-    console.log(window.pageYOffset, optionsOffset)
-    
     if (window.pageYOffset >= optionsOffset) 
     {
         options.classList.add("sticky")
