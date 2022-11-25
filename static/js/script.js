@@ -34,3 +34,45 @@ function displaydetails(data){
  
   topName.innerHTML = "Welcome - " + data[2]; 
 }
+
+function addElemen(){
+  let parentDiv = document.createElement("div");
+  let cDiv1 = document.createElement("div");
+  let cDiv2 = document.createElement("div");
+  let cDiv3 = document.createElement("div");
+
+
+  let cDiv1t = document.createTextNode("Whassup bitches");
+  let cDiv2t = document.createTextNode("Whassup bitches");
+  let cDiv3t = document.createTextNode("Whassup bitches");
+
+  cDiv1.appendChild(cDiv1t);
+  cDiv2.appendChild(cDiv2t);
+  cDiv3.appendChild(cDiv3t);
+
+  parentDiv.appendChild(cDiv1);
+  parentDiv.appendChild(cDiv2);
+  parentDiv.appendChild(cDiv3);
+
+  let jobL = document.getElementById("job-list");
+  document.body.insertBefore(parentDiv, jobL);
+
+}
+
+
+function addJob(){
+  fetch('/display/jobview')
+
+  .then(response => response.json())
+  .then(data=>{
+
+    if(data.message != 200){
+      console.log("Failed to retrieve data")
+    }else{
+      addElemen();
+    }
+  })
+
+
+}
+addJob()
