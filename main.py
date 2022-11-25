@@ -72,6 +72,8 @@ def createjoblisting():
 
 # Uploading data - - -
 
+["Epic Job","Permanent","20th sepetember","10,000", "Poole",""]
+
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
   print("Student upload")
@@ -116,8 +118,6 @@ def companyUpload():
     messageFail = jsonify(data="None", message=500, error=dbMessage[2])
     return messageFail
 
-
-    
 
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
