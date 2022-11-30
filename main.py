@@ -192,9 +192,9 @@ def getdetails():
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
 
-  data = testData
+  data = [testData, testData]
 
-  return jsonify(data=data, message=200, error="none")
+  return jsonify(data=data, status=200, error="none")
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():

@@ -35,28 +35,28 @@ function displaydetails(data){
   topName.innerHTML = "Welcome - " + data[2]; 
 }
 
-function addElemen(){
-  let parentDiv = document.createElement("div");
-  let cDiv1 = document.createElement("div");
-  let cDiv2 = document.createElement("div");
-  let cDiv3 = document.createElement("div");
+function addElemen(list){
+  const element = document.getElementById("job-list");
 
+  const idName = ['job-name', 'start-date', 'salary', 'location', 'job-desc', 'contact']
+  for(mainIndex in list){
+    let div = document.createElement("div");
+    div.id = "job"
+    let id = list[mainIndex][0]
 
-  let cDiv1t = document.createTextNode("Whassup bitches");
-  let cDiv2t = document.createTextNode("Whassup bitches");
-  let cDiv3t = document.createTextNode("Whassup bitches");
+    for(index in list[mainIndex]){
+      
 
-  cDiv1.appendChild(cDiv1t);
-  cDiv2.appendChild(cDiv2t);
-  cDiv3.appendChild(cDiv3t);
+      let text = list[mainIndex][index]
 
-  parentDiv.appendChild(cDiv1);
-  parentDiv.appendChild(cDiv2);
-  parentDiv.appendChild(cDiv3);
-
-  let jobL = document.getElementById("job-list");
-  document.body.insertBefore(parentDiv, jobL);
-
+      const para = document.createElement("p");
+      const node = document.createTextNode(text);
+      para.id = idName[index]
+      para.appendChild(node);
+      div.appendChild(para)
+    }
+    element.appendChild(div);
+  }
 }
 
 
@@ -66,10 +66,10 @@ function addJob(){
   .then(response => response.json())
   .then(data=>{
 
-    if(data.message != 200){
+    if(data.status != 200){
       console.log("Failed to retrieve data")
     }else{
-      addElemen();
+      addElemen(data.data);
     }
   })
 
