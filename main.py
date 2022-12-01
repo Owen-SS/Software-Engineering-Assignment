@@ -22,8 +22,10 @@ HOST = "aws-database.cwjsojfqpy2s.eu-west-2.rds.amazonaws.com" #Server endpoint
 USER = "SE_DB" 
 PASSWORD = "software-database" #Need to reset password lol
 DATABASE = 'assignment'
-
-db = Database(HOST,USER,PASSWORD,DATABASE)
+try: 
+  db = Database(HOST,USER,PASSWORD,DATABASE)
+except Exception as e:
+  print("Failed to load Database - " + str(e))
 
 def datefix(raw_dob):
 
@@ -73,6 +75,7 @@ def createjoblisting():
 # Uploading data - - -
 
 testData = ["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
+testDataOne = ["Tiago is gay","Permanently","1 Dec","-10,000,000", "This is a tough challenge to take on.. It takes a real fairy to do this role.","You pimp","tiago@bumbing.cum"]
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
@@ -192,7 +195,7 @@ def getdetails():
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
 
-  data = [testData, testData]
+  data = [testData, testDataOne]
 
   return jsonify(data=data, status=200, error="none")
 
