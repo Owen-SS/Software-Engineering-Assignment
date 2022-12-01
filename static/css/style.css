@@ -3,9 +3,11 @@
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 body {
     margin: 0;
 }
+
 #top{
     float: right;
     position: absolute;
@@ -29,7 +31,6 @@ body {
 }
   
 #TextUser{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     position: relative;
     top:25px; 
@@ -38,54 +39,13 @@ body {
 #user img{
     width: 5%;
     right:3%;
-    
 }
 
 #title{
     text-align: center;
     font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:rgb(255, 255, 255);
     align-content: center;
-}
-
-/* Nav - - - - - - */
-#nav{
-    position: relative;
-    float: left;
-    background-color: rgb(230, 230, 230);
-    margin-top: 1%;
-    display: block;
-    border-radius: 5px;
-    width:100%;
-
-
-}
-
-#nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#nav li{
-    display: inline-block;
-}
-  
-#nav li a {
-    transition: 0.3s;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 10px 16px;
-    text-decoration: none;
-}
-
-#nav li a:hover {
-    transition: 0.3s;
-    color: white;
-    background-color:#2195f3;
-    border-radius: 5px;
 }
 
 #options {
@@ -116,29 +76,21 @@ body {
 
 /* Search Box - - - - - - */
 #searchBox{
-    float: left;
     text-align: center;
-    width: 70%;
-    /*
-    border: 5px;
-    border-style: solid;
-    border-color: black;*/
+
 }
 #searchBox .where,
 #searchBox .search{
+    float: left;
     background-color: rgb(250, 249, 248);
     width: 50%;
-    height: 100%;
     position: relative;
-    float: left;
-}
-
-#searchBox .where img{
-    width: 5%;
 }
 
 #searchBox .where input[type=text],
 #searchBox .search input[type=text] {
+    margin-top: 2%;
+    padding: 2%;
     width: 80%;
     height: 60%;
     border: 2px solid;
@@ -149,15 +101,6 @@ body {
 
 
 /* Filters - - - - - - */
-#filter-dropdown{
-    float: right;
-    text-align: center;
-    width: 30%;
-    /*
-    border: 5px;
-    border-style: solid;
-    border-color: black;*/
-}
 
 #filters .title {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -185,8 +128,9 @@ body {
 
 /* Radio buttons - - - - - - */
 .container {
-    width: 30%;
-    height: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 15%;
     display: inline-block;
     cursor: pointer;
 }
@@ -206,7 +150,6 @@ body {
 .checkmark {
     transition: 0.2s;
     font-size: small;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     float: left;
     left: 0;
@@ -219,14 +162,12 @@ body {
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-    height: 70%;
     transition: 0.2s;
     background-color: rgb(219, 216, 216);
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    height: 70%;
     transition: 0.2s;
     color: white;
     background-color: #2196F3;
@@ -245,17 +186,14 @@ body {
     text-align: center;
     width: 100%;
     height: 1000px;
-
     position: relative;
-    /*border: 5px;
-    border-style: solid;
-    border-color: black;*/
 }
 
 #job{
     transition: 0.3s;
     margin-top: 10px;
     background-color: white;
+    padding: 1%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -269,8 +207,8 @@ body {
     cursor: pointer;
     transition: 0.3s;
     background-color: rgb(230, 230, 230);
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 #job #job-name{
@@ -289,6 +227,11 @@ body {
     border-color: black;
 }
 
+#job #salary {
+    transform: translateY(-100%);
+    width: fit-content;
+}
+
 #job #job-desc {
     float: left;
     width: 25%;
@@ -297,6 +240,8 @@ body {
     border-color: red;
 
 }
+
+#job 
 
 #job p {
     float: right;
