@@ -21,15 +21,6 @@
         <p class="location"><img src="../static/icons/location-icon.png" onclick="getLocation()"></p>
         </div>
     </div>
-    
-    <div id = "nav">
-        <ul>
-            <li><a href="/employer">Employer Dashboard</a></li>
-            <li><a href="/student">Student Dashboard</a></li>
-            <li><a href="/login">Login page</a></li>
-            <li><a href="/signup">Sign up page</a></li>
-        </ul>
-    </div>
 
     <div id = "options">
         <div id="searchBox">
@@ -40,29 +31,21 @@
                 <input type="text" placeholder="Add Location">
             </div>
         </div>
-
-        <div id="filter-dropdown">
-            <button id="dropdown-button" onclick="toggle_filter_dropdown()">Filters</button>
-            <div id="dropdown-content">
-                <div id="filterOption">
-                    <label class="container">
-                        <input type="radio" checked="checked" name="jobType">
-                        <span class="checkmark">Full-time</span>
-                    </label>
-                    <label class="container">
-                        <input type="radio" name="jobType">
-                        <span class="checkmark">Part-time</span>
-                    </label>
-                    <label class="container">
-                        <input type="radio" name="jobType">
-                        <span class="checkmark">Both</span>
-                    </label>
-                </div>
-            </div>
-        </div>
     </div>
     
     <div id="job-list">
+        <label class="container">
+            <input type="radio" checked="checked" name="jobType">
+            <span class="checkmark">Full-time</span>
+        </label>
+        <label class="container">
+            <input type="radio" name="jobType">
+            <span class="checkmark">Part-time</span>
+        </label>
+        <label class="container">
+            <input type="radio" name="jobType">
+            <span class="checkmark">Both</span>
+        </label>
         
     </div>
     
