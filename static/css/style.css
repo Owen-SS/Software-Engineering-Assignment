@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body {
     margin: 0;
@@ -272,25 +273,24 @@ body {
     padding-left: 10px;
 }
 
-#job img{
+#job #job-name{
     float: left;
-    padding: 1%;
+    font-size: x-large;
     width: 15%;
+    border-color: green;
 }
 
-#job .company-info {
-    float: left;
-    padding: 1%;
-    width: 20%;
+#job #start-date {
+    float: right;
+    width: 10%;
     justify-content: center;
     border: 5px;
     border-style: solid;
     border-color: black;
 }
 
-#job .info {
+#job #job-desc {
     float: left;
-    padding: 1%;
     width: 25%;
     border: 5px;
     border-style: solid;
@@ -298,8 +298,8 @@ body {
 
 }
 
-#job .options {
-    float: left;
+#job p {
+    float: right;
     padding: 1%;
     width: 10%;
     border: 5px;
@@ -335,3 +335,4 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+

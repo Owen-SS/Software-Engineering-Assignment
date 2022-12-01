@@ -7,13 +7,13 @@ function getDetails(){
   xhttp.onreadystatechange = function() {
     let strResponse = "Error: no response";
     if (this.readyState == 4 && this.status == 200) {
-      console.log("here")
       strResponse = JSON.parse(this.responseText);
       data_res = strResponse.data
 
       console.log(data_res)
       if (strResponse.message != 404){
         displaydetails(data_res)
+        addJob()
       }else{
         alert("Whoops somthing went wrong!")
         console.log("Get details error - " + strResponse.message)
@@ -75,4 +75,5 @@ function addJob(){
 
 
 }
-addJob()
+
+addJob() // Remove this after layout is done!
