@@ -134,17 +134,24 @@ def login():
   messageOK = jsonify(data="Login success", message=200)
   messageFail = jsonify(data="login failed", message=500)
 
+  file_csv = "./data/student/student-account.csv"
+
   req = request.get_json()
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
+  username = req[0]
+  password = req[1]
 
-  #caching currentUserID var so can be accessed on all web pages
-  id = db.login(req[0], req[1], req[2])
-  session['ID'] = id
-  session['account'] = req[2] # Either 'student' or 'company'
+  for row in data:
+    username_check = row[1]
+    password_check = row[2]
 
-  if id != -1:
-    return messageOK
-  else:
-    return messageFail
+    if username_check == username:
+      if password_check == password:
+        id = row[0]
+        session['ID'] = id
+        return messageOK
+  return messageFail
 
 
 
