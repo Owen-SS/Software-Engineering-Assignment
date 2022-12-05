@@ -68,8 +68,8 @@ function capture(){
             check.push('none');
         }
     }
-    // let dateNum = new date()
-    let id = "Test123"
+    let d = new Date();
+    let numDate = d.getTime()
 
     if (email.length == 0 & phone_number.length == 0){
         alert("Please add your contact info");
@@ -91,7 +91,7 @@ function capture(){
         if(fName.length == 0 || sName.length == 0){
             alert("Please add your name");
         }else{
-            // id = sname + dateNum.get
+            id = sName + numDate.toString()
             uploadObject.push(
                 id,
                 username,
@@ -113,7 +113,7 @@ function capture(){
         if (cName == 0){
             alert("Please add company name");
         }else{
-            // id = cName + dateNum
+            id = cName + dateNum.toString()
             uploadObject.push(
                 id,
                 username,
