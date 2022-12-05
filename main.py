@@ -1,6 +1,4 @@
 from flask import Flask, render_template, jsonify, request, make_response, session
-import sys, json, os, csv
-#from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pandas as pd
 
@@ -16,16 +14,6 @@ app = Flask('app')
 #This secret key is needed for session
 app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
-
-#Our database connection variables
-HOST = "aws-database.cwjsojfqpy2s.eu-west-2.rds.amazonaws.com" #Server endpoint
-USER = "SE_DB" 
-PASSWORD = "software-database" #Need to reset password lol
-DATABASE = 'assignment'
-try: 
-  db = Database(HOST,USER,PASSWORD,DATABASE)
-except Exception as e:
-  print("Failed to load Database - " + str(e))
 
 def datefix(raw_dob):
 
@@ -79,46 +67,44 @@ testDataOne = ["Tiago is gay","Permanently","1 Dec","-10,000,000", "This is a to
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
-  print("Student upload")
-  messageOK = jsonify(data="Account created!", message=200, error="None")
-  messageFail = jsonify(data="None", message=500, error="None")
 
+  file_csv = "./data/student/student-account.csv"
+  print("student upload")
+  messageOK = jsonify(data="Account created!", message= 200, error="None")
+  messageFail = jsonify(data="None", message=500, error="Unkown")
+  
+  req = request.get_json()
   try:
-    req = request.get_json()
-    # print("Adding student account: \n", req)
-    dbMessage = db.addStudent(req)
+    df = pd.read_csv(file_csv)
+  except Exception:
+    print("Create a file!")
 
-    #Account added successfully
-    if dbMessage[0]:
-      return messageOK
-    #Account failed to add
-    else:
-      messageFail = jsonify(data="None", message=500, error=dbMessage[2])
-      return messageFail
-
-  except Exception as e:
-    messageFail = jsonify(data="None", message=500, error=str(e))
+  df.loc[len(df)] = req
+  if request.is_json:
+    df.to_csv(file_csv, encoding='utf-8', index=False)
+    return messageOK
+  else:
     return messageFail
 
 
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
-  messageOK = jsonify(data="Account created!", message=200, error="None")
-  messageFail = jsonify(data="None", message=500, error="None")
-
-
-  try:
-    req = request.get_json()
-    dbMessage = db.addEmployer(req)
-
-  except Exception as e:
-    messageFail = jsonify(data="None", message=500, error=str(e))
-    return messageFail
+  file_csv = "./data/company/company-account.csv"
+  print("Company upload")
+  messageOK = jsonify(data="Account created!", message= 200, error="None")
+  messageFail = jsonify(data="None", message=500, error="Unkown")
   
-  if dbMessage[0]:
+  req = request.get_json()
+  try:
+    df = pd.read_csv(file_csv)
+  except Exception:
+    print("Create a file!")
+
+  df.loc[len(df)] = req
+  if request.is_json:
+    df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK
   else:
-    messageFail = jsonify(data="Failed to create account", message=500, error=dbMessage[2])
     return messageFail
 
   
@@ -142,12 +128,6 @@ def jobListingUpload():
   else:
     messageFail = jsonify(data="Failed to upload job listing", message=500, error=dbMessage[2])
     return messageFail
-
-
-
-
-
-
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
