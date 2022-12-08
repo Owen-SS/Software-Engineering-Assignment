@@ -123,7 +123,11 @@ function editMode(edit) {
         let strResponse = "Error: no response";
         if (this.readyState == 4 && this.status == 200) {
             strResponse = JSON.parse(this.responseText);
-            alert(strResponse.message);
+            if (strResponse.status == 200){
+              alert(strResponse.message);
+            }else{
+              console.log(strResponse.message + " - " + strResponse.status)
+            }
         }
     };
     xhttp.open("PUT", url, true);
@@ -153,12 +157,12 @@ function editMode(edit) {
           strResponse = JSON.parse(this.responseText);
           data_res = strResponse.data
   
-          if (strResponse.message == 200){
+          if (strResponse.status == 200){
             displaydetails(data_res)
             window.location = "/login"
           }else{
             alert("Whoops somthing went wrong!")
-            console.log("Delete details error - " + strResponse.error + " | " + strResponse.message);
+            console.log("Delete details error - " + strResponse.error + " | " + strResponse.status);
           }
         }
       };
