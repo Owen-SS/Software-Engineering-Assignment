@@ -1,7 +1,22 @@
-function editMode(edit) {
+function start() {
+  let edit = true
+  var editBtn = document.getElementById("edit");
+
+  editBtn.style.backgroundColor = "#2196F3";
+  editBtn.value = "Edit"
+  fName.removeAttribute("disabled");
+  sName.removeAttribute("disabled");
+  email.removeAttribute("disabled");
+  phoneNum.removeAttribute("disabled");
+  dob.removeAttribute("disabled");
+  addOne.removeAttribute("disabled");
+  addTwo.removeAttribute("disabled");
+  addThree.removeAttribute("disabled");
+  postcode.removeAttribute("disabled");
+}
+function editMode() {
 
   var editBtn = document.getElementById("edit");
-  var saveBtn = document.getElementById("save");
 
   var fName = document.getElementById("fName");
   var sName = document.getElementById("sName");
@@ -13,33 +28,33 @@ function editMode(edit) {
   var addThree = document.getElementById("AD3");
   var postcode = document.getElementById("postcode");
 
-  if (edit == "Yes") {
-      editBtn.style.backgroundColor = "#eee";
-      saveBtn.style.backgroundColor = "#2196F3";
-      fName.removeAttribute("disabled");
-      sName.removeAttribute("disabled");
-      email.removeAttribute("disabled");
-      phoneNum.removeAttribute("disabled");
-      dob.removeAttribute("disabled");
-      addOne.removeAttribute("disabled");
-      addTwo.removeAttribute("disabled");
-      addThree.removeAttribute("disabled");
-      postcode.removeAttribute("disabled");
+  if (edit == true) {
+    edit = false
+    editBtn.value = "Save";
+    fName.removeAttribute("disabled");
+    sName.removeAttribute("disabled");
+    email.removeAttribute("disabled");
+    phoneNum.removeAttribute("disabled");
+    dob.removeAttribute("disabled");
+    addOne.removeAttribute("disabled");
+    addTwo.removeAttribute("disabled");
+    addThree.removeAttribute("disabled");
+    postcode.removeAttribute("disabled");
       
-  } else if (edit == "No") {
-      editBtn.style.backgroundColor = "#2196F3";
-      saveBtn.style.backgroundColor = "#eee";
-      fName.setAttribute("disabled", "disabled");
-      sName.setAttribute("disabled", "disabled");
-      email.setAttribute("disabled", "disabled");
-      phoneNum.setAttribute("disabled", "disabled");
-      dob.setAttribute("disabled", "disabled");
-      addOne.setAttribute("disabled", "disabled");
-      addTwo.setAttribute("disabled", "disabled");
-      addThree.setAttribute("disabled", "disabled");
-      postcode.setAttribute("disabled", "disabled");
-      updateDetails();
-    }
+  } else if (edit == false) {
+    edit = true
+    editBtn.style.backgroundColor = "#2196F3";
+    fName.setAttribute("disabled", "disabled");
+    sName.setAttribute("disabled", "disabled");
+    email.setAttribute("disabled", "disabled");
+    phoneNum.setAttribute("disabled", "disabled");
+    dob.setAttribute("disabled", "disabled");
+    addOne.setAttribute("disabled", "disabled");
+    addTwo.setAttribute("disabled", "disabled");
+    addThree.setAttribute("disabled", "disabled");
+    postcode.setAttribute("disabled", "disabled");
+    updateDetails();
+  }
 }
 
 function cleardetails(){
@@ -139,8 +154,12 @@ function updateDetails(){
   xhttp.onreadystatechange = function() {
       let strResponse = "Error: no response";
       if (this.readyState == 4 && this.status == 200) {
-          strResponse = JSON.parse(this.responseText);
+        strResponse = JSON.parse(this.responseText);
+        if (strResponse.status == 200){
           alert(strResponse.message);
+        }else{
+          console.log(strResponse.message + " - " + strResponse.status)
+        }
       }
   };
   xhttp.open("PUT", url, true);
@@ -154,6 +173,8 @@ function updateDetails(){
 
 function deleteAccount(){
   uploadObject = ["None"]
+  var editBtn = document.getElementById("edit");
+  
   let del = false
   if (confirm("Are you sure you want to delete your account?")) {
     del = true
@@ -172,7 +193,7 @@ function deleteAccount(){
         if (strResponse.message != 404){
           displaydetails(data_res)
         }else{
-          alert("Whoops somthing went wrong!")
+          editBtn.value = "Failed";
           console.log("Get details error - " + strResponse.message)
         }
       }
