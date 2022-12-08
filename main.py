@@ -18,12 +18,12 @@ app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
 
 #Our database connection variables
-HOST = "aws-database.cwjsojfqpy2s.eu-west-2.rds.amazonaws.com" #Server endpoint
-USER = "SE_DB" 
-PASSWORD = "software-database" #Need to reset password lol
-DATABASE = 'assignment'
+#HOST = "aws-database.cwjsojfqpy2s.eu-west-2.rds.amazonaws.com" #Server endpoint
+#USER = "SE_DB" 
+#PASSWORD = "software-database" #Need to reset password lol
+#DATABASE = 'assignment'
 
-db = Database(HOST,USER,PASSWORD,DATABASE)
+#db = Database(HOST,USER,PASSWORD,DATABASE)
 
 def datefix(raw_dob):
 
