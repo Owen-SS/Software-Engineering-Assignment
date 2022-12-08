@@ -191,7 +191,7 @@ def updateDetails():
   found = False
 
   account = session.get('account')
-  file_path = ["data/student/accounts/student-account.csv", "data/company/accounts/company-account.csv"]
+  file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
 
   if account == "student":
     file_csv = file_path[0]
@@ -201,8 +201,8 @@ def updateDetails():
   df = pd.read_csv(file_csv)
   data = df.to_numpy()
 
-  messageOK = jsonify(message="Update complete!")
-  messageFail = jsonify(message="Update failed...")
+  messageOK = jsonify(message="Update complete", status=200)
+  messageFail = jsonify(message="Update failed", status=500)
 
   req = request.get_json()
 
@@ -239,23 +239,39 @@ def updateDetails():
 @app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
 
-  messageOK = jsonify(data="Account deleted!", message=200, error="None")
-  messageFail = jsonify(data="Account deletion failed", message=500, error="None")
+  messageOK = jsonify(data="Account deleted", status=200, error="None")
+  messageFail = jsonify(data="Account deletion failed", status=404, error="Could not find account")
 
   id = session.get('ID')
-  accountType = session.get('account') #Need to find account type from cache
+  account = session.get('account')
+
+  file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
+  if account == "student":
+    file_csv = file_path[0]
+  elif account == "company":
+    file_csv = file_path[1]
   
-  try:
-    dbMessage = db.deleteAccount(id, accountType)
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
 
-  except Exception as e:
-    return jsonify(data='failed to delete account data', message=500, error = str(e))
+  index = 0
+  found = False
 
-  if dbMessage[0]:
+  for row in data:
+    id_check = row[0]
+
+    if id_check == id:
+      found = True
+      df = df.drop([index])
+    index+=1
+  
+  if found:
+    df.to_csv(file_csv, encoding='utf-8', index=False)
     return messageOK
-  else:
-    messageFail = jsonify(data="None", message=500, error=dbMessage[2])
-    return messageFail
+  
+  return messageFail
+  
+
 
 
 
