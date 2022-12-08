@@ -11,12 +11,12 @@ function getDetails(){
       data_res = strResponse.data;
 
       console.log(data_res);
-      if (strResponse.message != 404){
+      if (strResponse.message == 200){
         displaydetails(data_res);
         addJob();
       }else{
         alert("Whoops somthing went wrong!");
-        console.log("Get details error - " + strResponse.message);
+        console.log("Get details error - " + strResponse.error + " | " + strResponse.message);
       }
     }
   };
@@ -31,8 +31,8 @@ function getDetails(){
 
 function displaydetails(data){
   let topName = document.getElementById("top-name");
- 
-  topName.innerHTML = "Welcome - " + data[2]; 
+  console.log(data)
+  topName.innerHTML = "Welcome - " + data[1]; 
 }
 
 function addElemen(list){

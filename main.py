@@ -131,53 +131,63 @@ def jobListingUpload():
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
-  messageOK = jsonify(data="Login success", message=200)
-  messageFail = jsonify(data="login failed", message=500)
+  messageOK = jsonify(data="Login success", message=200, error = "None")
+  messageFail = jsonify(data="login failed", message=500, error = "None")
 
-  file_csv = "./data/student/student-account.csv"
+  try:
+    req = request.get_json()
+    df = pd.read_csv(file_csv)
+  except Exception as e:
+    return jsonify(data="Login failed", message=500, error=e)
 
-  req = request.get_json()
-  df = pd.read_csv(file_csv)
   data = df.to_numpy()
   username = req[0]
   password = req[1]
+  account = req[2]
 
-  for row in data:
-    username_check = row[1]
-    password_check = row[2]
+  print(account)
 
-    if username_check == username:
-      if password_check == password:
-        id = row[0]
-        session['ID'] = id
-        return messageOK
+  file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
+  if account == "student":
+    file_csv = file_path[0]
+  elif account == "company":
+    file_csv = file_path[1]
+
+  session['account'] = account
+  try:
+    for row in data:
+      username_check = row[1]
+      password_check = row[2]
+
+      if username_check == username:
+        if password_check == password:
+          id = row[0]
+          session['ID'] = id
+          return messageOK
+  except Exception as e:
+    return jsonify(data="Login failed", message=500, error=e)
   return messageFail
-
 
 
 @app.route("/displaydetails", methods =['PUT'])
 def getdetails():
 
-  id = session.get('ID')
   account = session.get('account')
+  print(account)
+  file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
 
+  if account == "student":
+    file_csv = file_path[0]
+  elif account == "company":
+    file_csv = file_path[1]
+  
   try:
-    #Get user's data from correlating userID
-    account_data = db.getAccountData(id, account)
-    account_data = account_data[0]
-    data_list = []
-
-    for x in account_data:
-      data_list.append(x)
-
-    if account == "student":
-      dob = datefix(data_list[7])
-      data_list[7] = dob
-
-    #This sends account data website
-    return jsonify(data = data_list)
+    df = pd.read_csv(file_csv)
+    data = df.to_numpy()
   except Exception as e:
-    return jsonify(data='failed to load account data', message=404, error = str(e))
+    return jsonify(data='failed to load account data', message=500, error = str(e))
+  
+  return jsonify(data=data, message=200, error="None")
 
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
@@ -198,8 +208,11 @@ def updateDetails():
   elif account == "company":
     file_csv = file_path[1]
   
-  df = pd.read_csv(file_csv)
-  data = df.to_numpy()
+  try:
+    df = pd.read_csv(file_csv)
+    data = df.to_numpy()
+  except:
+    return messageFail
 
   messageOK = jsonify(message="Update complete", status=200)
   messageFail = jsonify(message="Update failed", status=500)
@@ -250,9 +263,11 @@ def deleteAccount():
     file_csv = file_path[0]
   elif account == "company":
     file_csv = file_path[1]
-  
-  df = pd.read_csv(file_csv)
-  data = df.to_numpy()
+  try:
+    df = pd.read_csv(file_csv)
+    data = df.to_numpy()
+  except:
+    return messageFail
 
   index = 0
   found = False

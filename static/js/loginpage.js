@@ -42,7 +42,9 @@ function login(){
     }else if(password.length == 0){
         alert("please enter your password")
     }else{
-        uploadObject.push(username, password, account)
+        uploadObject.push(username)
+        uploadObject.push(password)
+        uploadObject.push(account)
         check = true 
     }
 
