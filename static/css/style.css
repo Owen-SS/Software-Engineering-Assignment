@@ -181,12 +181,14 @@ body {
 
 
 /* Job list - - - - - - */
+
 #job-list{
+    margin-top: 0.7%;
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 100%;
-    height: 1000px;
-    position: relative;
+    height: 100%;
+    position: absolute;
 }
 
 #job{
@@ -198,7 +200,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    height: 22%;
+    height:30%;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -211,40 +213,8 @@ body {
     padding-left: 20px;
 }
 
-#job #job-name{
-    float: left;
-    font-size: x-large;
-    width: 15%;
-    border-color: green;
-}
-
-#job #start-date {
-    float: right;
-    width: 10%;
-    justify-content: center;
-    border: 5px;
-    border-style: solid;
-    border-color: black;
-}
-
-#job #salary {
-    transform: translateY(-100%);
-    width: fit-content;
-}
-
-#job #job-desc {
-    float: left;
-    width: 25%;
-    border: 5px;
-    border-style: solid;
-    border-color: red;
-
-}
-
-#job 
-
 #job p {
-    float: right;
+    float: left;
     padding: 1%;
     width: 10%;
     border: 5px;
@@ -252,6 +222,66 @@ body {
     border-color: blue;
 }
 
+#job #job-name{
+    float: left;
+    margin-top:3%;
+    font-size: x-large;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+}
+
+#job  #location{
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(-228%);
+}
+
+#job  #contract-type{
+    margin-top: 4%;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(72%);
+
+}
+
+#job  #start-date{
+    margin-top: 8%;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(-28%);
+}
+
+#job #salary{
+    margin-top: 12%;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(-128%);
+
+}
+
+
+#job-desc{
+    margin-top: -4%;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(0%);
+}
+
+#email{
+
+    margin-top: 7%;
+    width: 15%;
+    border-color: pink;
+    position: relative;
+    transform: translatex(-535%);
+
+}
 
 
 
