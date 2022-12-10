@@ -229,7 +229,8 @@ def displayJobview():
       if os.path.isfile(file_path) or os.path.islink(file_path):
         df = pd.read_csv(file_path)
         csvData = df.to_numpy()
-        dataStore.append(csvData[0])
+        for list in csvData:
+          dataStore.append(list)
 
     except:
       None
