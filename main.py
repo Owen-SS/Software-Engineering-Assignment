@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, make_response, session
 from datetime import datetime
 import pandas as pd
+import os
 
 #Makes other file accessible for import
 #THIS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -113,20 +114,41 @@ def jobListingUpload():
   messageOK = jsonify(data="Job listing created!", message=200, error="None")
   messageFail = jsonify(data="None", message=500, error="None")
 
-  print("called")
+  directory = session.get("ID")
+  parent_dir = "data/company/storage"
+  file = "/job-listings.csv"
+  headings = ['jobName', 'contType', 'startDate', 'salary', 'postcode', 'job_desc', 'contact']
+  
+  path = os.path.join(parent_dir, directory)
+  csv_file = str(path) + file
 
   try:
+    df = pd.read_csv(csv_file)
+  except:
+    print("Creating path - " + str(path))
+    os.mkdir(path)
+    f = open(csv_file, "x")
+    for x in headings:
+      if x == 'contact':
+        f.write(x)
+      else:
+        f.write(x +',')
+
+  try:
+    df = pd.read_csv(csv_file)
     req = request.get_json()
-    print(req)
-    dbMessage = db.addJobListing(req)
+
   except Exception as e:
     messageFail = jsonify(data="None", message=500, error=str(e))
     return messageFail
   
-  if dbMessage[0]:
+  df = pd.read_csv(csv_file)
+  df.loc[len(df)] = req
+  if request.is_json:
+    df.to_csv(csv_file, encoding='utf-8', index=False)
     return messageOK
   else:
-    messageFail = jsonify(data="Failed to upload job listing", message=500, error=dbMessage[2])
+    messageFail = jsonify(data="Failed to upload job listing", message=500, error="Unkown")
     return messageFail
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
