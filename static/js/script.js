@@ -69,8 +69,4 @@ function addJob(){
       addElemen(data.data);
     }
   })
-
-
 }
-
-addJob() // Remove this after layout is done!
