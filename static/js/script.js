@@ -10,7 +10,6 @@ function getDetails(){
       strResponse = JSON.parse(this.responseText);
       data_res = strResponse.data;
 
-      console.log(data_res);
       if (strResponse.message == 200){
         displaydetails(data_res);
         addJob();
@@ -31,7 +30,6 @@ function getDetails(){
 
 function displaydetails(data){
   let topName = document.getElementById("top-name");
-  console.log(data)
   topName.innerHTML = "Welcome - " + data[1]; 
 }
 
