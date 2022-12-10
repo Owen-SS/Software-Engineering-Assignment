@@ -9,65 +9,55 @@ function cleardetails(){
 }
 
 function createdJobListing(){
-    let uploadJobListing = [];
-    let company_input = [];
+    let uploadObject = [];
     let check_listing = [];
 
     let upload = false;
 
     job_name = document.getElementById("jName").value;
-    contract_type = document.getElementById("contractType").value;
+    cont_type = document.getElementById("contractType").value;
     start_date = document.getElementById("sDate").value;
     salary = document.getElementById("salary").value;
-    locat= document.getElementById("loc").value;
-    job_description= document.getElementById("jDescription").value;
-    contact_us = document.getElementById("contactUs").value;
+    postcode= document.getElementById("loc").value;
+    job_desc= document.getElementById("jDescription").value;
+    contact = document.getElementById("contactUs").value;
 
-    company_input.push(job_name);
-    company_input.push(contract_type);
-    company_input.push(start_date);
-    company_input.push(salary);
-    company_input.push(locat);
-    company_input.push(job_description);
-    company_input.push(contact_us);
+    uploadObject.push(
+        job_name,
+        cont_type,
+        start_date,
+        salary,
+        postcode,
+        job_desc,
+        contact
+    );
 
-    for (let input in company_input){
-        if (company_input[input].length == 0){
+    for (let input in uploadObject){
+        if (uploadObject[input].length == 0){
             check_listing.push('red');
         }else{
             check_listing.push('none');
         }
     }
 
-    console.log(check_listing);
-
     
     if (job_name.length == 0){
         alert("Please add the title of the role");
-    }else if(salary.length <= 3){
+    }else if(salary.length <= 2){
         check_listing.splice(1, 1, 'red');
-        alert("Invalid salary");
-    }else if(locat.length == 0){
-        alert("Please add your companys 1st address and postcode seperated with a comma");
-    }else if(job_description.length == 0){
-        alert("Please add the roles description");
-    }else if(contact_us.length == 0){
-        alert("Please add your desired contact details for this role");
+        alert("Invalid salary - Must be equal too or greater than 100");
+    }else if(postcode.length == 0){
+        alert("Please add your postcode");
+    }else if(job_desc.length == 0){
+        alert("Please add the role description");
+    }else if(contact.length == 0){
+        alert("Please add contact details");
     }else{
-        uploadJobListing.push(
-            job_name,
-            start_date,
-            salary,
-            locat,
-            job_description,
-            contact_us,
-            contract_type
-            );
-            upload = true;
-        }
+        upload = true;
+    }
+
     red_items(check_listing)
 
-    console.log(uploadJobListing);
     if (upload == true){
         let url = "/joblisting/upload";
         let xhttp = new XMLHttpRequest();
@@ -81,13 +71,13 @@ function createdJobListing(){
                     alert(strResponse.data);
                 }else {
                     alert("Whoops somthing went wrong!");
-                    console.log("Save details error - " + strResponse.message);
+                    console.log("Save details error - " + strResponse.message + " | " + strResponse.error);
                 }
             }
         };
         xhttp.open("PUT", url, true);
         // Converting JSON data to string
-        var data = JSON.stringify(uploadJobListing);
+        var data = JSON.stringify(uploadObject);
         // Set the request header i.e. which type of content you are sending
         xhttp.setRequestHeader("Content-Type", "application/json");
         //send it
@@ -96,11 +86,8 @@ function createdJobListing(){
 }
 
 function red_items(check_listing){
-    let items = []
-    console.log(job_name, contract_type, start_date, salary, locat, job_description, contact_us)
-    items = [ "jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
+    let items = [ "jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
     for (let item in items){
-
         var element = document.getElementById(items[item]);
         if (check_listing[item] == 'red'){
             element.style.borderColor = "#FF0000";
