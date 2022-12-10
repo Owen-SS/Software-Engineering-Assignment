@@ -38,14 +38,12 @@ function login(){
     password = document.getElementById("password").value;
 
     if (username.length == 0){
-        alert("Please enter your username")
+        alert("Please enter your username");
     }else if(password.length == 0){
-        alert("please enter your password")
+        alert("please enter your password");
     }else{
-        uploadObject.push(username)
-        uploadObject.push(password)
-        uploadObject.push(account)
-        check = true 
+        uploadObject.push(username, password, account);
+        check = true;
     }
 
     if (check == true){
@@ -55,7 +53,7 @@ function login(){
             let strResponse = "Error: no response";
             if (this.readyState == 4 && this.status == 200) {
                 strResponse = JSON.parse(this.responseText);
-                console.log("Login - " + strResponse.data + " | Code - " + strResponse.message)
+                console.log("Login - " + strResponse.data + " | Code - " + strResponse.message);
                 if (strResponse.message == 200) {
                     if (account == "student") {
                         window.location = "/jobview"

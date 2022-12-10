@@ -136,11 +136,9 @@ def login():
 
   try:
     req = request.get_json()
-    df = pd.read_csv(file_csv)
   except Exception as e:
     return jsonify(data="Login failed", message=500, error=e)
 
-  data = df.to_numpy()
   username = req[0]
   password = req[1]
   account = req[2]
@@ -152,6 +150,9 @@ def login():
     file_csv = file_path[0]
   elif account == "company":
     file_csv = file_path[1]
+  
+  df = pd.read_csv(file_csv)
+  data = df.to_numpy()
 
   session['account'] = account
   try:
