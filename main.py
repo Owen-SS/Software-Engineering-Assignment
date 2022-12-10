@@ -174,7 +174,7 @@ def login():
 def getdetails():
 
   account = session.get('account')
-  print(account)
+
   file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
 
   if account == "student":
@@ -187,8 +187,12 @@ def getdetails():
     data = df.to_numpy()
   except Exception as e:
     return jsonify(data='failed to load account data', message=500, error = str(e))
-  
-  return jsonify(data=data, message=200, error="None")
+
+  dataToSend = []
+  for x in data[0]:
+    dataToSend.append(x)
+  dataToSend[2] = "" # Hides password ;)
+  return jsonify(data=dataToSend, message=200, error="None")
 
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
