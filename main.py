@@ -182,7 +182,6 @@ def login():
     for row in data:
       username_check = row[1]
       password_check = row[2]
-
       if username_check == username:
         if password_check == password:
           id = row[0]
@@ -197,6 +196,7 @@ def login():
 def getdetails():
 
   account = session.get('account')
+  id = session.get('ID')
 
   file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
 
@@ -212,10 +212,15 @@ def getdetails():
     return jsonify(data='failed to load account data', message=500, error = str(e))
 
   dataToSend = []
-  for x in data[0]:
-    dataToSend.append(x)
-  dataToSend[2] = "" # Hides password ;)
-  return jsonify(data=dataToSend, message=200, error="None")
+  for list in data:
+    if list[0] == id:
+      for x in list:
+        dataToSend.append(x)
+      dataToSend[2] = "" # Hides password ;)
+      return jsonify(data=dataToSend, message=200, error="None")
+  
+  return jsonify(data="None", message=404, error="Unable to find account")
+  
 
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
