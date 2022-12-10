@@ -14,19 +14,19 @@
     </div>
 
     <div id = "createjoblistingform">
-        <form class="container">
+        <div class="container">
             <div id="jobName">
                 <input type="text" placeholder="Job Name" id="jName" required>
             </div>
 
             <div id="cTypeandStartdate">
-                <input type="text" placeholder="Contract type" id="contractType" required>
-                <input type="text" placeholder="Start date" id="sDate" required>
+                <input type="text" placeholder="Contract type | Full-time, Part-time, Other" id="contractType" required>
+                <input title="Start date" type="date" placeholder="Start date" id="sDate" required>
             </div>
 
             <div id="salandloc">
-                <input type="text" placeholder="Salary" id="salary" required>
-                <input type="text" placeholder="location" id="loc" required>
+                <input type="number" placeholder="Anual Salary | 5000 " id="salary" required>
+                <input type="text" placeholder="Postcode" id="loc" required>
             </div>
 
             <div id="jDesc">
@@ -34,13 +34,13 @@
             </div>
 
             <div id="cUS">
-                <input type="text" placeholder="Contact details" id="contactUs" required>
+                <input type="text" placeholder="Phone number or Email" id="contactUs" required>
             </div>
 
             <div class="form-buttons">
                 <button onclick= "createdJobListing()" id="lower-button">Create job listing</button>
             </div>
-        </form>
+        </div>
     </div>
 
 </body>
