@@ -133,6 +133,7 @@ def jobListingUpload():
         f.write(x)
       else:
         f.write(x +',')
+    f.close()
 
   try:
     df = pd.read_csv(csv_file)
@@ -219,7 +220,27 @@ def getdetails():
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
 
-  data = [testData, testDataOne]
+  filePath = "data/company/storage/"
+  dataStore = []
+
+  for folders in os.listdir(filePath):
+    file_path = os.path.join(filePath, folders + "/job-listings.csv")
+    try:
+      if os.path.isfile(file_path) or os.path.islink(file_path):
+        df = pd.read_csv(file_path)
+        csvData = df.to_numpy()
+        dataStore.append(csvData[0])
+
+    except:
+      None
+  
+  data = []
+
+  for list in dataStore:
+    childArray = []
+    for x in list:
+      childArray.append(x)
+    data.append(childArray)
 
   return jsonify(data=data, status=200, error="none")
 
