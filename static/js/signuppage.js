@@ -113,7 +113,7 @@ function capture(){
         if (cName == 0){
             alert("Please add company name");
         }else{
-            id = cName + dateNum.toString()
+            id = cName + numDate.toString()
             uploadObject.push(
                 id,
                 username,
