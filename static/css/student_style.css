@@ -29,6 +29,18 @@ label, span, .title{
   border-radius: 0px 5px 5px 0px;
 }
 
+#TextUser a {
+  transition: 0.2s;
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+}
+
+#TextUser a:hover{
+  transition: 0.2s;
+  font-size: xx-large;
+}
+
 #TextUser{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;

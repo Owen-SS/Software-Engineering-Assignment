@@ -29,6 +29,18 @@ body {
     max-width: 300px;
     border-radius: 0px 5px 5px 0px;
 }
+
+#TextUser a {
+    transition: 0.2s;
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+
+#TextUser a:hover{
+    transition: 0.2s;
+    font-size: xx-large;
+}
   
 #TextUser{
     text-align: center;
@@ -41,7 +53,7 @@ body {
     right:3%;
 }
 
-#title{
+#title {
     text-align: center;
     font-size: large;
     color:rgb(255, 255, 255);
@@ -55,41 +67,21 @@ body {
     background-color: rgb(250, 249, 248);
 }
 
-/* To be added when scrolled offscreen */
-.sticky {
-    margin-top: 0 !important;
-    position: fixed !important;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-.sticky + #job-list {
-    padding-top: 120px;
-  }
-
-#searchBox,
-#filter-dropdown {
-    position: relative;
-    height: 100%;
-}
-
 /* Search Box - - - - - - */
 #searchBox{
     text-align: center;
-
+    padding-top: 1%;
 }
+
 #searchBox .where,
 #searchBox .search{
     float: left;
     background-color: rgb(250, 249, 248);
     width: 50%;
-    position: relative;
 }
 
 #searchBox .where input[type=text],
 #searchBox .search input[type=text] {
-    margin-top: 2%;
     padding: 2%;
     width: 80%;
     height: 60%;
@@ -99,9 +91,7 @@ body {
     font-size: 17px;
 }
 
-
 /* Filters - - - - - - */
-
 #filters .title {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -183,7 +173,6 @@ body {
 /* Job list - - - - - - */
 
 #job-list{
-    margin-top: 0.7%;
     background-color: rgb(250, 249, 248);
     text-align: center;
     width: 100%;
