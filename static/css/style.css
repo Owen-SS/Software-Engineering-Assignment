@@ -203,12 +203,10 @@ body {
 }
 
 #job p {
+    white-space: pre-line;
     float: left;
     padding: 1%;
-    width: 10%;
-    border: 5px;
-    border-style: solid;
-    border-color: blue;
+    
 }
 
 #job #job-name{
@@ -254,7 +252,7 @@ body {
 }
 
 
-#job-desc{
+#job #job-desc{
     margin-top: -4%;
     width: 15%;
     border-color: pink;
@@ -262,41 +260,10 @@ body {
     transform: translatex(0%);
 }
 
-#email{
-
+#job #email{
     margin-top: 7%;
-    width: 15%;
+    width: 100%;
     border-color: pink;
     position: relative;
     transform: translatex(-535%);
-
 }
-
-
-
-/* Dropdown */
-#dropdown-button{
-    background-color: #3498DB;
-    float: right;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-  
-#dropdown-button:hover, #dropdown-button:focus{
-    background-color: #2980B9;
-}
-  
-#dropdown-content{
-    margin-top: 60px;
-    background-color: #ffffff;
-    display: none;
-    width: 100%;
-    position: absolute;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
