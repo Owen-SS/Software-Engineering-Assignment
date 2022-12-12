@@ -1,122 +1,119 @@
-*{
-    margin:0;
-    padding:0;
-  }
-  
-  label, span, .title, div, input, button{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  #top{
-    background-color: #f32121;
-    margin-top: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
-    width: 60%;
-    border-radius: 5px;
-    padding-top: 2%;
-    padding-bottom: 2%;
-  }
-  
-  #top .title{
-    text-align: center;
-    font-size: xx-large;
-    color: white;
-  }
-  
-  #title{
-    text-align: center;
-    font-size: large;
-    color:rgb(255, 255, 255);
-    align-content: center;
-  }
-  
-  #createjoblistingform{
-    background-color: rgb(250, 249, 248);
-    margin-top: 5%;
-    padding:2% 5%;
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-  }
-  
-  #createjoblistingform.container div{
-    margin-top: 2%;
-  }
-  
-  #createjoblistingform input, textarea{
-    /*width:100%;*/
-    padding: 2% 2%;
-    margin: 1% 0;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-    outline:none;
-  }
-  /*below is code is the layout of the input boxes i have done it this way as its easier to access them*/
-  /*below is code needs to be changed to a percentage but is not working atm*/
-  #jDesc textarea{
-    height: 200px;
-    width:100%;
-  }
-  #jobName input{
-    width:100%;
-  }
+* {
+  margin:0;
+  padding:0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
-  #salandlocTypeandStartdatec{
-    width:100%;
-  }
+#top{
+  background-color: #f32121;
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  border-radius: 5px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 
-  #contractType{
-    width:49.3%;
-  }
-  #sDate{
-    width:50%;
-  }
-  
-  #salandloc{
-    width:100%;
-  }
+#top .title{
+  text-align: center;
+  font-size: xx-large;
+  color: white;
+}
 
-  #salary{
-    width:49.3%;
-  }
-  #loc{
-    width:50%;
-  }
+#title{
+  text-align: center;
+  font-size: large;
+  color:rgb(255, 255, 255);
+  align-content: center;
+}
 
-  #cUS input{
-    width:100%
-  }
-  #createjoblistingform .buttons input{
-    width: 45%;
-    padding: 15px 20px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 5px;
-    outline:none;
-  }
-  
-  button {
-    background-color: #f32121;
-    padding: 14px 20px;
-    margin-left: 25%;
-    margin-right: 25%;
-    color: white;
-    border:0;
-    cursor: pointer;
-    width: 50%;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: rgb(209, 64, 64);
-  }
-  
-  #createjoblistingform .container {
-    padding: 20px;
-    border: none;
-  }
+#createjoblistingform{
+  background-color: rgb(250, 249, 248);
+  margin-top: 5%;
+  padding:2% 5%;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+#createjoblistingform.container div{
+  margin-top: 2%;
+}
+
+#createjoblistingform input, textarea{
+  /*width:100%;*/
+  padding: 2% 2%;
+  margin: 1% 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+/*below is code is the layout of the input boxes i have done it this way as its easier to access them*/
+/*below is code needs to be changed to a percentage but is not working atm*/
+#jDesc textarea{
+  height: 200px;
+  width:100%;
+}
+#jobName input{
+  width:100%;
+}
+
+#salandlocTypeandStartdatec{
+  width:100%;
+}
+
+#contractType{
+  width:49.3%;
+}
+#sDate{
+  width:50%;
+}
+
+#salandloc{
+  width:100%;
+}
+
+#salary{
+  width:49.3%;
+}
+#loc{
+  width:50%;
+}
+
+#cUS input{
+  width:100%
+}
+#createjoblistingform .buttons input{
+  width: 45%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+}
+
+button {
+  background-color: #f32121;
+  padding: 14px 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  color: white;
+  border:0;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgb(209, 64, 64);
+}
+
+#createjoblistingform .container {
+  padding: 20px;
+  border: none;
+}
