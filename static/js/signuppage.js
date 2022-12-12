@@ -61,6 +61,10 @@ function capture(){
     user_input.push(password);
     user_input.push(password_match);
 
+    if (addThree.length ==0) {
+        addThree = " "
+    }
+
     for (let input in user_input){
         if (user_input[input].length == 0){
             check.push('red');
