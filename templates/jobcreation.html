@@ -23,8 +23,19 @@
             </div>
 
             <div id="cTypeandStartdate">
-                <input type="text" placeholder="Contract type | Full-time, Part-time, Other" id="contractType" required>
-                <input title="Start date" type="date" placeholder="Start date" id="sDate" required>
+                <label for="contractType">Contract Type</label>
+                <div id="contractType">
+                    <input type="radio" id="Full-time" name="jobType" value="Full-time">
+                    <label for="Full-time">Full-time</label><br>
+                    <input type="radio" id="Part-time" name="jobType" value="Part-time">
+                    <label for="Part-time">Part-time</label><br>
+                    <input type="radio" id="Both" name="jobType" value="Both">
+                    <label for="Both">Both</label> 
+                </div>
+                <div>
+                    <label for=""sDate>Start Date</label>
+                    <input title="Start date" type="date" placeholder="Start date" id="sDate" required>
+                </div>
             </div>
 
             <div id="salandloc">

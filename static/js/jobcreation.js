@@ -17,12 +17,21 @@ function createdJobListing(){
 
     comp_name = document.getElementById("cName").value;
     job_name = document.getElementById("jName").value;
-    cont_type = document.getElementById("contractType").value;
     start_date = document.getElementById("sDate").value;
     salary = document.getElementById("salary").value;
     postcode= document.getElementById("loc").value;
     job_desc= document.getElementById("jDescription").value;
     contact = document.getElementById("contactUs").value;
+
+    var ele = document.getElementsByName('jobType');
+    value = ""
+    for(i = 0; i < ele.length; i++) {
+        if(ele[i].checked) {
+            value = ele[i].value;
+        }
+    }
+
+    console.log(cont_type)
 
     uploadObject.push(
         comp_name,
@@ -48,9 +57,6 @@ function createdJobListing(){
         alert("Please add the title of the role");
     }else if (comp_name.length == 0){
         alert("Please add the company name");
-    }else if(salary.length <= 2){
-        check_listing.splice(1, 1, 'red');
-        alert("Invalid salary - Must be equal too or greater than 100");
     }else if(postcode.length == 0){
         alert("Please add your postcode");
     }else if(job_desc.length == 0){
