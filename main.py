@@ -273,9 +273,6 @@ def updateDetails():
 
   req = request.get_json()
 
-  print("req")
-  print(req)
-
   id = session.get('ID')
   index = 0
   replace = []
@@ -293,7 +290,6 @@ def updateDetails():
           replace.append(i)
         x+=1
     index+=1
-  print(replace)
 
   df.loc[len(df)] = replace
 
