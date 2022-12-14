@@ -109,9 +109,20 @@ label, span, .title{
   border: 0;
   margin: 3% 2% 4.5%;
   cursor: pointer;
-  width: 10%;
+  width: 15%;
   border-radius: 5px;
 }
+
+#StudentDetails button:hover{
+  transition: 0.2s;
+  width: 16%;
+}
+
+#StudentDetails button:active{
+  transition: 0.4s;
+  padding: 0%;
+}
+
 
 #student-options {
   background-color: #eee;

@@ -6,7 +6,7 @@
 label, span, .title{
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-  
+
 #top{
     float: right;
     position: fixed;
@@ -95,6 +95,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
   
 #EmployerDetails button{
+    transition: 0.2s;
     text-align: center;
     display: inline-block;
     background-color: #2196F3;
@@ -103,11 +104,23 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     border: 0;
     margin: 3% 2% 4.5%;
     cursor: pointer;
-    width: 10%;
+    width: 15%;
     border-radius: 5px;
 }
 
+#EmployerDetails button:hover{
+    transition: 0.2s;
+    width: 16%;
+}
+
+#EmployerDetails button:active{
+    transition: 0.4s;
+    padding: 0%;
+}
+
+
 #createJobListing button{
+    transition: 0.2s;
     text-align: center;
     display: inline-block;
     background-color: #f32121;
@@ -116,9 +129,15 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     border: 0;
     margin: 3% 2% 4.5%;
     cursor: pointer;
-    width: 10%;
+    width: 15%;
     border-radius: 5px;
 }
+
+#createJobListing button:hover{
+    transition: 0.2s;
+    width: 16%;
+}
+
 a{
     color:inherit;
     text-decoration: none;
