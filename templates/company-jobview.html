@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/company-jobview.css">
+    <script src="../static/js/company-jobview.js"></script>
+    <title>Jobs"R"us</title>
+</head>
+<body onload="getDetails()">
+    <div id="top">
+        <p id="title">Jobs"R"us</p> 
+    </div>
+
+    <div id="user">
+        <title>Job listings</title>
+    </div>
+
+    <div id = "options">
+        <div id="searchBox">
+            <div class="search">
+                <input type="text" placeholder="Search Jobs!">
+            </div>
+            <div class="where">
+                <input type="text" placeholder="Add Location">
+            </div>
+        </div>
+    </div>
+    
+    <div id="job-list">
+        <label class="container">
+            <input type="radio" checked="checked" name="jobType">
+            <span class="checkmark">Full-time</span>
+        </label>
+        <label class="container">
+            <input type="radio" name="jobType">
+            <span class="checkmark">Part-time</span>
+        </label>
+        <label class="container">
+            <input type="radio" name="jobType">
+            <span class="checkmark">Both</span>
+        </label>
+    </div>
+    
+</body>
+</html>
