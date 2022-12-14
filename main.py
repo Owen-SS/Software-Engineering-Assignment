@@ -196,7 +196,7 @@ def login():
   return messageFail
 
 
-@app.route("/displaydetails", methods =['PUT'])
+@app.route("/displaydetails", methods =['GET'])
 def getdetails():
 
   account = session.get('account')
@@ -213,7 +213,7 @@ def getdetails():
     df = pd.read_csv(file_csv)
     data = df.to_numpy()
   except Exception as e:
-    return jsonify(data='failed to load account data', message=500, error = str(e))
+    return jsonify(data='failed to load account data', status=500, error = str(e))
 
   dataToSend = []
   for list in data:
@@ -221,9 +221,9 @@ def getdetails():
       for x in list:
         dataToSend.append(x)
       dataToSend[2] = "" # Hides password ;)
-      return jsonify(data=dataToSend, message=200, error="None")
+      return jsonify(data=dataToSend, status=200, error="None")
   
-  return jsonify(data="None", message=404, error="Unable to find account")
+  return jsonify(data="None", status=404, error="Unable to find account")
   
 
 @app.route("/display/jobview", methods = ['GET'])
