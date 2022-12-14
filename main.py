@@ -37,6 +37,10 @@ def hello_world():
 def render_jobview():
   return render_template('jobview.html')
 
+@app.route('/company/jobview')
+def companyJobview():
+  return render_template('company-jobview.html')
+
 @app.route('/employer')
 def render_employer():
   return render_template('employer.html')
