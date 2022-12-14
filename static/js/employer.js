@@ -1,7 +1,25 @@
-function editMode(edit) {
+let edit = true
+
+function start() {
+  edit = true
+  var editBtn = document.getElementById("edit");
+
+  editBtn.style.backgroundColor = "#2196F3";
+  editBtn.innerHTML = "Edit";
+  fName.removeAttribute("disabled");
+  sName.removeAttribute("disabled");
+  email.removeAttribute("disabled");
+  phoneNum.removeAttribute("disabled");
+  dob.removeAttribute("disabled");
+  addOne.removeAttribute("disabled");
+  addTwo.removeAttribute("disabled");
+  addThree.removeAttribute("disabled");
+  postcode.removeAttribute("disabled");
+}
+
+function editMode() {
   
     var editBtn = document.getElementById("edit");
-    var saveBtn = document.getElementById("save");
   
     var cName = document.getElementById("cName");
     var cEmail = document.getElementById('cEmail')
@@ -11,28 +29,28 @@ function editMode(edit) {
     var addThree = document.getElementById("AD3");
     var postcode = document.getElementById("postcode");
   
-    if (edit == "Yes") {
-        editBtn.style.backgroundColor = "#eee";
-        saveBtn.style.backgroundColor = "#2196F3";
-        cName.removeAttribute("disabled");
-        cEmail.removeAttribute("disabled");
-        cPhoneNum.removeAttribute("disabled");
-        addOne.removeAttribute("disabled");
-        addTwo.removeAttribute("disabled");
-        addThree.removeAttribute("disabled");
-        postcode.removeAttribute("disabled");
+    if (edit == true) {
+      edit = false;
+      editBtn.innerHTML = "Save";
+      cName.removeAttribute("disabled");
+      cEmail.removeAttribute("disabled");
+      cPhoneNum.removeAttribute("disabled");
+      addOne.removeAttribute("disabled");
+      addTwo.removeAttribute("disabled");
+      addThree.removeAttribute("disabled");
+      postcode.removeAttribute("disabled");
         
-    } else if (edit == "No") {
-        editBtn.style.backgroundColor = "#2196F3";
-        saveBtn.style.backgroundColor = "#eee";
-        cName.setAttribute("disabled", "disabled");
-        cEmail.setAttribute("disabled", "disabled");
-        cPhoneNum.setAttribute("disabled", "disabled");
-        addOne.setAttribute("disabled", "disabled");
-        addTwo.setAttribute("disabled", "disabled");
-        addThree.setAttribute("disabled", "disabled");
-        postcode.setAttribute("disabled", "disabled");
-        updateDetails();
+    } else if (edit == false) {
+      edit = true;
+      editBtn.style.backgroundColor = "#2196F3";
+      cName.setAttribute("disabled", "disabled");
+      cEmail.setAttribute("disabled", "disabled");
+      cPhoneNum.setAttribute("disabled", "disabled");
+      addOne.setAttribute("disabled", "disabled");
+      addTwo.setAttribute("disabled", "disabled");
+      addThree.setAttribute("disabled", "disabled");
+      postcode.setAttribute("disabled", "disabled");
+      updateDetails();
     }
   }
   
@@ -98,6 +116,8 @@ function editMode(edit) {
   }
   
   function updateDetails(){
+    var editBtn = document.getElementById("edit");
+
     let cName = document.getElementById("cName").value;
     let cEmail = document.getElementById('cEmail').value;
     let cPhoneNum = document.getElementById('cPhoneNum').value;
@@ -124,7 +144,13 @@ function editMode(edit) {
         if (this.readyState == 4 && this.status == 200) {
             strResponse = JSON.parse(this.responseText);
             if (strResponse.status == 200){
-              alert(strResponse.message);
+              //alert(strResponse.message);
+              editBtn.innerHTML = "Saved!";
+              editBtn.style.backgroundColor = "#00E400";
+              setTimeout(()=> {
+                editBtn.innerHTML = "Edit";
+                editBtn.style.backgroundColor = "#2196F3";
+              },2000);
             }else{
               console.log(strResponse.message + " - " + strResponse.status)
             }

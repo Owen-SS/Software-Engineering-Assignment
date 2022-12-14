@@ -1,9 +1,11 @@
+let edit = true
+
 function start() {
-  let edit = true
+  edit = true
   var editBtn = document.getElementById("edit");
 
   editBtn.style.backgroundColor = "#2196F3";
-  editBtn.value = "Edit"
+  editBtn.innerHTML = "Edit";
   fName.removeAttribute("disabled");
   sName.removeAttribute("disabled");
   email.removeAttribute("disabled");
@@ -14,8 +16,8 @@ function start() {
   addThree.removeAttribute("disabled");
   postcode.removeAttribute("disabled");
 }
-function editMode() {
 
+function editMode() {
   var editBtn = document.getElementById("edit");
 
   var fName = document.getElementById("fName");
@@ -30,7 +32,7 @@ function editMode() {
 
   if (edit == true) {
     edit = false
-    editBtn.value = "Save";
+    editBtn.innerHTML = "Save";
     fName.removeAttribute("disabled");
     sName.removeAttribute("disabled");
     email.removeAttribute("disabled");
@@ -126,6 +128,8 @@ function displaydetails(data){
 }
 
 function updateDetails(){
+  var editBtn = document.getElementById("edit");
+
   let fName = document.getElementById("fName").value;
   let sName = document.getElementById("sName").value;
   let email = document.getElementById('email').value;
@@ -156,7 +160,15 @@ function updateDetails(){
       if (this.readyState == 4 && this.status == 200) {
         strResponse = JSON.parse(this.responseText);
         if (strResponse.status == 200){
-          alert(strResponse.message);
+          //alert(strResponse.message);
+          editBtn.innerHTML = "Saved!";
+          editBtn.style.backgroundColor = "#00E400";
+          setTimeout(()=> {
+            editBtn.innerHTML = "Edit";
+            editBtn.style.backgroundColor = "#2196F3";
+          },2000);
+          
+
         }else{
           console.log(strResponse.message + " - " + strResponse.status)
         }
