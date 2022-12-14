@@ -66,8 +66,16 @@
 }
 
 #contractType{
-  width:49.3%;
+  width:100%;
 }
+#cTypeandStartdate {
+  float: left;
+  width: 100%;
+}
+#contractType input {
+  width: 10%;
+}
+
 #sDate{
   width:50%;
 }
@@ -77,10 +85,10 @@
 }
 
 #salary{
-  width:49.3%;
+  width:49%;
 }
 #loc{
-  width:50%;
+  width:49%;
 }
 
 #cUS input{
