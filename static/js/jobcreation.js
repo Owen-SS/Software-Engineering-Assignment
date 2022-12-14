@@ -1,4 +1,5 @@
 function cleardetails(){
+    document.getElementById('cName').value = "";
     document.getElementById('jName').value = "";
     document.getElementById('contractType').value="";
     document.getElementById('sDate').value="";
@@ -14,6 +15,7 @@ function createdJobListing(){
 
     let upload = false;
 
+    comp_name = document.getElementById("cName").value;
     job_name = document.getElementById("jName").value;
     cont_type = document.getElementById("contractType").value;
     start_date = document.getElementById("sDate").value;
@@ -23,6 +25,7 @@ function createdJobListing(){
     contact = document.getElementById("contactUs").value;
 
     uploadObject.push(
+        comp_name,
         job_name,
         cont_type,
         start_date,
@@ -43,6 +46,8 @@ function createdJobListing(){
     
     if (job_name.length == 0){
         alert("Please add the title of the role");
+    }else if (comp_name.length == 0){
+        alert("Please add the company name");
     }else if(salary.length <= 2){
         check_listing.splice(1, 1, 'red');
         alert("Invalid salary - Must be equal too or greater than 100");
@@ -86,7 +91,7 @@ function createdJobListing(){
 }
 
 function red_items(check_listing){
-    let items = [ "jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
+    let items = ["cName","jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
     for (let item in items){
         var element = document.getElementById(items[item]);
         if (check_listing[item] == 'red'){

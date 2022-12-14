@@ -117,7 +117,7 @@ def jobListingUpload():
   directory = session.get("ID")
   parent_dir = "data/company/storage"
   file = "/job-listings.csv"
-  headings = ['jobName', 'contType', 'startDate', 'salary', 'postcode', 'job_desc', 'contact']
+  headings = ['companyName','jobName', 'contType', 'startDate', 'salary', 'postcode', 'job_desc', 'contact']
   
   path = os.path.join(parent_dir, directory)
   csv_file = str(path) + file

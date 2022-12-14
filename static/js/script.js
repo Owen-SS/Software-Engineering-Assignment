@@ -36,8 +36,8 @@ function displaydetails(data){
 function addElemen(list){
   const element = document.getElementById("job-list");
 
-  const idName = ['job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
-  const textB = ['Title\n', 'Contract\n', 'Start date\n', 'Yearly salary\n£','Postcode\n', 'Description\n', 'contact\n'];
+  const idName = ['comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
+  const textB = ['','Title\n', 'Contract\n', 'Start date\n', 'Yearly salary\n£','Postcode\n', 'Description\n', 'contact\n'];
   for(mainIndex in list) {
     let div = document.createElement("div");
     div.id = "job";
