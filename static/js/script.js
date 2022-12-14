@@ -1,31 +1,17 @@
 function getDetails(){
-  uploadObject = ["None"];
+  fetch('/displaydetails')
 
-  let url = "/displaydetails";
-  let xhttp = new XMLHttpRequest();
-  let data_res = "Error";
-  xhttp.onreadystatechange = function() {
-    let strResponse = "Error: no response";
-    if (this.readyState == 4 && this.status == 200) {
-      strResponse = JSON.parse(this.responseText);
-      data_res = strResponse.data;
+  .then(response => response.json())
+  .then(data=>{
 
-      if (strResponse.message == 200){
-        displaydetails(data_res);
-        addJob();
-      }else{
-        alert("Whoops somthing went wrong!");
-        console.log("Get details error - " + strResponse.error + " | " + strResponse.message);
-      }
+    if(data.status != 200){
+      alert("Whoops somthing went wrong!");
+        console.log("Get details error - " + data.error + " | " + data.status);
+    }else{
+      displaydetails(data.data);
+      addJob();
     }
-  };
-  xhttp.open("PUT", url, true);
-  // Converting JSON data to string
-  var data = JSON.stringify(uploadObject);
-  // Set the request header i.e. which type of content you are sending
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  //send it
-  xhttp.send(data);
+  })
 }
 
 function displaydetails(data){
