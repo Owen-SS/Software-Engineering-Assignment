@@ -267,3 +267,20 @@ body {
     position: relative;
     transform: translatex(-535%);
 }
+
+#job button {
+    margin-left: 3%;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+    background-color: #f32121;
+    width: 8%;
+    height: 20%;
+    border-radius: 5px;
+}
+
+#job button:hover {
+    transition: 0.2s;
+    background-color: #d51010;
+    width: 9%;
+}

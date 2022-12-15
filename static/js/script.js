@@ -94,4 +94,28 @@ function filter(contr_type){
 function applyJob(data){
   id = data['explicitOriginalTarget']['attributes'][0]['value']
   console.log(id)
+  let uploadObject = [id];
+
+  let url = "/apply";
+  let xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    let strResponse = "Error: no response";
+    if (this.readyState == 4 && this.status == 200) {
+      strResponse = JSON.parse(this.responseText);
+      if (strResponse.message == 200){
+        alert(strResponse.data);
+      }else {
+        alert("Whoops somthing went wrong!");
+        console.log("Save details error - " + strResponse.message + " | " + strResponse.error);
+      }
+    }
+  };
+  xhttp.open("PUT", url, true);
+  // Converting JSON data to string
+  var data = JSON.stringify(uploadObject);
+  // Set the request header i.e. which type of content you are sending
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //send it
+  xhttp.send(data);
 }
