@@ -1,7 +1,7 @@
 
 /* 
 
-  Used to get details
+  Used to get user details and then display them
 
 */
 
@@ -20,12 +20,28 @@ function getDetails(){
       }
     })
   }
-  
+
+/* 
+
+  Used to display user details
+
+  :param data: The user data
+
+*/
+
 function displaydetails(data){
   let topName = document.getElementById("top-name");
   topName.innerHTML = "Go to Employer Dashboard - " + data[1]; 
 }
-  
+
+/* 
+
+  Used to add the elements to the page
+
+  :param list: The list of user data
+
+*/
+
 function addElemen(list){
   const element = document.getElementById("job-list");
 
@@ -37,13 +53,6 @@ function addElemen(list){
 
     div.classList = list[mainIndex][3];
     div.id = "job";
-
-    const applyBtn = document.createElement("button");
-    const applyText = document.createTextNode("Apply");
-    applyBtn.class = "applyBtn";
-    applyBtn.appendChild(applyText);
-    applyBtn.value = id;
-    applyBtn.onclick = applyJob;
 
     for(index in list[mainIndex]){
       if (index != 0){
@@ -59,12 +68,16 @@ function addElemen(list){
         para.appendChild(node);
         div.appendChild(para);
       }
-      div.appendChild(applyBtn);
     }
     element.appendChild(div);
   }
 }
 
+/* 
+
+  This gets the job data and then displays it on the page
+
+*/
 
 function addJob(){
   fetch('/display/jobview')
@@ -79,6 +92,14 @@ function addJob(){
     }
   })
 }
+
+/* 
+
+  This is used to filer the contrat type
+
+  :param contr_type: The contract that is wanted to be displayed
+
+*/
 
 function filter(contr_type){
 
@@ -97,6 +118,14 @@ function filter(contr_type){
 
   }
 }
+
+/* 
+
+  Used to apply to jobs
+
+  :param data: The ID of the job wanted to be applied too
+
+*/
 
 function applyJob(data){
   id = data['explicitOriginalTarget']['attributes'][0]['value']
