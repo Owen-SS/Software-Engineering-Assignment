@@ -371,7 +371,7 @@ def deleteAccount():
   
   return messageFail
 
-@app.route("/delete/jobListing", methods =['PUT'])
+@app.route("/delete/joblisting", methods =['PUT'])
 def deleteJoblisting():
 
   messageOK = jsonify(data="Account deleted", status=200, error="None")
