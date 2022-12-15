@@ -28,6 +28,7 @@ function addElemen(list){
     let div = document.createElement("div");
     let id = list[mainIndex][0];
 
+    div.classList = list[mainIndex][3];
     div.id = "job";
 
     const applyBtn = document.createElement("button");
@@ -70,6 +71,24 @@ function addJob(){
       addElemen(data.data);
     }
   })
+}
+
+function filter(contr_type){
+
+  const boxes = document.querySelectorAll('[id=job]');
+
+  for (const box of boxes) {
+    if (contr_type == "Both") {
+      box.style.display = "";
+    }else{
+      if (box.classList == contr_type) {
+        box.style.display = "";
+      }else{
+        box.style.display = "none";
+      }
+    }
+
+  }
 }
 
 function applyJob(data){
