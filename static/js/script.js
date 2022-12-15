@@ -16,7 +16,7 @@ function getDetails(){
 
 function displaydetails(data){
   let topName = document.getElementById("top-name");
-  topName.innerHTML = "Welcome - " + data[1]; 
+  topName.innerHTML = "Click to go Student Dashboard - " + data[1]; 
 }
 
 function addElemen(list){
@@ -92,6 +92,7 @@ function filter(contr_type){
 }
 
 function applyJob(data){
+  console.log(data)
   id = data['explicitOriginalTarget']['attributes'][0]['value']
   console.log(id)
   let uploadObject = [id];
