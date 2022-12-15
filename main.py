@@ -184,9 +184,7 @@ def login():
       username_check = row[1]
       password_check = row[2]
       if username_check == username:
-        print("Username found")
         if str(password_check) == str(password):
-          print("Password found")
           id = row[0]
           session['ID'] = id
           return messageOK
@@ -414,9 +412,59 @@ def deleteJoblisting():
     return messageOK
   
   return messageFail
+
+@app.route("/apply", methods=['PUT'])
+def apply():
+  messageOK = jsonify(data="Application successful!", message=200, error="None")
+  messageFail = jsonify(data="Failed to apply", message=500, error="None")
+
+  compAppFilePath = "data/company/applications.csv"
+
+  req = request.get_json()
+
+  status = "Applied"
+  studentId = session.get("ID")
+  jobId = req[0]
+
+  companyData = [studentId, jobId, status]
+  studentData = [jobId, status]
+
+  directory = session.get("ID")
+  parent_dir = "data/student/storage/"
+  file = "/job-applications.csv"
+  headings = ['jobId','status']
   
+  path = os.path.join(parent_dir, directory)
+  csv_file = str(path) + file
 
+  try:
+    df = pd.read_csv(csv_file)
+  except:
+    print("Creating path - " + str(path))
+    os.mkdir(path)
+    f = open(csv_file, "x")
+    for x in headings:
+      if x == 'status':
+        f.write(x)
+      else:
+        f.write(x +',')
+    f.close()
 
-
+  try:
+    company_df = pd.read_csv(compAppFilePath)
+    df = pd.read_csv(csv_file)
+  except Exception as e:
+    messageFail = jsonify(data="Failed to apply", message=500, error=str(e))
+    return messageFail
+  
+  df.loc[len(df)] = studentData
+  company_df.loc[len(company_df)] = companyData
+  if request.is_json:
+    df.to_csv(csv_file, encoding='utf-8', index=False)
+    company_df.to_csv(compAppFilePath, encoding='utf-8', index=False)
+    return messageOK
+  else:
+    messageFail = jsonify(data="Failed to apply", message=500, error="Unkown")
+    return messageFail
 
 app.run(host='0.0.0.0', port=8080)
