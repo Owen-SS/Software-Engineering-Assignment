@@ -174,12 +174,16 @@ def login():
   data = df.to_numpy()
 
   session['account'] = account
+
+  print(req)
   try:
     for row in data:
       username_check = row[1]
       password_check = row[2]
       if username_check == username:
-        if password_check == password:
+        print("Username found")
+        if str(password_check) == str(password):
+          print("Password found")
           id = row[0]
           session['ID'] = id
           return messageOK
