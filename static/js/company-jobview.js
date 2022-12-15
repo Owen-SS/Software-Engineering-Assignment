@@ -42,6 +42,7 @@ function addElemen(list){
     let div = document.createElement("div");
     div.id = "job";
     let id = list[mainIndex][0];
+    div.classList = list[mainIndex][3];
 
     editBtn.value = id;
     deleteBtn.value = id;
@@ -86,37 +87,57 @@ function addJob(){
   })
 }
 
+function filter(contr_type){
+
+  const boxes = document.querySelectorAll('[id=job]');
+
+  for (const box of boxes) {
+    if (contr_type == "Both") {
+      box.style.display = "";
+    }else{
+      if (box.classList == contr_type) {
+        box.style.display = "";
+      }else{
+        box.style.display = "none";
+      }
+    }
+
+  }
+}
+
 function deleteListing(data){
   id = data['explicitOriginalTarget']['attributes'][0]['value']
 
   let uploadObject = [id];
 
-  url = "/delete/joblisting";
-  let xhttp = new XMLHttpRequest();
+  let del = false
+  if (confirm("Are you sure you want to delete this listing?")) {
+    del = true
+  } 
 
-  xhttp.onreadystatechange = function() {
-      let strResponse = "Error: no response";
-      if (this.readyState == 4 && this.status == 200) {
-          strResponse = JSON.parse(this.responseText);
-          if (strResponse.status == 200){
-            //alert(strResponse.message);
-            editBtn.innerHTML = "Saved!";
-            editBtn.style.backgroundColor = "#00E400";
-            setTimeout(()=> {
-              editBtn.innerHTML = "Edit";
-              editBtn.style.backgroundColor = "#2196F3";
-            },2000);
-          }else{
-            console.log(strResponse.message + " - " + strResponse.status)
-          }
-      }
-  };
-  xhttp.open("PUT", url, true);
-  // Converting JSON data to string
-  var data = JSON.stringify(uploadObject);
-  // Set the request header i.e. which type of content you are sending
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  //send it
-  xhttp.send(data);
+  if (del == true){
+    url = "/delete/joblisting";
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        let strResponse = "Error: no response";
+        if (this.readyState == 4 && this.status == 200) {
+            strResponse = JSON.parse(this.responseText);
+            if (strResponse.status == 200){
+              alert("Job listing deleted!");
+              reload()
+            }else{
+              console.log(strResponse.message + " - " + strResponse.status)
+            }
+        }
+    };
+    xhttp.open("PUT", url, true);
+    // Converting JSON data to string
+    var data = JSON.stringify(uploadObject);
+    // Set the request header i.e. which type of content you are sending
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    //send it
+    xhttp.send(data);
+  }
   
 }
