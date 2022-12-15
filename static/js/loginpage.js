@@ -1,3 +1,5 @@
+
+
 function pageStart(){
     document.getElementById("student").checked = true;
     studentMode()
