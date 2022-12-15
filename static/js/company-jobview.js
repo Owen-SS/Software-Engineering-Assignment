@@ -25,26 +25,52 @@ function addElemen(list){
   }
   const element = document.getElementById("job-list");
 
-  const idName = ['comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
-  const textB = ['','Title\n', 'Contract\n', 'Start date\n', 'Yearly salary\n£','Postcode\n', 'Description\n', 'contact\n'];
+  const idName = ['','comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
+  const textB = ['','Company name','Title', 'Contract', 'Start date', 'Yearly salary','Postcode', 'Description', 'contact'];
+
+  const editBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
+  const editText = document.createTextNode("Edit");
+  const deleteText = document.createTextNode("Delete");
+  editBtn.class = "editBtn";
+  deleteBtn.class = "deleteBtn";
+  editBtn.appendChild(editText);
+  deleteBtn.appendChild(deleteText);
+  deleteBtn.onclick = deleteListing;
+
   for(mainIndex in list) {
     let div = document.createElement("div");
     div.id = "job";
     let id = list[mainIndex][0];
 
+    editBtn.value = id;
+    deleteBtn.value = id;
+
     for(index in list[mainIndex]){
 
-      let text = list[mainIndex][index];
-      const para = document.createElement("p");
-      const node = document.createTextNode(textB[index] + text);
-      para.id = idName[index];
-      para.appendChild(node);
-      div.appendChild(para);
+      if (index != 0){
+        let text = list[mainIndex][index];
+
+        if (text.length >= 70){
+          text = text.substring(0,70);
+          text=text+"...";
+        }
+        /*const para = document.createElement("p");
+        const node = document.createTextNode(textB[index] + text);
+        */
+        const para = document.createElement("input");
+        para.placeholder = textB[index];
+        para.value = text;
+        para.id = idName[index];
+        //para.appendChild(node);
+        div.appendChild(para);
+      }
     }
+    div.appendChild(editBtn);
+    div.appendChild(deleteBtn);
     element.appendChild(div);
   }
 }
-
 
 function addJob(){
   fetch('/display/company/jobview')
@@ -58,4 +84,39 @@ function addJob(){
       addElemen(data.data);
     }
   })
+}
+
+function deleteListing(data){
+  id = data['explicitOriginalTarget']['attributes'][0]['value']
+
+  let uploadObject = [id];
+
+  url = "/delete/joblisting";
+  let xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+      let strResponse = "Error: no response";
+      if (this.readyState == 4 && this.status == 200) {
+          strResponse = JSON.parse(this.responseText);
+          if (strResponse.status == 200){
+            //alert(strResponse.message);
+            editBtn.innerHTML = "Saved!";
+            editBtn.style.backgroundColor = "#00E400";
+            setTimeout(()=> {
+              editBtn.innerHTML = "Edit";
+              editBtn.style.backgroundColor = "#2196F3";
+            },2000);
+          }else{
+            console.log(strResponse.message + " - " + strResponse.status)
+          }
+      }
+  };
+  xhttp.open("PUT", url, true);
+  // Converting JSON data to string
+  var data = JSON.stringify(uploadObject);
+  // Set the request header i.e. which type of content you are sending
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //send it
+  xhttp.send(data);
+  
 }
