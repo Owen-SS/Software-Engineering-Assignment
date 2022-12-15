@@ -156,6 +156,12 @@ function updateDetails(){
           
 
         }else{
+          editBtn.innerHTML = "Failed";
+          editBtn.style.backgroundColor = "#FF0000";
+          setTimeout(()=> {
+            editBtn.innerHTML = "Edit";
+            editBtn.style.backgroundColor = "#2196F3";
+          },2000);
           console.log(strResponse.message + " - " + strResponse.status)
         }
       }
