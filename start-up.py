@@ -31,3 +31,5 @@ def main():
     print("Lets check to see if your system is ready to run our code")
     time.sleep(1)
     checkImports()
+
+main()
