@@ -28,17 +28,20 @@ function addElemen(list){
   const idName = ['','comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
   const textB = ['','Company name','Title', 'Contract', 'Start date', 'Yearly salary','Postcode', 'Description', 'contact'];
 
-  const editBtn = document.createElement("button");
-  const deleteBtn = document.createElement("button");
-  const editText = document.createTextNode("Edit");
-  const deleteText = document.createTextNode("Delete");
-  editBtn.class = "editBtn";
-  deleteBtn.class = "deleteBtn";
-  editBtn.appendChild(editText);
-  deleteBtn.appendChild(deleteText);
-  deleteBtn.onclick = deleteListing;
+  
 
   for(mainIndex in list) {
+
+    let editBtn = document.createElement("button");
+    let deleteBtn = document.createElement("button");
+    let editText = document.createTextNode("Edit");
+    let deleteText = document.createTextNode("Delete");
+    editBtn.class = "editBtn";
+    deleteBtn.class = "deleteBtn";
+    editBtn.appendChild(editText);
+    deleteBtn.appendChild(deleteText);
+    deleteBtn.onclick = deleteListing;
+
     let div = document.createElement("div");
     div.id = "job";
     let id = list[mainIndex][0];
@@ -46,6 +49,9 @@ function addElemen(list){
 
     editBtn.value = id;
     deleteBtn.value = id;
+
+    div.appendChild(editBtn);
+    div.appendChild(deleteBtn);
 
     for(index in list[mainIndex]){
 
@@ -67,8 +73,6 @@ function addElemen(list){
         div.appendChild(para);
       }
     }
-    div.appendChild(editBtn);
-    div.appendChild(deleteBtn);
     element.appendChild(div);
   }
 }
