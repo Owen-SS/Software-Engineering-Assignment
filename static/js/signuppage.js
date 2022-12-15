@@ -1,6 +1,9 @@
 let account = "student"; 
 
 function cleardetails(){
+    /*
+    Empties all account fields
+    */
 
     document.getElementById('fName').value = "";
     document.getElementById("sName").value="";
@@ -19,6 +22,10 @@ function cleardetails(){
 }
 
 function capture(){
+    /*
+    Retrieves account data from the website
+    */
+
     let uploadObject = [];
     let user_input = [];
     let check = [];
@@ -171,6 +178,10 @@ function capture(){
 }
 
 function red_items(check, account){
+    /*
+    makes item red in colour
+    */
+
     let items = []
     if (account == "student"){
         items = ['email', 'phoneNum', 'fName', 'sName', 'dob', 'AD1', 'postcode', 'username', 'password', 'password_match']
@@ -190,6 +201,10 @@ function red_items(check, account){
 }
 
 function companyMode(){
+    /*
+    Switches to company display theme
+    */
+
     account = "company"; 
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
@@ -209,6 +224,10 @@ function companyMode(){
 }
 
 function studentMode(){
+    /*
+    Switches to student display theme
+    */
+
     account = "student";
     var top = document.getElementById("top");
     var lowerBtn = document.getElementById("lower-button");
@@ -228,5 +247,9 @@ function studentMode(){
 }
 
 function pageStart(){
+    /*
+    Start the page
+    */
+
     document.getElementById("student").checked = true;
 }
