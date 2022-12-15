@@ -1,5 +1,11 @@
 let edit = true
 
+/* 
+
+  Used to edable/disable edit mode
+
+*/
+
 function editMode() {
   
   var editBtn = document.getElementById("edit");
@@ -37,6 +43,12 @@ function editMode() {
   }
 }
   
+/* 
+
+  Used to clear all input boxes
+
+*/
+
 function cleardetails(){
 
     document.getElementById('cName').value = "";
@@ -48,6 +60,12 @@ function cleardetails(){
     document.getElementById("postcode").value="";
     
 }
+
+/* 
+
+  Used to get details and then display the details
+
+*/
   
 function getDetails(){
   fetch('/displaydetails')
@@ -63,7 +81,14 @@ function getDetails(){
   })
 }
 
-  
+/* 
+
+  Used to display user data
+
+  :param data: The user data
+
+*/
+
 function displaydetails(data){
   let topName = document.getElementById("top-name");
   let cName = document.getElementById("cName");
@@ -83,6 +108,12 @@ function displaydetails(data){
   addThree.value = data[8];
   postcode.value = data[9];
 }
+
+/* 
+
+  Used to update details
+
+*/
   
 function updateDetails(){
   let uploadObject = [];
@@ -140,6 +171,12 @@ function updateDetails(){
   //send it
   xhttp.send(data);
 }
+
+/* 
+
+  Used to delete the account
+
+*/
 
 function deleteAccount(){
   uploadObject = ["None"]

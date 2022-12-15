@@ -1,23 +1,38 @@
+
+/* 
+
+  Used to get details
+
+*/
+
 function getDetails(){
-    fetch('/displaydetails')
-  
-    .then(response => response.json())
-    .then(data=>{
-  
-      if(data.status != 200){
-        alert("Whoops somthing went wrong!");
-          console.log("Get details error - " + data.error + " | " + data.status);
-      }else{
-        displaydetails(data.data);
-        addJob();
-      }
-    })
-  }
-  
-  function displaydetails(data){
-    let topName = document.getElementById("top-name");
-    topName.innerHTML = "Welcome - " + data[1]; 
-  }
+  fetch('/displaydetails')
+
+  .then(response => response.json())
+  .then(data=>{
+
+    if(data.status != 200){
+      alert("Whoops somthing went wrong!");
+        console.log("Get details error - " + data.error + " | " + data.status);
+    }else{
+      displaydetails(data.data);
+      addJob();
+    }
+  })
+}
+
+/* 
+
+  Used to display user details
+
+  :param data: 
+
+*/
+
+function displaydetails(data){
+  let topName = document.getElementById("top-name");
+  topName.innerHTML = "Welcome - " + data[1]; 
+}
   
   function addElemen(list){
     const element = document.getElementById("job-list");

@@ -1,6 +1,6 @@
 /*
 
-  Used to retrieve data
+  Used to retrieve data then display the details and then load job data
 
 */
 
@@ -101,7 +101,7 @@ function addElemen(list){
 
 /* 
 
-  Used to obtain the job data
+  Used to obtain the job data and then adds elements
 
 */
 
@@ -149,7 +149,7 @@ function filter(contr_type){
 
   Used to delete job listings
 
-  :param data: The ID of the
+  :param data: The ID of the job being picked
 
 */
 
