@@ -7,7 +7,6 @@ import os
 #THIS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 #sys.path.append(THIS_DIRECTORY + "\static\sql")
 
-from database import *
 
 
 app = Flask('app')
