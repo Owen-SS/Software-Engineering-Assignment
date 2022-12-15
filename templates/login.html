@@ -29,7 +29,7 @@
           <input type="text" placeholder="Enter Username" name="uname" id="username">
       
           <label for="psw" class="cred"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" id="password">
+          <input type="password" placeholder="Enter Password" name="psw" id="password" onkeydown = "if (event.keyCode == 13) document.getElementById('loginButton').click()" >
       
           <button type="submit" id="loginButton" onclick="login()">Login</button>
           <button class="signup" id="signButton" onclick="window.location.href='/signup';">Sign up</button>
