@@ -20,6 +20,9 @@ function displaydetails(data){
 }
 
 function addElemen(list){
+  if (list.length == 0){
+    alert("You don't have any job listings yet!")
+  }
   const element = document.getElementById("job-list");
 
   const idName = ['comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
@@ -44,7 +47,7 @@ function addElemen(list){
 
 
 function addJob(){
-  fetch('/display/jobview')
+  fetch('/display/company/jobview')
 
   .then(response => response.json())
   .then(data=>{
