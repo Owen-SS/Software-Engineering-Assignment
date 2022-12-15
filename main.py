@@ -18,7 +18,6 @@ app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
 def datefix(raw_dob):
 
-  #print(raw_dob)
   ym = "{year}-{month}".format(month=raw_dob.month, year=raw_dob.year)
   d = "{day}".format(day=raw_dob.day)
   if int(d) < 10:
@@ -71,7 +70,6 @@ def createjoblisting():
 def studentUpload():
 
   file_csv = "./data/student/student-account.csv"
-  print("student upload")
   messageOK = jsonify(data="Account created!", message= 200, error="None")
   messageFail = jsonify(data="None", message=500, error="Unkown")
   
@@ -92,7 +90,6 @@ def studentUpload():
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
   file_csv = "./data/company/company-account.csv"
-  print("Company upload")
   messageOK = jsonify(data="Account created!", message= 200, error="None")
   messageFail = jsonify(data="None", message=500, error="Unkown")
   
@@ -166,8 +163,6 @@ def login():
   username = req[0]
   password = req[1]
   account = req[2]
-
-  print(account)
 
   file_path = ["data/student/student-account.csv", "data/company/company-account.csv"]
   if account == "student":
