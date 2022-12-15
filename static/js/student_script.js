@@ -1,6 +1,10 @@
 let edit = true
 
 function start() {
+  /*
+  Initialises web page
+  */
+
   edit = true
   var editBtn = document.getElementById("edit");
 
@@ -18,6 +22,10 @@ function start() {
 }
 
 function editMode() {
+  /*
+  Checks for edit mode and enables editing when it in edit mode
+  */
+
   var editBtn = document.getElementById("edit");
 
   var fName = document.getElementById("fName");
@@ -60,6 +68,9 @@ function editMode() {
 }
 
 function cleardetails(){
+  /*
+  Clears all account details
+  */
 
   document.getElementById('fName').value = "";
   document.getElementById("sName").value="";
@@ -74,6 +85,10 @@ function cleardetails(){
 }
 
 function getDetails(){
+  /*
+  Retrieves details and displays them on screen
+  */
+
   fetch('/displaydetails')
 
   .then(response => response.json())
@@ -89,6 +104,12 @@ function getDetails(){
 }
 
 function displaydetails(data){
+  /*
+  Displays details to screen with data 
+
+  :param data: account data
+  */
+
   let topName = document.getElementById("top-name");
   let fName = document.getElementById("fName");
   let sName = document.getElementById("sName");
@@ -113,6 +134,10 @@ function displaydetails(data){
 }
 
 function updateDetails(){
+  /*
+  Updates account details with edited details from site
+  */
+
   let uploadObject = []
   var editBtn = document.getElementById("edit");
 
@@ -176,6 +201,9 @@ function updateDetails(){
 }
 
 function deleteAccount(){
+  /*
+  Deletes account 
+  */
   uploadObject = ["None"]
   var deleteBtn = document.getElementById("delete");
   
@@ -213,9 +241,12 @@ function deleteAccount(){
 }
 
 
-/* should allow a user to view there cv in another page i need to create a page for it
-Also still need to make th ep tag change when the file is selected */
+
 function cvContents(){
+  /*
+  Loads cv from user's file browser
+  */
+
   const reader = new FileReader()
 
   let files = document.getElementById('cv_upload').files
@@ -226,6 +257,10 @@ function cvContents(){
 }
 
 function displayApplication(){
+  /*
+  Displays specific application status
+  */
+
   fetch('/display/application/status')
 
   .then(response => response.json())

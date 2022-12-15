@@ -1,4 +1,7 @@
 function getDetails(){
+  /*
+  Gets account details and displays to screen
+  */
   fetch('/displaydetails')
 
   .then(response => response.json())
@@ -15,11 +18,18 @@ function getDetails(){
 }
 
 function displaydetails(data){
+  /*
+  displays details to screen
+  */
   let topName = document.getElementById("top-name");
   topName.innerHTML = "Welcome - " + data[1]; 
 }
 
-function addElemen(list){
+function addElement(list){
+  /*
+  Adds DOM elements to page
+  */
+ 
   const element = document.getElementById("job-list");
 
   const idName = ['','comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
@@ -60,6 +70,10 @@ function addElemen(list){
 
 
 function addJob(){
+  /*
+  Retrieves job data from website and adds it to the DOM
+  */
+
   fetch('/display/jobview')
 
   .then(response => response.json())
@@ -68,12 +82,15 @@ function addJob(){
     if(data.status != 200){
       console.log("Failed to retrieve data")
     }else{
-      addElemen(data.data);
+      addElement(data.data);
     }
   })
 }
 
 function filter(contr_type){
+  /*
+  Filters jobs displayed to user by contract type
+  */
 
   const boxes = document.querySelectorAll('[id=job]');
 
@@ -92,6 +109,10 @@ function filter(contr_type){
 }
 
 function applyJob(data){
+  /*
+  Applies to a specific job listing
+  */
+
   id = data['explicitOriginalTarget']['attributes'][0]['value']
   console.log(id)
   let uploadObject = [id];
