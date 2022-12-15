@@ -224,3 +224,17 @@ function cvContents(){
   }
   reader.readAsDataURL(files[0])
 }
+
+function displayApplication(){
+  fetch('/display/application/status')
+
+  .then(response => response.json())
+  .then(data=>{
+
+    if(data.status != 200){
+      console.log("Failed to retrieve data")
+    }else{
+      addElemen(data.data);
+    }
+  })
+}

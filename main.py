@@ -470,4 +470,32 @@ def apply():
     messageFail = jsonify(data="Failed to apply", message=500, error="Unkown")
     return messageFail
 
+@app.route("/display/application/status", methods=['GET'])
+def applicationStatus():
+
+  filePath = "data/company/storage/"
+  dataStore = []
+
+  for folder in os.listdir(filePath):
+    file_path = os.path.join(filePath, folder + "/job-applications.csv")
+    try:
+      if os.path.isfile(file_path) or os.path.islink(file_path):
+        df = pd.read_csv(file_path)
+        csvData = df.to_numpy()
+        for list in csvData:
+          dataStore.append(list)
+  
+    except:
+      None
+  
+  data = []
+
+  for list in dataStore:
+    childArray = []
+    for x in list:
+      childArray.append(x)
+    data.append(childArray)
+
+  return jsonify(data=data, status=200, error="none")
+
 app.run(host='0.0.0.0', port=8080)
