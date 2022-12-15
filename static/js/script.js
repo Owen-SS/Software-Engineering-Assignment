@@ -22,7 +22,7 @@ function displaydetails(data){
   displays details to screen
   */
   let topName = document.getElementById("top-name");
-  topName.innerHTML = "Welcome - " + data[1]; 
+  topName.innerHTML = "Click to go Student Dashboard - " + data[1]; 
 }
 
 function addElement(list){

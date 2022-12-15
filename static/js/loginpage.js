@@ -1,9 +1,19 @@
+/* 
 
+  Used to set all the vairables and checkboxes to default positions on page load
+
+*/
 
 function pageStart(){
     document.getElementById("student").checked = true;
     studentMode()
 }
+
+/* 
+
+  Used to login as a company
+
+*/
 
 function companyMode(){
     account = "company"; 
@@ -19,6 +29,12 @@ function companyMode(){
     signButton.style.backgroundColor = "#f32121";
 }
 
+/* 
+
+  Used to login as a student
+
+*/
+
 function studentMode(){
     account = "student";
     var top = document.getElementById("top");
@@ -32,6 +48,12 @@ function studentMode(){
     loginButton.style.backgroundColor = "#2196F3";
     signButton.style.backgroundColor = "#2196F3";
 }
+
+/* 
+
+  The main login funciton
+
+*/
 
 function login(){
     let check = false

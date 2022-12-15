@@ -124,7 +124,7 @@ function displaydetails(data){
   email.value = data[3]; 
   phoneNum.value = data[4]; 
   fName.value = data[5]; 
-  topName.innerHTML = "Welcome - " + data[5]; 
+  topName.innerHTML = "Click to go to Job view - " + data[5]; 
   sName.value = data[6];
   dob.value = data[7];
   addOne.value = data[8];
