@@ -33,7 +33,12 @@ function createdJobListing(){
 
     cont_type = value;
 
+    let d = new Date();
+    let numDate = d.getTime();
+    let id = comp_name + numDate.toString();
+
     uploadObject.push(
+        id,
         comp_name,
         job_name,
         cont_type,

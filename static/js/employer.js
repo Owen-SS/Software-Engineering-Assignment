@@ -1,22 +1,5 @@
 let edit = true
-/*
-function start() {
-  edit = true
-  var editBtn = document.getElementById("edit");
 
-  editBtn.style.backgroundColor = "#2196F3";
-  editBtn.innerHTML = "Edit";
-  fName.removeAttribute("disabled");
-  sName.removeAttribute("disabled");
-  email.removeAttribute("disabled");
-  phoneNum.removeAttribute("disabled");
-  dob.removeAttribute("disabled");
-  addOne.removeAttribute("disabled");
-  addTwo.removeAttribute("disabled");
-  addThree.removeAttribute("disabled");
-  postcode.removeAttribute("disabled");
-}
-*/
 function editMode() {
   
   var editBtn = document.getElementById("edit");
@@ -139,6 +122,12 @@ function updateDetails(){
               editBtn.style.backgroundColor = "#2196F3";
             },2000);
           }else{
+            editBtn.innerHTML = "Failed";
+            editBtn.style.backgroundColor = "#FF0000";
+            setTimeout(()=> {
+              editBtn.innerHTML = "Edit";
+              editBtn.style.backgroundColor = "#2196F3";
+            },2000);
             console.log(strResponse.message + " - " + strResponse.status)
           }
       }

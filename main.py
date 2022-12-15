@@ -119,7 +119,7 @@ def jobListingUpload():
   directory = session.get("ID")
   parent_dir = "data/company/storage"
   file = "/job-listings.csv"
-  headings = ['companyName','jobName', 'contType', 'startDate', 'salary', 'postcode', 'job_desc', 'contact']
+  headings = ['id','companyName','jobName', 'contType', 'startDate', 'salary', 'postcode', 'job_desc', 'contact']
   
   path = os.path.join(parent_dir, directory)
   csv_file = str(path) + file
@@ -333,7 +333,7 @@ def updateDetails():
     return messageOK
   else:
     return messageFail
-
+  
 @app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
 
@@ -367,6 +367,50 @@ def deleteAccount():
   
   if found:
     df.to_csv(file_csv, encoding='utf-8', index=False)
+    return messageOK
+  
+  return messageFail
+
+@app.route("/delete/joblisting", methods =['PUT'])
+def deleteJoblisting():
+
+  messageOK = jsonify(data="Account deleted", status=200, error="None")
+  messageFail = jsonify(data="Account deletion failed", status=404, error="Could not find account")
+
+  req = request.get_json()
+
+  joblistingId = req[0]
+  companyId = session.get('ID')
+
+  filePath = "data/company/storage/"
+  dataStore = []
+
+  for folder in os.listdir(filePath):
+    if folder == companyId:
+      file_path = os.path.join(filePath, folder + "/job-listings.csv")
+      try:
+        if os.path.isfile(file_path) or os.path.islink(file_path):
+          df = pd.read_csv(file_path)
+          csvData = df.to_numpy()
+          for list in csvData:
+            dataStore.append(list)
+
+      except:
+        return messageFail  
+
+  index = 0
+  found = False
+
+  for row in dataStore:
+    id_check = row[0]
+
+    if id_check == joblistingId:
+      found = True
+      df = df.drop([index])
+    index+=1
+  
+  if found:
+    df.to_csv(file_path, encoding='utf-8', index=False)
     return messageOK
   
   return messageFail

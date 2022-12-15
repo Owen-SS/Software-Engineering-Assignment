@@ -156,6 +156,12 @@ function updateDetails(){
           
 
         }else{
+          editBtn.innerHTML = "Failed";
+          editBtn.style.backgroundColor = "#FF0000";
+          setTimeout(()=> {
+            editBtn.innerHTML = "Edit";
+            editBtn.style.backgroundColor = "#2196F3";
+          },2000);
           console.log(strResponse.message + " - " + strResponse.status)
         }
       }
@@ -171,7 +177,7 @@ function updateDetails(){
 
 function deleteAccount(){
   uploadObject = ["None"]
-  var editBtn = document.getElementById("edit");
+  var deleteBtn = document.getElementById("delete");
   
   let del = false
   if (confirm("Are you sure you want to delete your account?")) {
@@ -191,7 +197,7 @@ function deleteAccount(){
         if (strResponse.message != 404){
           displaydetails(data_res)
         }else{
-          editBtn.value = "Failed";
+          deleteBtn.value = "Failed";
           console.log("Get details error - " + strResponse.message)
         }
       }

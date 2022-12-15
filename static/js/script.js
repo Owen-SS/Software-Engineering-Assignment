@@ -22,21 +22,37 @@ function displaydetails(data){
 function addElemen(list){
   const element = document.getElementById("job-list");
 
-  const idName = ['comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
-  const textB = ['','Title\n', 'Contract\n', 'Start date\n', 'Yearly salary\n£','Postcode\n', 'Description\n', 'contact\n'];
+  const idName = ['','comp-name','job-name', 'contract-type', 'start-date', 'salary','location', 'job-desc', 'email'];
+  const textB = ['','','Title\n', 'Contract\n', 'Start date\n', 'Yearly salary\n£','Postcode\n', 'Description\n', 'contact\n'];
   for(mainIndex in list) {
     let div = document.createElement("div");
-    div.id = "job";
     let id = list[mainIndex][0];
 
-    for(index in list[mainIndex]){
+    div.classList = list[mainIndex][3];
+    div.id = "job";
 
-      let text = list[mainIndex][index];
-      const para = document.createElement("p");
-      const node = document.createTextNode(textB[index] + text);
-      para.id = idName[index];
-      para.appendChild(node);
-      div.appendChild(para);
+    const applyBtn = document.createElement("button");
+    const applyText = document.createTextNode("Apply");
+    applyBtn.class = "applyBtn";
+    applyBtn.appendChild(applyText);
+    applyBtn.value = id;
+    applyBtn.onclick = applyJob;
+
+    for(index in list[mainIndex]){
+      if (index != 0){
+        let text = list[mainIndex][index];
+
+        if (text.length >= 70){
+          text = text.substring(0,70);
+          text=text+"...";
+        }
+        const para = document.createElement("p");
+        const node = document.createTextNode(textB[index] + text);
+        para.id = idName[index];
+        para.appendChild(node);
+        div.appendChild(para);
+      }
+      div.appendChild(applyBtn);
     }
     element.appendChild(div);
   }
@@ -55,4 +71,27 @@ function addJob(){
       addElemen(data.data);
     }
   })
+}
+
+function filter(contr_type){
+
+  const boxes = document.querySelectorAll('[id=job]');
+
+  for (const box of boxes) {
+    if (contr_type == "Both") {
+      box.style.display = "";
+    }else{
+      if (box.classList == contr_type) {
+        box.style.display = "";
+      }else{
+        box.style.display = "none";
+      }
+    }
+
+  }
+}
+
+function applyJob(data){
+  id = data['explicitOriginalTarget']['attributes'][0]['value']
+  console.log(id)
 }
