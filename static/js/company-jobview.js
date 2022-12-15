@@ -1,3 +1,9 @@
+/*
+
+  Used to retrieve data
+
+*/
+
 function getDetails(){
   fetch('/displaydetails')
 
@@ -14,10 +20,26 @@ function getDetails(){
   })
 }
 
+/* 
+
+  Used to display details
+
+  :param data: The data that is wanted to be displayed
+
+*/
+
 function displaydetails(data){
   let topName = document.getElementById("top-name");
   topName.innerHTML = "Welcome - " + data[1]; 
 }
+
+/* 
+
+  Used to add elements to the DOM
+
+  :param list: The list of data to be added to the webpage
+
+*/
 
 function addElemen(list){
   if (list.length == 0){
@@ -77,6 +99,12 @@ function addElemen(list){
   }
 }
 
+/* 
+
+  Used to obtain the job data
+
+*/
+
 function addJob(){
   fetch('/display/company/jobview')
 
@@ -90,6 +118,14 @@ function addJob(){
     }
   })
 }
+
+/* 
+
+  Used to filter the contract types
+
+  :param contr_type: The contract type wanted to be filtered
+
+*/
 
 function filter(contr_type){
 
@@ -108,6 +144,14 @@ function filter(contr_type){
 
   }
 }
+
+/* 
+
+  Used to delete job listings
+
+  :param data: The ID of the
+
+*/
 
 function deleteListing(data){
   id = data['explicitOriginalTarget']['attributes'][0]['value']
