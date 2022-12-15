@@ -16,7 +16,13 @@ app.secret_key = "oiahjds9fuhaushdfuygasducnjxzn"
 
 
 def datefix(raw_dob):
+  """
+  Used to reformat date types into a format used in our application
 
+  :param raw_dob: a date of type date
+
+  :return dob: a date in the format of year-month-day
+  """
   ym = "{year}-{month}".format(month=raw_dob.month, year=raw_dob.year)
   d = "{day}".format(day=raw_dob.day)
   if int(d) < 10:
@@ -75,10 +81,16 @@ def employerJobView():
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
+  """
+  Uploads student account data to our databsae
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
 
   file_csv = "./data/student/student-account.csv"
   messageOK = jsonify(data="Account created!", message= 200, error="None")
-  messageFail = jsonify(data="None", message=500, error="Unkown")
+  messageFail = jsonify(data="None", message=500, error="Unknown")
   
   req = request.get_json()
   try:
@@ -96,6 +108,13 @@ def studentUpload():
 
 @app.route("/company/upload", methods=['PUT']) # Company details uploader - - -
 def companyUpload():
+  """
+  Uploads company account data to our databsae
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
+
   file_csv = "./data/company/company-account.csv"
   messageOK = jsonify(data="Account created!", message= 200, error="None")
   messageFail = jsonify(data="None", message=500, error="Unkown")
@@ -116,6 +135,13 @@ def companyUpload():
   
 @app.route("/joblisting/upload", methods=["PUT"])
 def jobListingUpload():
+  """
+  Uploads job listing data to our databsae
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
+
   messageOK = jsonify(data="Job listing created!", message=200, error="None")
   messageFail = jsonify(data="None", message=500, error="None")
 
@@ -159,6 +185,13 @@ def jobListingUpload():
 
 @app.route("/login", methods=['PUT']) # Device uploader - - -
 def login():
+  """
+  Logs user in using the credentials they've entered on the website
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
+
   messageOK = jsonify(data="Login success", message=200, error = "None")
   messageFail = jsonify(data="login failed", message=500, error = "None")
 
@@ -198,6 +231,11 @@ def login():
 
 @app.route("/displaydetails", methods =['GET'])
 def getdetails():
+  """
+  Gets account details from our database and then sends them to the website
+
+  :return accountData: json message containing account data to be interpreted by website
+  """
 
   account = session.get('account')
   id = session.get('ID')
@@ -228,6 +266,11 @@ def getdetails():
 
 @app.route("/display/jobview", methods = ['GET'])
 def displayJobview():
+  """
+  Gets all job listings from the database and sends them to the website
+
+  :return jobData: json fail message to be interpreted by website
+  """
 
   filePath = "data/company/storage/"
   dataStore = []
@@ -256,6 +299,11 @@ def displayJobview():
 
 @app.route("/display/company/jobview", methods = ['GET'])
 def displayCompanyJobview():
+  """
+  Gets all job listings from the database and sends them to the website
+
+  :return jobData: json fail message to be interpreted by website
+  """
 
   filePath = "data/company/storage/"
   dataStore = []
@@ -287,6 +335,13 @@ def displayCompanyJobview():
 
 @app.route("/update/details", methods =['PUT'])
 def updateDetails():
+  """
+  Updates account details in our database with the edited data on the website
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
+
   found = False
 
   account = session.get('account')
@@ -337,6 +392,12 @@ def updateDetails():
   
 @app.route("/delete/account", methods =['PUT'])
 def deleteAccount():
+  """
+  Deletes account from our database
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
 
   messageOK = jsonify(data="Account deleted", status=200, error="None")
   messageFail = jsonify(data="Account deletion failed", status=404, error="Could not find account")
@@ -374,6 +435,12 @@ def deleteAccount():
 
 @app.route("/delete/joblisting", methods =['PUT'])
 def deleteJoblisting():
+  """
+  Deletes joblisting from our database
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
 
   messageOK = jsonify(data="Account deleted", status=200, error="None")
   messageFail = jsonify(data="Account deletion failed", status=404, error="Could not find account")
@@ -418,6 +485,12 @@ def deleteJoblisting():
 
 @app.route("/apply", methods=['PUT'])
 def apply():
+  """
+  Applies for a job listing that has been clicked on the website, tagging it as applied 
+
+  :return messageOK: json OK message to be interpreted by website
+  :return messageFail: json fail message to be interpreted by website
+  """
   messageOK = jsonify(data="Application successful!", message=200, error="None")
   messageFail = jsonify(data="Failed to apply", message=500, error="None")
 
@@ -472,6 +545,11 @@ def apply():
 
 @app.route("/display/application/status", methods=['GET'])
 def applicationStatus():
+  """
+  Displays application status (IN PRODUCTION)
+
+  :return statusData: json message with status data for the job listings to be interpreted by the website
+  """
 
   filePath = "data/company/storage/"
   dataStore = []
