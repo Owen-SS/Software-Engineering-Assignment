@@ -16,7 +16,7 @@ function getDetails(){
   
   function displaydetails(data){
     let topName = document.getElementById("top-name");
-    topName.innerHTML = "Welcome - " + data[1]; 
+    topName.innerHTML = "Go to Employer Dashboard - " + data[1]; 
   }
   
   function addElemen(list){
