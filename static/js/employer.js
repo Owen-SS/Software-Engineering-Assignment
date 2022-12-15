@@ -68,7 +68,6 @@ function cleardetails(){
   
 function getDetails(){
   fetch('/displaydetails')
-
   .then(response => response.json())
   .then(data=>{
 
@@ -76,11 +75,12 @@ function getDetails(){
       alert("Whoops somthing went wrong!");
         console.log("Get details error - " + data.error + " | " + data.status);
     }else{
-      displaydetails(data.data);
-      addJob();
+      send = data.data
+      displaydetails(send);
     }
   })
 }
+
   
 function displaydetails(data){
   let topName = document.getElementById("top-name");
