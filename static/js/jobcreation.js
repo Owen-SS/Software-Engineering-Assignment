@@ -31,7 +31,7 @@ function createdJobListing(){
         }
     }
 
-    console.log(cont_type)
+    cont_type = value;
 
     uploadObject.push(
         comp_name,
