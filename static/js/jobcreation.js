@@ -1,3 +1,9 @@
+/* 
+
+  Used to clear the input fields
+
+*/
+
 function cleardetails(){
     document.getElementById('cName').value = "";
     document.getElementById('jName').value = "";
@@ -8,6 +14,12 @@ function cleardetails(){
     document.getElementById('jDescription').value="";
     document.getElementById('contactUs').value="";    
 }
+
+/* 
+
+  Used to create job listings
+
+*/
 
 function createdJobListing(){
     let uploadObject = [];
@@ -100,6 +112,14 @@ function createdJobListing(){
         xhttp.send(data);
     }
 }
+
+/* 
+
+  Used to highlight items in red if data is wrong
+
+  :param check_listing: The list of which inputs should be red
+
+*/
 
 function red_items(check_listing){
     let items = ["cName","jName","contractType","sDate","salary","loc", "jDescription","contactUs"]
