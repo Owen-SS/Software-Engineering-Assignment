@@ -1,5 +1,5 @@
 let edit = true
-
+/*
 function start() {
   edit = true
   var editBtn = document.getElementById("edit");
@@ -16,7 +16,7 @@ function start() {
   addThree.removeAttribute("disabled");
   postcode.removeAttribute("disabled");
 }
-
+*/
 function editMode() {
   
   var editBtn = document.getElementById("edit");
@@ -68,19 +68,18 @@ function cleardetails(){
   
 function getDetails(){
   fetch('/displaydetails')
-
-  .then(response => response.json())
+  .then(response=>response.json())
   .then(data=>{
-
     if(data.status != 200){
       alert("Whoops somthing went wrong!");
         console.log("Get details error - " + data.error + " | " + data.status);
     }else{
-      displaydetails(data.data);
-      addJob();
+      send = data.data;
+      displaydetails(send);
     }
   })
 }
+
   
 function displaydetails(data){
   let topName = document.getElementById("top-name");
@@ -103,6 +102,7 @@ function displaydetails(data){
 }
   
 function updateDetails(){
+  let uploadObject = [];
   var editBtn = document.getElementById("edit");
 
   let cName = document.getElementById("cName").value;

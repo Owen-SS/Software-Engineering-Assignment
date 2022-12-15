@@ -67,9 +67,6 @@ def createjoblisting():
 
 # Uploading data - - -
 
-testData = ["Epic Job","Permanent","20th sepetember","10,000", "Poole","To be a pimp","youmum@yourdad.com"]
-testDataOne = ["Tiago is gay","Permanently","1 Dec","-10,000,000", "This is a tough challenge to take on.. It takes a real fairy to do this role.","You pimp","tiago@bumbing.cum"]
-
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
 def studentUpload():
 
@@ -289,10 +286,11 @@ def updateDetails():
       x = 0
       for i in row:
         if x >=3 and x <=11:
-          replace.append(req[x-2])
+          replace.append(req[x-3])
         else:
           replace.append(i)
         x+=1
+      
     index+=1
 
   df.loc[len(df)] = replace
