@@ -202,7 +202,7 @@ body {
     padding-left: 20px;
 }
 
-#job p {
+#job input {
     white-space: pre-line;
     float: left;
     padding: 1%;
