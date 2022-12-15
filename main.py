@@ -64,6 +64,10 @@ def render_error():
 def createjoblisting():
   return render_template('jobcreation.html')
 
+@app.route('/forgotPassword')
+def forgotPassword():
+  return render_template('forgotPassword.html')
+
 # Uploading data - - -
 
 @app.route("/student/upload", methods=['PUT']) # Student details uploader - - -
