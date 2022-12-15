@@ -175,7 +175,6 @@ def login():
 
   session['account'] = account
 
-  print(req)
   try:
     for row in data:
       username_check = row[1]
@@ -228,8 +227,8 @@ def displayJobview():
   filePath = "data/company/storage/"
   dataStore = []
 
-  for folders in os.listdir(filePath):
-    file_path = os.path.join(filePath, folders + "/job-listings.csv")
+  for folder in os.listdir(filePath):
+    file_path = os.path.join(filePath, folder + "/job-listings.csv")
     try:
       if os.path.isfile(file_path) or os.path.islink(file_path):
         df = pd.read_csv(file_path)
@@ -239,6 +238,37 @@ def displayJobview():
 
     except:
       None
+  
+  data = []
+
+  for list in dataStore:
+    childArray = []
+    for x in list:
+      childArray.append(x)
+    data.append(childArray)
+
+  return jsonify(data=data, status=200, error="none")
+
+@app.route("/display/company/jobview", methods = ['GET'])
+def displayCompanyJobview():
+
+  filePath = "data/company/storage/"
+  dataStore = []
+
+  id = session.get('ID')
+
+  for folder in os.listdir(filePath):
+    if folder == id:
+      file_path = os.path.join(filePath, folder + "/job-listings.csv")
+      try:
+        if os.path.isfile(file_path) or os.path.islink(file_path):
+          df = pd.read_csv(file_path)
+          csvData = df.to_numpy()
+          for list in csvData:
+            dataStore.append(list)
+
+      except:
+        None
   
   data = []
 
